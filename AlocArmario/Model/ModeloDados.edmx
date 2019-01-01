@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModeloDados.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloDadosStoreContainer">
+    <EntitySet Name="Locatario" EntityType="ModeloDados.Store.Locatario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Armario" EntityType="ModeloDados.Store.Armario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contrato" EntityType="ModeloDados.Store.Contrato" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bloco" EntityType="ModeloDados.Store.Bloco" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Secao" EntityType="ModeloDados.Store.Secao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="ModeloDados.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArmarioContrato" Association="ModeloDados.Store.ArmarioContrato">
+      <End Role="Armario" EntitySet="Armario" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="LocatarioContrato" Association="ModeloDados.Store.Aluga">
+      <End Role="Locatario" EntitySet="Locatario" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="Possui" Association="ModeloDados.Store.Possui">
+      <End Role="Bloco" EntitySet="Bloco" />
+      <End Role="Armario" EntitySet="Armario" />
+    </AssociationSet>
+    <AssociationSet Name="SecaoBloco" Association="ModeloDados.Store.SecaoBloco">
+      <End Role="Secao" EntitySet="Secao" />
+      <End Role="Bloco" EntitySet="Bloco" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Locatario">
+    <Key>
+      <PropertyRef Name="IdLocatario" />
+    </Key>
+    <Property Name="IdLocatario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Armario">
+    <Key>
+      <PropertyRef Name="IdArmario" />
+    </Key>
+    <Property Name="IdArmario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdBloco" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Validade" Type="datetime" Nullable="false" />
+    <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdArmario" Type="int" Nullable="false" />
+    <Property Name="IdLocatario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bloco">
+    <Key>
+      <PropertyRef Name="IdBloco" />
+    </Key>
+    <Property Name="IdBloco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdSecao" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Secao">
+    <Key>
+      <PropertyRef Name="IdSecao" />
+    </Key>
+    <Property Name="IdSecao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="ArmarioContrato">
+    <End Role="Armario" Type="ModeloDados.Store.Armario" Multiplicity="1" />
+    <End Role="Contrato" Type="ModeloDados.Store.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Armario">
+        <PropertyRef Name="IdArmario" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="IdArmario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Aluga">
+    <End Role="Locatario" Type="ModeloDados.Store.Locatario" Multiplicity="1" />
+    <End Role="Contrato" Type="ModeloDados.Store.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locatario">
+        <PropertyRef Name="IdLocatario" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="IdLocatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Possui">
+    <End Role="Bloco" Type="ModeloDados.Store.Bloco" Multiplicity="1" />
+    <End Role="Armario" Type="ModeloDados.Store.Armario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bloco">
+        <PropertyRef Name="IdBloco" />
+      </Principal>
+      <Dependent Role="Armario">
+        <PropertyRef Name="IdBloco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SecaoBloco">
+    <End Role="Secao" Type="ModeloDados.Store.Secao" Multiplicity="1" />
+    <End Role="Bloco" Type="ModeloDados.Store.Bloco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Secao">
+        <PropertyRef Name="IdSecao" />
+      </Principal>
+      <Dependent Role="Bloco">
+        <PropertyRef Name="IdSecao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloDados" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModeloDadosContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Locatario" EntityType="ModeloDados.Locatario" />
+          <EntitySet Name="Armario" EntityType="ModeloDados.Armario" />
+          <EntitySet Name="Contrato" EntityType="ModeloDados.Contrato" />
+          <AssociationSet Name="ArmarioContrato" Association="ModeloDados.ArmarioContrato">
+            <End Role="Armario" EntitySet="Armario" />
+            <End Role="Contrato" EntitySet="Contrato" />
+          </AssociationSet>
+          <AssociationSet Name="LocatarioContrato" Association="ModeloDados.Aluga">
+            <End Role="Locatario" EntitySet="Locatario" />
+            <End Role="Contrato" EntitySet="Contrato" />
+          </AssociationSet>
+          <EntitySet Name="Bloco" EntityType="ModeloDados.Bloco" />
+          <AssociationSet Name="Possui" Association="ModeloDados.Possui">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="Armario" EntitySet="Armario" />
+          </AssociationSet>
+          <EntitySet Name="Secao" EntityType="ModeloDados.Secao" />
+          <AssociationSet Name="SecaoBloco" Association="ModeloDados.SecaoBloco">
+            <End Role="Secao" EntitySet="Secao" />
+            <End Role="Bloco" EntitySet="Bloco" />
+          </AssociationSet>
+          <EntitySet Name="Usuario" EntityType="ModeloDados.Usuario" />
+        </EntityContainer>
+        <EntityType Name="Locatario">
+          <Key>
+            <PropertyRef Name="IdLocatario" />
+          </Key>
+          <Property Name="IdLocatario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Prontuario" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <Property Name="Telefone" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contrato" Relationship="ModeloDados.Aluga" FromRole="Locatario" ToRole="Contrato" />
+        </EntityType>
+        <EntityType Name="Armario">
+          <Key>
+            <PropertyRef Name="IdArmario" />
+          </Key>
+          <Property Name="IdArmario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
+          <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contrato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Validade" Type="DateTime" Nullable="false" />
+          <Property Name="Valor" Type="String" Nullable="false" />
+          <NavigationProperty Name="Armario" Relationship="ModeloDados.ArmarioContrato" FromRole="Contrato" ToRole="Armario" />
+          <Property Name="IdArmario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Locatario" Relationship="ModeloDados.Aluga" FromRole="Contrato" ToRole="Locatario" />
+          <Property Name="IdLocatario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ArmarioContrato">
+          <End Type="ModeloDados.Armario" Role="Armario" Multiplicity="1" />
+          <End Type="ModeloDados.Contrato" Role="Contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Armario">
+              <PropertyRef Name="IdArmario" />
+            </Principal>
+            <Dependent Role="Contrato">
+              <PropertyRef Name="IdArmario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Aluga">
+          <End Type="ModeloDados.Locatario" Role="Locatario" Multiplicity="1" />
+          <End Type="ModeloDados.Contrato" Role="Contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locatario">
+              <PropertyRef Name="IdLocatario" />
+            </Principal>
+            <Dependent Role="Contrato">
+              <PropertyRef Name="IdLocatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bloco">
+          <Key>
+            <PropertyRef Name="IdBloco" />
+          </Key>
+          <Property Name="IdBloco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Armario" Relationship="ModeloDados.Possui" FromRole="Bloco" ToRole="Armario" />
+          <NavigationProperty Name="Secao" Relationship="ModeloDados.SecaoBloco" FromRole="Bloco" ToRole="Secao" />
+          <Property Name="IdSecao" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="Possui">
+          <End Type="ModeloDados.Bloco" Role="Bloco" Multiplicity="1" />
+          <End Type="ModeloDados.Armario" Role="Armario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="IdBloco" />
+            </Principal>
+            <Dependent Role="Armario">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Secao">
+          <Key>
+            <PropertyRef Name="IdSecao" />
+          </Key>
+          <Property Name="IdSecao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Bloco" Relationship="ModeloDados.SecaoBloco" FromRole="Secao" ToRole="Bloco" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SecaoBloco">
+          <End Type="ModeloDados.Secao" Role="Secao" Multiplicity="1" />
+          <End Type="ModeloDados.Bloco" Role="Bloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secao">
+              <PropertyRef Name="IdSecao" />
+            </Principal>
+            <Dependent Role="Bloco">
+              <PropertyRef Name="IdSecao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Prontuario" Type="String" Nullable="false" />
+          <Property Name="Senha" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloDadosStoreContainer" CdmEntityContainer="ModeloDadosContainer">
+    <EntitySetMapping Name="Locatario">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Locatario)">
+        <MappingFragment StoreEntitySet="Locatario">
+          <ScalarProperty Name="IdLocatario" ColumnName="IdLocatario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Prontuario" ColumnName="Prontuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Armario">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Armario)">
+        <MappingFragment StoreEntitySet="Armario">
+          <ScalarProperty Name="IdArmario" ColumnName="IdArmario" />
+          <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contrato">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Contrato)">
+        <MappingFragment StoreEntitySet="Contrato">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Validade" ColumnName="Validade" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="IdArmario" ColumnName="IdArmario" />
+          <ScalarProperty Name="IdLocatario" ColumnName="IdLocatario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bloco">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Bloco)">
+        <MappingFragment StoreEntitySet="Bloco">
+          <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdSecao" ColumnName="IdSecao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Secao">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Secao)">
+        <MappingFragment StoreEntitySet="Secao">
+          <ScalarProperty Name="IdSecao" ColumnName="IdSecao" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Usuario)">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Prontuario" ColumnName="Prontuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
