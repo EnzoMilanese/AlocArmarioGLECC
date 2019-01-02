@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txbTel = new System.Windows.Forms.MaskedTextBox();
+            this.mktTel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -141,21 +141,21 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txbTel
+            // mktTel
             // 
-            this.txbTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTel.Location = new System.Drawing.Point(104, 175);
-            this.txbTel.Mask = "(00) 0000-00009";
-            this.txbTel.Name = "txbTel";
-            this.txbTel.Size = new System.Drawing.Size(278, 22);
-            this.txbTel.TabIndex = 11;
+            this.mktTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mktTel.Location = new System.Drawing.Point(104, 175);
+            this.mktTel.Mask = "(00) 0000-00009";
+            this.mktTel.Name = "mktTel";
+            this.mktTel.Size = new System.Drawing.Size(278, 22);
+            this.mktTel.TabIndex = 11;
             // 
             // CadastroLocatario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 290);
-            this.Controls.Add(this.txbTel);
+            this.Controls.Add(this.mktTel);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label5);
@@ -185,6 +185,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.MaskedTextBox txbTel;
+        private System.Windows.Forms.MaskedTextBox mktTel;
     }
 }

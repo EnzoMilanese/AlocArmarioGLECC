@@ -3,6 +3,7 @@ using AlocArmario.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace AlocArmario.View.LocatarioView
             InitializeComponent();
             lc = new LocatarioController();
             locatario = new Locatario();
+            var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Locatario));
+            TypeDescriptor.AddProvider(provedor, typeof(Locatario));
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
