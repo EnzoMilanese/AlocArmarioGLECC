@@ -29,7 +29,23 @@ namespace AlocArmario.View.LocatarioView
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            locatario.Nome = txbNome.Text;
+            locatario.Prontuario = txbPront.Text;
+            locatario.Email = txbEmail.Text;
+            locatario.Telefone = mktTel.Text;
 
+            string resultado = lc.Inserir(locatario);
+            if (resultado.Equals("ok"))
+            {
+                MessageBox.Show(("Locatário " + txbNome.Text + " cadastrado com sucesso."), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActiveForm.Close();
+            } else if (resultado.Equals("erro"))
+            {
+                MessageBox.Show("Não foi possível cadastrar o locatário.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else
+            {
+                MessageBox.Show("Erro de validação.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
