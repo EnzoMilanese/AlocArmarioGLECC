@@ -48,7 +48,7 @@
             this.label1.Location = new System.Drawing.Point(54, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(353, 37);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Alocação de Armários";
             // 
             // label2
@@ -58,7 +58,7 @@
             this.label2.Location = new System.Drawing.Point(78, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 5;
             this.label2.Text = "Prontuário:";
             // 
             // label3
@@ -68,7 +68,7 @@
             this.label3.Location = new System.Drawing.Point(100, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Senha:";
             // 
             // txbPront
@@ -77,7 +77,7 @@
             this.txbPront.Location = new System.Drawing.Point(158, 115);
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(217, 22);
-            this.txbPront.TabIndex = 3;
+            this.txbPront.TabIndex = 0;
             // 
             // txbSenha
             // 
@@ -87,14 +87,14 @@
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(217, 22);
-            this.txbSenha.TabIndex = 4;
+            this.txbSenha.TabIndex = 1;
             // 
             // btnEntrar
             // 
             this.btnEntrar.Location = new System.Drawing.Point(194, 288);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(75, 23);
-            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.button1_Click);
@@ -105,7 +105,7 @@
             this.rdbSimples.Location = new System.Drawing.Point(6, 21);
             this.rdbSimples.Name = "rdbSimples";
             this.rdbSimples.Size = new System.Drawing.Size(75, 20);
-            this.rdbSimples.TabIndex = 7;
+            this.rdbSimples.TabIndex = 0;
             this.rdbSimples.Text = "Simples";
             this.rdbSimples.UseVisualStyleBackColor = true;
             this.rdbSimples.CheckedChanged += new System.EventHandler(this.rdbSimples_CheckedChanged);
@@ -116,7 +116,7 @@
             this.rdbAvancado.Location = new System.Drawing.Point(6, 47);
             this.rdbAvancado.Name = "rdbAvancado";
             this.rdbAvancado.Size = new System.Drawing.Size(88, 20);
-            this.rdbAvancado.TabIndex = 8;
+            this.rdbAvancado.TabIndex = 1;
             this.rdbAvancado.Text = "Avançada";
             this.rdbAvancado.UseVisualStyleBackColor = true;
             this.rdbAvancado.CheckedChanged += new System.EventHandler(this.rdbAvancado_CheckedChanged);
@@ -131,7 +131,7 @@
             this.grbxInterface.Location = new System.Drawing.Point(64, 190);
             this.grbxInterface.Name = "grbxInterface";
             this.grbxInterface.Size = new System.Drawing.Size(343, 78);
-            this.grbxInterface.TabIndex = 9;
+            this.grbxInterface.TabIndex = 3;
             this.grbxInterface.TabStop = false;
             this.grbxInterface.Text = "Interface";
             // 
@@ -141,7 +141,7 @@
             this.lblDescInterf.Location = new System.Drawing.Point(108, 18);
             this.lblDescInterf.Name = "lblDescInterf";
             this.lblDescInterf.Size = new System.Drawing.Size(70, 16);
-            this.lblDescInterf.TabIndex = 9;
+            this.lblDescInterf.TabIndex = 2;
             this.lblDescInterf.Text = "Descrição";
             // 
             // Login

@@ -92,7 +92,7 @@
             this.txbNome.Margin = new System.Windows.Forms.Padding(0);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(278, 22);
-            this.txbNome.TabIndex = 4;
+            this.txbNome.TabIndex = 0;
             // 
             // txbEmail
             // 
@@ -101,7 +101,7 @@
             this.txbEmail.Margin = new System.Windows.Forms.Padding(0);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(278, 22);
-            this.txbEmail.TabIndex = 5;
+            this.txbEmail.TabIndex = 2;
             // 
             // txbPront
             // 
@@ -110,7 +110,7 @@
             this.txbPront.Margin = new System.Windows.Forms.Padding(0);
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(278, 22);
-            this.txbPront.TabIndex = 7;
+            this.txbPront.TabIndex = 1;
             // 
             // label5
             // 
@@ -127,7 +127,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(127, 231);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 9;
+            this.btnCadastrar.TabIndex = 4;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -137,7 +137,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(221, 231);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -148,7 +148,7 @@
             this.mktTel.Mask = "(00) 0000-00009";
             this.mktTel.Name = "mktTel";
             this.mktTel.Size = new System.Drawing.Size(278, 22);
-            this.mktTel.TabIndex = 11;
+            this.mktTel.TabIndex = 3;
             // 
             // CadastroLocatario
             // 
@@ -167,7 +167,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CadastroLocatario";
-            this.Text = "Alocação de Armários";
+            this.Text = "Cadastro de Locatário";
             this.ResumeLayout(false);
             this.PerformLayout();
 
