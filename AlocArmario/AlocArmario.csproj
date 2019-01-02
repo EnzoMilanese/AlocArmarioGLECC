@@ -66,7 +66,7 @@
     <Compile Include="Model\Locatario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LocatarioMetadado.cs" />
+    <Compile Include="Model\Metadados\LocatarioMetadado.cs" />
     <Compile Include="Model\ModeloDados.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +88,7 @@
     <Compile Include="Model\Usuario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Validacao.cs" />
     <Compile Include="View\ArmarioView\ConsultaArmarioAvanc.cs">
       <SubType>Form</SubType>
     </Compile>
