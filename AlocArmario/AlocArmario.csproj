@@ -66,6 +66,7 @@
     <Compile Include="Model\Locatario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\LocatarioMetadado.cs" />
     <Compile Include="Model\ModeloDados.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
