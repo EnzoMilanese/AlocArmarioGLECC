@@ -44,7 +44,7 @@ namespace AlocArmario.View.LocatarioView
                 MessageBox.Show("Não foi possível cadastrar o locatário.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } else
             {
-                MessageBox.Show("Erro de validação.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(("Erro de validação: \n" + resultado), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
