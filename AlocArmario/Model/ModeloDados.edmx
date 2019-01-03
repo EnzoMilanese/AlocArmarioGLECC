@@ -79,7 +79,6 @@
     <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <Association Name="ArmarioContrato">
     <End Role="Armario" Type="ModeloDados.Store.Armario" Multiplicity="1" />
@@ -263,7 +262,6 @@
           <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Prontuario" Type="String" Nullable="false" />
           <Property Name="Senha" Type="String" Nullable="false" />
-          <Property Name="Email" Type="String" Nullable="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -325,7 +323,6 @@
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="Prontuario" ColumnName="Prontuario" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

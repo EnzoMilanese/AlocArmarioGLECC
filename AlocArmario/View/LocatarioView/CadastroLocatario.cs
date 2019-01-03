@@ -39,10 +39,12 @@ namespace AlocArmario.View.LocatarioView
             {
                 MessageBox.Show(("Locatário " + txbNome.Text + " cadastrado com sucesso."), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActiveForm.Close();
-            } else if (resultado.Equals("erro"))
+            }
+            else if (resultado.Equals("erro"))
             {
                 MessageBox.Show("Não foi possível cadastrar o locatário.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else
+            }
+            else
             {
                 MessageBox.Show(("Erro de validação: \n" + resultado), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

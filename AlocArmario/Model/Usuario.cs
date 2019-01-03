@@ -17,6 +17,5 @@ namespace AlocArmario.Model
         public int IdUsuario { get; set; }
         public string Prontuario { get; set; }
         public string Senha { get; set; }
-        public string Email { get; set; }
     }
 }

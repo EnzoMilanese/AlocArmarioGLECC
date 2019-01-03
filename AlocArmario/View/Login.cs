@@ -1,5 +1,6 @@
 ﻿using AlocArmario.View;
-using AlocArmarioPrototipo;
+using AlocArmario.Model;
+using AlocArmario.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AlocArmario.View.ArmarioView;
 
 namespace AlocArmario
 {
     public partial class Login : Form
     {
         public bool interfaceSimples { get; set; }
+        private Usuario usuario;
+        private LoginController lc;
 
         public Login()
         {
@@ -24,26 +28,27 @@ namespace AlocArmario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ACESSAR BANCO DE USUÁRIOS PARA AUTENTICAÇÃO
             if (txbPront.Text == "" || txbSenha.Text == "")
                 MessageBox.Show("Preencha os campos de autenticação", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (txbPront.Text == "admin" && txbSenha.Text == "admin")
+
+            usuario.Prontuario = txbPront.Text;
+            usuario.Senha = txbSenha.Text;
+
+            string resultado = lc.validarLogin(usuario);
+
+            if (resultado.Equals("ok"))
             {
-                if (interfaceSimples)
-                {
-                    ConsultaArmarioSimp index = new ConsultaArmarioSimp();
-                    index.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    ConsultaArmarioAvanc index = new ConsultaArmarioAvanc();
-                    index.ShowDialog();
-                    this.Close();
-                }
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else if (resultado.Equals("erro"))
+            {
+                MessageBox.Show("Erro \n\n Não foi possível realizar o login", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("O prontuário e/ou senha estão errados.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            {
+                MessageBox.Show(("Erro de validação \n" + resultado), "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void rdbSimples_CheckedChanged(object sender, EventArgs e)
