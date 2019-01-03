@@ -28,9 +28,6 @@ namespace AlocArmario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txbPront.Text == "" || txbSenha.Text == "")
-                MessageBox.Show("Preencha os campos de autenticação", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             usuario.Prontuario = txbPront.Text;
             usuario.Senha = txbSenha.Text;
 
@@ -43,7 +40,7 @@ namespace AlocArmario
             }
             else if (resultado.Equals("erro"))
             {
-                MessageBox.Show("Erro \n\n Não foi possível realizar o login", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro \n\n Prontuário e/ou senha incorretos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
