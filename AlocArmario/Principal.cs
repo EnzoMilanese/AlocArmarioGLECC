@@ -1,4 +1,5 @@
 ﻿using AlocArmario.View;
+using AlocArmario.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,28 @@ namespace AlocArmario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            LoginController lc = new LoginController();
+            int estadoLogin = lc.abrirLogin();
+            switch (estadoLogin)
+            {
+                case 1:
+                    ConsultaArmarioSimp indexSimp = new ConsultaArmarioSimp();
+                    Application.Run(indexSimp);
+                    break;
+
+                case 2:
+                    ConsultaArmarioAvanc indexAvanc = new ConsultaArmarioAvanc();
+                    Application.Run(indexAvanc);
+                    break;
+
+                case 0:
+                    Application.Exit();
+                    break;
+
+                default:
+                    Application.Exit();
+                    break;
+            }
         }
     }
 }

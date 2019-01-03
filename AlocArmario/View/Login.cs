@@ -14,7 +14,7 @@ namespace AlocArmario
 {
     public partial class Login : Form
     {
-        private bool interfaceSimples { get; set; }
+        public bool interfaceSimples { get; set; }
 
         public Login()
         {
