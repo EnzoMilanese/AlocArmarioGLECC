@@ -40,6 +40,29 @@ namespace AlocArmario.Controller
             }
         }
 
-        public 
+        public string validarLogin (Usuario usuario)
+        {
+            var erros = Validacao.ValidaDados(usuario);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    if (db.Usuario.Contains(usuario))
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+        }
     }
 }
