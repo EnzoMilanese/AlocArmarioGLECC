@@ -24,14 +24,19 @@ namespace AlocArmario
         {
             InitializeComponent();
             rdbSimples.Checked = true;
+            lc = new LoginController();
+            usuario = new Usuario();            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
+            this.Close();
+            /*
             usuario.Prontuario = txbPront.Text;
             usuario.Senha = txbSenha.Text;
 
-            string resultado = lc.validarLogin(usuario);
+            string resultado = lc.ValidarLogin(usuario);
 
             if (resultado.Equals("ok"))
             {
@@ -40,12 +45,17 @@ namespace AlocArmario
             }
             else if (resultado.Equals("erro"))
             {
-                MessageBox.Show("Erro \n\n Prontuário e/ou senha incorretos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro \n\nProntuário e/ou senha incorretos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (resultado.Equals(""))
+            {
+                MessageBox.Show(("Erro desconhecido \n" + resultado), "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show(("Erro de validação \n" + resultado), "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(("Erro de validação" + resultado), "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            */            
         }
 
         private void rdbSimples_CheckedChanged(object sender, EventArgs e)

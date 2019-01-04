@@ -11,5 +11,10 @@ namespace AlocArmario.Controller
     {
         private ModeloDadosContainer db = new ModeloDadosContainer();
         
+        public List<Usuario> consultar()
+        {
+            var lista = db.Usuario.ToList();
+            return lista;
+        }
     }
 }

@@ -41,7 +41,6 @@ namespace AlocArmarioPrototipo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblPlaceholder.Visible = false;
 
             lblStatus.Text = "Alugado";
             lblStatus.ForeColor = Color.FromArgb(192, 0, 0);
@@ -61,7 +60,6 @@ namespace AlocArmarioPrototipo
 
         private void button6_Click(object sender, EventArgs e)
         {
-            lblPlaceholder.Visible = false;
 
             lblStatus.Text = "Vago";
             lblStatus.ForeColor = Color.FromArgb(0, 192, 0);

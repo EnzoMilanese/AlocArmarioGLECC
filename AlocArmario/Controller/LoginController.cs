@@ -40,17 +40,24 @@ namespace AlocArmario.Controller
             }
         }
 
-        public string validarLogin (Usuario usuario)
+        public string ValidarLogin (Usuario usuario)
         {
             var erros = Validacao.ValidaDados(usuario);
+            Usuario dbUsuario;
             string resultado = "";
 
             if (erros.Count() == 0)
             {
                 try
                 {
-                    if (db.Usuario.Contains(usuario))
-                    resultado = "ok";
+                    dbUsuario = db.Usuario.Find(usuario.Prontuario);
+                    string senha = usuario.Senha;
+                    string dbSenha = dbUsuario.Senha;
+                    if (senha == dbSenha)
+                        resultado = "ok";
+                    else
+                        resultado = "erro";
+
                 }
                 catch (Exception)
                 {
