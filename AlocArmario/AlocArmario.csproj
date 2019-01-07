@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Controller\LocatarioController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\SecaoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Model\Armario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
