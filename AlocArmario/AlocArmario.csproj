@@ -107,12 +107,6 @@
     <Compile Include="View\ArmarioView\ConsultaArmarioSimp.Designer.cs">
       <DependentUpon>ConsultaArmarioSimp.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ArmarioView\ConsultaArmarioSimpPT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ArmarioView\ConsultaArmarioSimpPT.designer.cs">
-      <DependentUpon>ConsultaArmarioSimpPT.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\LocatarioView\ConsultaLocatario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArmarioView\ConsultaArmarioSimp.resx">
       <DependentUpon>ConsultaArmarioSimp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ArmarioView\ConsultaArmarioSimpPT.resx">
-      <DependentUpon>ConsultaArmarioSimpPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
