@@ -24,13 +24,7 @@ namespace AlocArmario.View
         {
             InitializeComponent();
         }
-
-        private void btnCadastrarLoc_Click(object sender, EventArgs e)
-        {
-            CadastroLocatario cadastroLocatario = new CadastroLocatario();
-            cadastroLocatario.ShowDialog(this);
-        }
-
+        
         private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
         {
             this.ConsultarContratos();
@@ -45,7 +39,7 @@ namespace AlocArmario.View
             dgvContratos.Rows.Clear();
 
             cc = new ContratoController();
-            var contratos = new cc.Consultar();
+            var contratos = cc.Consultar();
 
             int linha = 0;
             foreach (var c in contratos)
@@ -65,7 +59,7 @@ namespace AlocArmario.View
             dgvLocatarios.Rows.Clear();
 
             lc = new LocatarioController();
-            var locatarios = new lc.Consultar();
+            var locatarios = lc.Consultar();
 
             int linha = 0;
             foreach (var l in locatarios)
@@ -85,7 +79,7 @@ namespace AlocArmario.View
             dgvArmarios.Rows.Clear();
 
             ac = new ArmarioController();
-            var armarios = new ac.Consultar();
+            var armarios = ac.Consultar();
 
             int linha = 0;
             foreach (var a in armarios)
@@ -103,7 +97,7 @@ namespace AlocArmario.View
             dgvBlocos.Rows.Clear();
 
             bc = new BlocoController();
-            var blocos = new bc.Consultar();
+            var blocos = bc.Consultar();
 
             int linha = 0;
             foreach (var b in blocos)
@@ -121,7 +115,7 @@ namespace AlocArmario.View
             dgvSecoes.Rows.Clear();
 
             sc = new SecaoController();
-            var secoes = new sc.Consultar();
+            var secoes = sc.Consultar();
 
             int linha = 0;
             foreach (var s in secoes)

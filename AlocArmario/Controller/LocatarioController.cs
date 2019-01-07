@@ -36,5 +36,11 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        public List<Locatario> Consultar()
+        {
+            var lista = db.Locatario.ToList();
+            return lista;
+        }
     }
 }
