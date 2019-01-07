@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ArmarioController.cs" />
     <Compile Include="Controller\LocatarioController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\SecaoController.cs" />
