@@ -172,10 +172,10 @@
           <Key>
             <PropertyRef Name="IdArmario" />
           </Key>
-          <Property Name="IdArmario" Type="Int32" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArmario" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
-          <Property Name="IdBloco" Type="String" Nullable="false" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
           <Property Name="Numero" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
