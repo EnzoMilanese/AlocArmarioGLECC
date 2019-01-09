@@ -45,7 +45,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 79);
+            this.label1.Location = new System.Drawing.Point(55, 88);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 110);
+            this.label2.Location = new System.Drawing.Point(31, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
@@ -67,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 143);
+            this.label3.Location = new System.Drawing.Point(58, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
@@ -78,7 +78,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 175);
+            this.label4.Location = new System.Drawing.Point(38, 184);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 16);
@@ -88,7 +88,7 @@
             // txbNome
             // 
             this.txbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNome.Location = new System.Drawing.Point(104, 79);
+            this.txbNome.Location = new System.Drawing.Point(112, 88);
             this.txbNome.Margin = new System.Windows.Forms.Padding(0);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(278, 22);
@@ -97,7 +97,7 @@
             // txbEmail
             // 
             this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(104, 143);
+            this.txbEmail.Location = new System.Drawing.Point(112, 152);
             this.txbEmail.Margin = new System.Windows.Forms.Padding(0);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(278, 22);
@@ -106,7 +106,7 @@
             // txbPront
             // 
             this.txbPront.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPront.Location = new System.Drawing.Point(104, 110);
+            this.txbPront.Location = new System.Drawing.Point(112, 119);
             this.txbPront.Margin = new System.Windows.Forms.Padding(0);
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(278, 22);
@@ -116,7 +116,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(107, 29);
+            this.label5.Location = new System.Drawing.Point(122, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(189, 24);
             this.label5.TabIndex = 8;
@@ -124,7 +124,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(127, 231);
+            this.btnCadastrar.Location = new System.Drawing.Point(142, 232);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 4;
@@ -134,7 +134,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(221, 231);
+            this.btnCancelar.Location = new System.Drawing.Point(223, 232);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -144,7 +144,7 @@
             // mktTel
             // 
             this.mktTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mktTel.Location = new System.Drawing.Point(104, 175);
+            this.mktTel.Location = new System.Drawing.Point(112, 184);
             this.mktTel.Mask = "(00) 0000-00009";
             this.mktTel.Name = "mktTel";
             this.mktTel.Size = new System.Drawing.Size(278, 22);
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 290);
+            this.ClientSize = new System.Drawing.Size(434, 293);
             this.Controls.Add(this.mktTel);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
