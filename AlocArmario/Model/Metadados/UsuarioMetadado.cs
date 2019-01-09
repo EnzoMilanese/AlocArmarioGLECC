@@ -12,10 +12,10 @@ namespace AlocArmario.Model.Metadados
 
     class UsuarioMetadado
     {
-        [Required(ErrorMessage = "Campo 'prontuário' vazio.")]
+        [Required(ErrorMessage = "Campo \"prontuário\" vazio.")]
         public string Prontuario { get; set; }
 
-        [Required(ErrorMessage = "Campo 'senha' vazio.")]
+        [Required(ErrorMessage = "Campo \"senha\" vazio.")]
         public string Senha { get; set; }
     }
 }
