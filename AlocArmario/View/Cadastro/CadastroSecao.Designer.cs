@@ -31,13 +31,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txbNome = new System.Windows.Forms.TextBox();
+            this.txbDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(223, 203);
+            this.btnCancelar.Location = new System.Drawing.Point(221, 209);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
@@ -46,7 +46,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(142, 203);
+            this.btnCadastrar.Location = new System.Drawing.Point(140, 209);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 17;
@@ -57,22 +57,22 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(122, 34);
+            this.label5.Location = new System.Drawing.Point(133, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(163, 24);
             this.label5.TabIndex = 19;
             this.label5.Text = "Cadastrar Seção";
             // 
-            // txbNome
+            // txbDescricao
             // 
-            this.txbNome.AcceptsReturn = true;
-            this.txbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNome.Location = new System.Drawing.Point(115, 86);
-            this.txbNome.Margin = new System.Windows.Forms.Padding(0);
-            this.txbNome.Multiline = true;
-            this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(260, 85);
-            this.txbNome.TabIndex = 9;
+            this.txbDescricao.AcceptsReturn = true;
+            this.txbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDescricao.Location = new System.Drawing.Point(115, 86);
+            this.txbDescricao.Margin = new System.Windows.Forms.Padding(0);
+            this.txbDescricao.Multiline = true;
+            this.txbDescricao.Name = "txbDescricao";
+            this.txbDescricao.Size = new System.Drawing.Size(260, 85);
+            this.txbDescricao.TabIndex = 9;
             // 
             // label1
             // 
@@ -89,11 +89,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 257);
+            this.ClientSize = new System.Drawing.Size(434, 263);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txbNome);
+            this.Controls.Add(this.txbDescricao);
             this.Controls.Add(this.label1);
             this.Name = "CadastroSecao";
             this.Text = "Cadastro de Seção";
@@ -106,7 +106,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txbNome;
+        private System.Windows.Forms.TextBox txbDescricao;
         private System.Windows.Forms.Label label1;
     }
 }

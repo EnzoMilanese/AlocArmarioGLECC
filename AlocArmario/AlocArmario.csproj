@@ -95,6 +95,12 @@
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Validacao.cs" />
+    <Compile Include="View\Cadastro\CadastroBloco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\CadastroBloco.Designer.cs">
+      <DependentUpon>CadastroBloco.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cadastro\CadastroSecao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Cadastro\CadastroBloco.resx">
+      <DependentUpon>CadastroBloco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroSecao.resx">
       <DependentUpon>CadastroSecao.cs</DependentUpon>
     </EmbeddedResource>
