@@ -121,7 +121,7 @@
             this.Controls.Add(this.cbxSecao);
             this.Controls.Add(this.label5);
             this.Name = "CadastroBloco";
-            this.Text = "CadastroBloco";
+            this.Text = "Novo Bloco";
             this.ResumeLayout(false);
             this.PerformLayout();
 

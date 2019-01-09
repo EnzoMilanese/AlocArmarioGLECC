@@ -96,7 +96,7 @@
             this.Controls.Add(this.txbDescricao);
             this.Controls.Add(this.label1);
             this.Name = "CadastroSecao";
-            this.Text = "Cadastro de Seção";
+            this.Text = "Nova Seção";
             this.ResumeLayout(false);
             this.PerformLayout();
 
