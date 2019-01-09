@@ -71,6 +71,7 @@
     <Compile Include="Model\Locatario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Metadados\BlocoMetadado.cs" />
     <Compile Include="Model\Metadados\LocatarioMetadado.cs" />
     <Compile Include="Model\Metadados\SecaoMetadado.cs" />
     <Compile Include="Model\Metadados\UsuarioMetadado.cs" />
