@@ -49,9 +49,9 @@
   </EntityType>
   <EntityType Name="Contrato">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdContrato" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdContrato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Validade" Type="datetime" Nullable="false" />
     <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdArmario" Type="int" Nullable="false" />
@@ -71,6 +71,7 @@
     </Key>
     <Property Name="IdSecao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -171,17 +172,17 @@
           <Key>
             <PropertyRef Name="IdArmario" />
           </Key>
-          <Property Name="IdArmario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArmario" Type="Int32" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
-          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <Property Name="IdBloco" Type="String" Nullable="false" />
           <Property Name="Numero" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdContrato" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdContrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Validade" Type="DateTime" Nullable="false" />
           <Property Name="Valor" Type="String" Nullable="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.ArmarioContrato" FromRole="Contrato" ToRole="Armario" />
@@ -242,6 +243,7 @@
           <Property Name="IdSecao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.SecaoBloco" FromRole="Secao" ToRole="Bloco" />
           <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="SecaoBloco">
           <End Type="ModeloDados.Secao" Role="Secao" Multiplicity="1" />
@@ -292,7 +294,7 @@
     <EntitySetMapping Name="Contrato">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Contrato)">
         <MappingFragment StoreEntitySet="Contrato">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
           <ScalarProperty Name="Validade" ColumnName="Validade" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="IdArmario" ColumnName="IdArmario" />
@@ -314,6 +316,7 @@
         <MappingFragment StoreEntitySet="Secao">
           <ScalarProperty Name="IdSecao" ColumnName="IdSecao" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

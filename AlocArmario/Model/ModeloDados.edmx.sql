@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/03/2019 20:23:33
+-- Date Created: 01/07/2019 10:51:01
 -- Generated from EDMX file: C:\Users\HOME\source\repos\AlocArmario\AlocArmario\Model\ModeloDados.edmx
 -- --------------------------------------------------
 
@@ -77,7 +77,7 @@ GO
 
 -- Creating table 'Contrato'
 CREATE TABLE [dbo].[Contrato] (
-    [Id] int IDENTITY(1,1) NOT NULL,
+    [IdContrato] int IDENTITY(1,1) NOT NULL,
     [Validade] datetime  NOT NULL,
     [Valor] nvarchar(max)  NOT NULL,
     [IdArmario] int  NOT NULL,
@@ -96,7 +96,8 @@ GO
 -- Creating table 'Secao'
 CREATE TABLE [dbo].[Secao] (
     [IdSecao] int IDENTITY(1,1) NOT NULL,
-    [Nome] nvarchar(max)  NOT NULL
+    [Nome] nvarchar(max)  NOT NULL,
+    [Descricao] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -124,10 +125,10 @@ ADD CONSTRAINT [PK_Armario]
     PRIMARY KEY CLUSTERED ([IdArmario] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Contrato'
+-- Creating primary key on [IdContrato] in table 'Contrato'
 ALTER TABLE [dbo].[Contrato]
 ADD CONSTRAINT [PK_Contrato]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+    PRIMARY KEY CLUSTERED ([IdContrato] ASC);
 GO
 
 -- Creating primary key on [IdBloco] in table 'Bloco'

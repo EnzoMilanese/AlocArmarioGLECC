@@ -45,7 +45,7 @@ namespace AlocArmario.View
             foreach (var c in contratos)
             {
                 dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = c.Id;
+                dgvContratos.Rows[linha].Cells["ID"].Value = c.IdContrato;
                 dgvContratos.Rows[linha].Cells["Validade"].Value = c.Validade;
                 dgvContratos.Rows[linha].Cells["Valor"].Value = c.Valor;
                 dgvContratos.Rows[linha].Cells["Armário"].Value = c.IdArmario;
@@ -64,12 +64,12 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var l in locatarios)
             {
-                dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = l.IdLocatario;
-                dgvContratos.Rows[linha].Cells["Nome"].Value = l.Nome;
-                dgvContratos.Rows[linha].Cells["Prontuário"].Value = l.Prontuario;
-                dgvContratos.Rows[linha].Cells["Email"].Value = l.Email;
-                dgvContratos.Rows[linha].Cells["Telefone"].Value = l.Telefone;
+                dgvLocatarios.Rows.Add();
+                dgvLocatarios.Rows[linha].Cells["ID"].Value = l.IdLocatario;
+                dgvLocatarios.Rows[linha].Cells["Nome"].Value = l.Nome;
+                dgvLocatarios.Rows[linha].Cells["Prontuário"].Value = l.Prontuario;
+                dgvLocatarios.Rows[linha].Cells["Email"].Value = l.Email;
+                dgvLocatarios.Rows[linha].Cells["Telefone"].Value = l.Telefone;
                 linha++;
             }
         }
@@ -84,10 +84,10 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var a in armarios)
             {
-                dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = a.IdArmario;
-                dgvContratos.Rows[linha].Cells["Bloco"].Value = a.IdBloco;
-                dgvContratos.Rows[linha].Cells["Número"].Value = a.Numero;
+                dgvArmarios.Rows.Add();
+                dgvArmarios.Rows[linha].Cells["ID"].Value = a.IdArmario;
+                dgvArmarios.Rows[linha].Cells["Bloco"].Value = a.IdBloco;
+                dgvArmarios.Rows[linha].Cells["Número"].Value = a.Numero;
                 linha++;
             }
         }
@@ -102,10 +102,10 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var b in blocos)
             {
-                dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = b.IdBloco;
-                dgvContratos.Rows[linha].Cells["Nome"].Value = b.Nome;
-                dgvContratos.Rows[linha].Cells["Seção"].Value = b.IdSecao;
+                dgvBlocos.Rows.Add();
+                dgvBlocos.Rows[linha].Cells["ID"].Value = b.IdBloco;
+                dgvBlocos.Rows[linha].Cells["Nome"].Value = b.Nome;
+                dgvBlocos.Rows[linha].Cells["Seção"].Value = b.IdSecao;
                 linha++;
             }
         }
@@ -120,11 +120,22 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var s in secoes)
             {
-                dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = s.IdSecao;
-                dgvContratos.Rows[linha].Cells["Nome"].Value = s.Nome;
+                dgvSecoes.Rows.Add();
+                dgvSecoes.Rows[linha].Cells[0].Value = s.IdSecao;
+                dgvSecoes.Rows[linha].Cells[1].Value = s.Nome;
+                dgvSecoes.Rows[linha].Cells[2].Value = s.Descricao;
                 linha++;
             }
+        }
+
+        private void dgvContratos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ConsultaArmarioAvanc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
