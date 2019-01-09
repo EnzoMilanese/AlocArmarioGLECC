@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AlocArmario.View.ArmarioView;
+using System.ComponentModel.DataAnnotations;
 
 namespace AlocArmario
 {
@@ -25,7 +26,10 @@ namespace AlocArmario
             InitializeComponent();
             rdbSimples.Checked = true;
             lc = new LoginController();
-            usuario = new Usuario();            
+            usuario = new Usuario();
+
+            var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Usuario));
+            TypeDescriptor.AddProvider(provedor, typeof(Usuario));
         }
 
         private void button1_Click(object sender, EventArgs e)
