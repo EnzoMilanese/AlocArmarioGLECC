@@ -43,21 +43,25 @@ namespace AlocArmario.Controller
         public string ValidarLogin (Usuario usuario)
         {
             var erros = Validacao.ValidaDados(usuario);
-            Usuario dbUsuario;
             string resultado = "";
+
 
             if (erros.Count() == 0)
             {
                 try
                 {
-                    dbUsuario = db.Usuario.Find(usuario.Prontuario);
-                    string senha = usuario.Senha;
-                    string dbSenha = dbUsuario.Senha;
-                    if (senha == dbSenha)
-                        resultado = "ok";
-                    else
-                        resultado = "erro";
+                    var usuarioList = db.Usuario.SqlQuery("SELECT * FROM Usuario WHERE Prontuario = '"+ usuario.Prontuario + "' AND Senha = '" + usuario.Senha +"';").ToList();
 
+                    if (usuarioList.Count() == 1)
+                    {
+                        resultado = "ok";
+                        usuarioList.Clear();
+                    }
+                    else
+                    {
+                        resultado = "erro";
+                        usuarioList.Clear();
+                    }
                 }
                 catch (Exception)
                 {

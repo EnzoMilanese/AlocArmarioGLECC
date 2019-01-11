@@ -34,9 +34,7 @@ namespace AlocArmario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            this.Close();
-            /*
+            
             usuario.Prontuario = txbPront.Text;
             usuario.Senha = txbSenha.Text;
 
@@ -59,7 +57,7 @@ namespace AlocArmario
             {
                 MessageBox.Show(("Erro de validação" + resultado), "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            */            
+                   
         }
 
         private void rdbSimples_CheckedChanged(object sender, EventArgs e)
