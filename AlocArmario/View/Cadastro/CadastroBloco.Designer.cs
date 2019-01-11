@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroBloco));
             this.label5 = new System.Windows.Forms.Label();
             this.cbxSecao = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -121,6 +122,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxSecao);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroBloco";
             this.Text = "Novo Bloco";
             this.ResumeLayout(false);

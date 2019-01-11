@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroContrato));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -166,6 +167,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroContrato";
             this.Text = "Novo Contrato";
             this.ResumeLayout(false);
