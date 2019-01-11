@@ -16,5 +16,31 @@ namespace AlocArmario.Controller
             var lista = db.Secao.ToList();
             return lista;
         }
+
+        public string Inserir(Secao secao)
+        {
+            var erros = Validacao.ValidaDados(secao);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    db.Secao.Add(secao);
+                    db.SaveChanges();
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+        }
     }
 }

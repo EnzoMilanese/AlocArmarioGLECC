@@ -1,4 +1,5 @@
 ﻿using AlocArmario.Controller;
+using AlocArmario.View.Cadastro;
 using AlocArmario.View.LocatarioView;
 using System;
 using System.Collections.Generic;
@@ -136,6 +137,12 @@ namespace AlocArmario.View
         private void ConsultaArmarioAvanc_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCadastSecao_Click(object sender, EventArgs e)
+        {
+            CadastroSecao cs = new CadastroSecao();
+            cs.ShowDialog();
         }
     }
 }

@@ -367,6 +367,7 @@
             this.btnCadastSecao.TabIndex = 5;
             this.btnCadastSecao.Text = "Nova Seção";
             this.btnCadastSecao.UseVisualStyleBackColor = true;
+            this.btnCadastSecao.Click += new System.EventHandler(this.btnCadastSecao_Click);
             // 
             // dgvSecoes
             // 
@@ -439,6 +440,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultaArmarioAvanc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alocação de Armários";
             this.Activated += new System.EventHandler(this.ConsultaArmarioAvanc_Activated);
             this.Load += new System.EventHandler(this.ConsultaArmarioAvanc_Load);

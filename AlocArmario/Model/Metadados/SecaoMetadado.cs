@@ -12,6 +12,9 @@ namespace AlocArmario.Model.Metadados
 
     class SecaoMetadado
     {
+        [Required(ErrorMessage = "Campo \"Nome\" vazio.")]
+        public string Nome { get; set; }
+
         [Required(ErrorMessage = "Campo \"Descrição\" vazio.")]
         public string Descricao { get; set; }
     }

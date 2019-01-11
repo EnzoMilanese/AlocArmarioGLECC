@@ -21,8 +21,10 @@ namespace AlocArmario.View.LocatarioView
         public CadastroLocatario()
         {
             InitializeComponent();
+
             lc = new LocatarioController();
             locatario = new Locatario();
+
             var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Locatario));
             TypeDescriptor.AddProvider(provedor, typeof(Locatario));
         }
@@ -37,16 +39,16 @@ namespace AlocArmario.View.LocatarioView
             string resultado = lc.Inserir(locatario);
             if (resultado.Equals("ok"))
             {
-                MessageBox.Show(("Locatário " + txbNome.Text + " cadastrado com sucesso."), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(("Locatário " + txbNome.Text + " cadastrado com sucesso."), "Novo Locatário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActiveForm.Close();
             }
             else if (resultado.Equals("erro"))
             {
-                MessageBox.Show("Não foi possível cadastrar o locatário.", "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Não foi possível cadastrar o locatário.", "Novo Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show(("Erro de validação: \n" + resultado), "Cadastro de Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(("Erro de validação: \n" + resultado), "Novo Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
