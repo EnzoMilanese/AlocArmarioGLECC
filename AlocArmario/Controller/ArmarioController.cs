@@ -16,5 +16,10 @@ namespace AlocArmario.Controller
             var lista = db.Armario.ToList();
             return lista;
         }
+
+        internal void Inserir(Armario armario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

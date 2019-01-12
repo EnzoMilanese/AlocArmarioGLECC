@@ -18,10 +18,18 @@ namespace AlocArmario.Model
         {
             this.Contrato = new HashSet<Contrato>();
         }
-    
+
+        public Armario(string num, Bloco bloco)
+        {
+            this.Contrato = new HashSet<Contrato>();
+            this.Numero = num;
+            this.Bloco = bloco;
+            this.IdBloco = bloco.IdBloco;
+        }
+
         public int IdArmario { get; set; }
         public int IdBloco { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
     
         public virtual ICollection<Contrato> Contrato { get; set; }
         public virtual Bloco Bloco { get; set; }

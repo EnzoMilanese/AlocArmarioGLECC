@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/09/2019 16:34:16
+-- Date Created: 01/11/2019 23:23:11
 -- Generated from EDMX file: C:\Users\HOME\source\repos\AlocArmario\AlocArmario\Model\ModeloDados.edmx
 -- --------------------------------------------------
 
@@ -71,7 +71,7 @@ GO
 CREATE TABLE [dbo].[Armario] (
     [IdArmario] int IDENTITY(1,1) NOT NULL,
     [IdBloco] int  NOT NULL,
-    [Numero] int  NOT NULL
+    [Numero] nvarchar(max)  NOT NULL
 );
 GO
 

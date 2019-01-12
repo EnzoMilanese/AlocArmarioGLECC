@@ -45,7 +45,7 @@
     </Key>
     <Property Name="IdArmario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdBloco" Type="int" Nullable="false" />
-    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Contrato">
     <Key>
@@ -176,7 +176,7 @@
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
           <Property Name="IdBloco" Type="Int32" Nullable="false" />
-          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
           <Key>

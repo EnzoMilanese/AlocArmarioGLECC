@@ -26,6 +26,7 @@ namespace AlocArmario.Controller
             {
                 try
                 {
+                    secao.IdSecao = db.Secao.Count() + 1;
                     db.Secao.Add(secao);
                     db.SaveChanges();
                     resultado = "ok";
