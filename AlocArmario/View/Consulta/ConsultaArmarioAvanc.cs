@@ -89,7 +89,8 @@ namespace AlocArmario.View
                 dgvArmarios.Rows.Add();
                 dgvArmarios.Rows[linha].Cells[0].Value = a.IdArmario;
                 dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
-                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Nome;
+                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
+                dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
                 linha++;
             }
         }
@@ -106,8 +107,8 @@ namespace AlocArmario.View
             {
                 dgvBlocos.Rows.Add();
                 dgvBlocos.Rows[linha].Cells[0].Value = b.IdBloco;
-                dgvBlocos.Rows[linha].Cells[1].Value = b.Nome;
-                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.IdSecao;
+                dgvBlocos.Rows[linha].Cells[1].Value = b.Numero;
+                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.Nome;
                 linha++;
             }
         }

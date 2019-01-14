@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/13/2019 23:04:09
+-- Date Created: 01/14/2019 00:35:30
 -- Generated from EDMX file: C:\Users\HOME\source\repos\AlocArmario\AlocArmario\Model\ModeloDados.edmx
 -- --------------------------------------------------
 
@@ -88,7 +88,7 @@ GO
 -- Creating table 'Bloco'
 CREATE TABLE [dbo].[Bloco] (
     [IdBloco] int IDENTITY(1,1) NOT NULL,
-    [Nome] nvarchar(max)  NOT NULL,
+    [Numero] nvarchar(max)  NOT NULL,
     [IdSecao] int  NOT NULL
 );
 GO

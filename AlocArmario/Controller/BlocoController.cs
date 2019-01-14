@@ -39,7 +39,7 @@ namespace AlocArmario.Controller
         public string Inserir(Bloco bloco)
         {
             int quantBlocos = QuantBlocos(bloco);
-            bloco.Nome = bloco.IdSecao.ToString() + Numerar(quantBlocos);
+            bloco.Numero = bloco.IdSecao.ToString() + Numerar(quantBlocos);
 
             var erros = Validacao.ValidaDados(bloco);
             string resultado = "";
@@ -53,9 +53,11 @@ namespace AlocArmario.Controller
                     ac = new ArmarioController();
                     for (int i = 1; i <= 16; i++)
                     {
-                        string num = bloco.Nome + (char)i;
-                        //Armario armario = new Armario(num, bloco);
-                        //ac.Inserir(armario);
+                        string num = bloco.Numero + (char)i;
+                        Armario armario = new Armario();
+                        armario.IdBloco = bloco.IdBloco;
+                        armario.Numero = bloco.Numero + i;
+                        ac.Inserir(armario);
                     }
                     resultado = "ok";
                 }

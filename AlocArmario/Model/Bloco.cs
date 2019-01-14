@@ -20,7 +20,7 @@ namespace AlocArmario.Model
         }
     
         public int IdBloco { get; set; }
-        public string Nome { get; set; }
+        public string Numero { get; set; }
         public int IdSecao { get; set; }
     
         public virtual ICollection<Armario> Armario { get; set; }

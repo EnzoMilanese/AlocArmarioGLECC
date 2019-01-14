@@ -62,7 +62,7 @@
       <PropertyRef Name="IdBloco" />
     </Key>
     <Property Name="IdBloco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdSecao" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Secao">
@@ -219,7 +219,7 @@
             <PropertyRef Name="IdBloco" />
           </Key>
           <Property Name="IdBloco" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Numero" Type="String" Nullable="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.Possui" FromRole="Bloco" ToRole="Armario" />
           <NavigationProperty Name="Secao" Relationship="ModeloDados.SecaoBloco" FromRole="Bloco" ToRole="Secao" />
           <Property Name="IdSecao" Nullable="false" Type="Int32" />
@@ -306,7 +306,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModeloDados.Bloco)">
         <MappingFragment StoreEntitySet="Bloco">
           <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
-          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="IdSecao" ColumnName="IdSecao" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -52,21 +52,22 @@
             this.tbpBlocos = new System.Windows.Forms.TabPage();
             this.btnCadastBloco = new System.Windows.Forms.Button();
             this.dgvBlocos = new System.Windows.Forms.DataGridView();
-            this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpSecoes = new System.Windows.Forms.TabPage();
             this.btnCadastSecao = new System.Windows.Forms.Button();
             this.dgvSecoes = new System.Windows.Forms.DataGridView();
-            this.IdSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescricaoSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.IdSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescricaoSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -119,8 +120,6 @@
             this.dgvContratos.AllowUserToAddRows = false;
             this.dgvContratos.AllowUserToDeleteRows = false;
             this.dgvContratos.AllowUserToOrderColumns = true;
-            this.dgvContratos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvContratos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvContratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContratos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdContrato,
@@ -138,26 +137,31 @@
             // 
             this.IdContrato.HeaderText = "ID";
             this.IdContrato.Name = "IdContrato";
+            this.IdContrato.Width = 107;
             // 
             // ValidadeContrato
             // 
             this.ValidadeContrato.HeaderText = "Validade";
             this.ValidadeContrato.Name = "ValidadeContrato";
+            this.ValidadeContrato.Width = 108;
             // 
             // ValorContrato
             // 
             this.ValorContrato.HeaderText = "Valor";
             this.ValorContrato.Name = "ValorContrato";
+            this.ValorContrato.Width = 107;
             // 
             // ArmarioContrato
             // 
             this.ArmarioContrato.HeaderText = "Armário";
             this.ArmarioContrato.Name = "ArmarioContrato";
+            this.ArmarioContrato.Width = 108;
             // 
             // LocatarioContrato
             // 
             this.LocatarioContrato.HeaderText = "Locatário";
             this.LocatarioContrato.Name = "LocatarioContrato";
+            this.LocatarioContrato.Width = 107;
             // 
             // tbpLocatarios
             // 
@@ -185,8 +189,6 @@
             this.dgvLocatarios.AllowUserToAddRows = false;
             this.dgvLocatarios.AllowUserToDeleteRows = false;
             this.dgvLocatarios.AllowUserToOrderColumns = true;
-            this.dgvLocatarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLocatarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvLocatarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocatarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdLocatario,
@@ -204,31 +206,37 @@
             // 
             this.IdLocatario.HeaderText = "ID";
             this.IdLocatario.Name = "IdLocatario";
+            this.IdLocatario.Width = 90;
             // 
             // NomeLocatario
             // 
             this.NomeLocatario.HeaderText = "Nome";
             this.NomeLocatario.Name = "NomeLocatario";
+            this.NomeLocatario.Width = 89;
             // 
             // ProntLocatario
             // 
             this.ProntLocatario.HeaderText = "Prontuário";
             this.ProntLocatario.Name = "ProntLocatario";
+            this.ProntLocatario.Width = 90;
             // 
             // EmailLocatario
             // 
             this.EmailLocatario.HeaderText = "Email";
             this.EmailLocatario.Name = "EmailLocatario";
+            this.EmailLocatario.Width = 89;
             // 
             // TelefoneLocatario
             // 
             this.TelefoneLocatario.HeaderText = "Telefone";
             this.TelefoneLocatario.Name = "TelefoneLocatario";
+            this.TelefoneLocatario.Width = 90;
             // 
             // ContratoLocatario
             // 
             this.ContratoLocatario.HeaderText = "Contrato";
             this.ContratoLocatario.Name = "ContratoLocatario";
+            this.ContratoLocatario.Width = 89;
             // 
             // tbpArmarios
             // 
@@ -246,16 +254,18 @@
             this.dgvArmarios.AllowUserToAddRows = false;
             this.dgvArmarios.AllowUserToDeleteRows = false;
             this.dgvArmarios.AllowUserToOrderColumns = true;
-            this.dgvArmarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvArmarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvArmarios.AllowUserToResizeColumns = false;
+            this.dgvArmarios.AllowUserToResizeRows = false;
             this.dgvArmarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArmarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdArmario,
             this.NumeroArmario,
-            this.BlocoArmario});
+            this.BlocoArmario,
+            this.Secao});
             this.dgvArmarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArmarios.Location = new System.Drawing.Point(266, 6);
             this.dgvArmarios.Name = "dgvArmarios";
+            this.dgvArmarios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvArmarios.Size = new System.Drawing.Size(580, 377);
             this.dgvArmarios.TabIndex = 3;
             // 
@@ -286,32 +296,17 @@
             this.dgvBlocos.AllowUserToAddRows = false;
             this.dgvBlocos.AllowUserToDeleteRows = false;
             this.dgvBlocos.AllowUserToOrderColumns = true;
-            this.dgvBlocos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBlocos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvBlocos.AllowUserToResizeColumns = false;
+            this.dgvBlocos.AllowUserToResizeRows = false;
             this.dgvBlocos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBlocos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdBloco,
-            this.NomeBloco,
+            this.NumeroBloco,
             this.SecaoBloco});
             this.dgvBlocos.Location = new System.Drawing.Point(266, 6);
             this.dgvBlocos.Name = "dgvBlocos";
             this.dgvBlocos.Size = new System.Drawing.Size(580, 377);
             this.dgvBlocos.TabIndex = 3;
-            // 
-            // IdBloco
-            // 
-            this.IdBloco.HeaderText = "ID";
-            this.IdBloco.Name = "IdBloco";
-            // 
-            // NomeBloco
-            // 
-            this.NomeBloco.HeaderText = "Nome";
-            this.NomeBloco.Name = "NomeBloco";
-            // 
-            // SecaoBloco
-            // 
-            this.SecaoBloco.HeaderText = "Seção";
-            this.SecaoBloco.Name = "SecaoBloco";
             // 
             // tbpSecoes
             // 
@@ -339,9 +334,7 @@
             // 
             this.dgvSecoes.AllowUserToAddRows = false;
             this.dgvSecoes.AllowUserToDeleteRows = false;
-            this.dgvSecoes.AllowUserToOrderColumns = true;
-            this.dgvSecoes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSecoes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvSecoes.AllowUserToResizeColumns = false;
             this.dgvSecoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSecoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdSecao,
@@ -352,24 +345,6 @@
             this.dgvSecoes.Name = "dgvSecoes";
             this.dgvSecoes.Size = new System.Drawing.Size(580, 377);
             this.dgvSecoes.TabIndex = 4;
-            // 
-            // IdSecao
-            // 
-            this.IdSecao.FillWeight = 54.82233F;
-            this.IdSecao.HeaderText = "ID";
-            this.IdSecao.Name = "IdSecao";
-            // 
-            // NomeSecao
-            // 
-            this.NomeSecao.FillWeight = 122.5888F;
-            this.NomeSecao.HeaderText = "Nome";
-            this.NomeSecao.Name = "NomeSecao";
-            // 
-            // DescricaoSecao
-            // 
-            this.DescricaoSecao.FillWeight = 122.5888F;
-            this.DescricaoSecao.HeaderText = "Descrição";
-            this.DescricaoSecao.Name = "DescricaoSecao";
             // 
             // textBox1
             // 
@@ -397,20 +372,71 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Alocação de Armários - GLECC";
             // 
+            // IdSecao
+            // 
+            this.IdSecao.FillWeight = 33.40196F;
+            this.IdSecao.HeaderText = "ID";
+            this.IdSecao.Name = "IdSecao";
+            this.IdSecao.Width = 37;
+            // 
+            // NomeSecao
+            // 
+            this.NomeSecao.FillWeight = 63.95938F;
+            this.NomeSecao.HeaderText = "Nome";
+            this.NomeSecao.Name = "NomeSecao";
+            // 
+            // DescricaoSecao
+            // 
+            this.DescricaoSecao.FillWeight = 202.6386F;
+            this.DescricaoSecao.HeaderText = "Descrição";
+            this.DescricaoSecao.Name = "DescricaoSecao";
+            this.DescricaoSecao.Width = 400;
+            // 
+            // IdBloco
+            // 
+            this.IdBloco.FillWeight = 2.809951F;
+            this.IdBloco.HeaderText = "ID";
+            this.IdBloco.Name = "IdBloco";
+            this.IdBloco.Width = 37;
+            // 
+            // NumeroBloco
+            // 
+            this.NumeroBloco.FillWeight = 12.41847F;
+            this.NumeroBloco.HeaderText = "Numero";
+            this.NumeroBloco.Name = "NumeroBloco";
+            // 
+            // SecaoBloco
+            // 
+            this.SecaoBloco.FillWeight = 284.7716F;
+            this.SecaoBloco.HeaderText = "Seção";
+            this.SecaoBloco.Name = "SecaoBloco";
+            this.SecaoBloco.Width = 400;
+            // 
             // IdArmario
             // 
+            this.IdArmario.FillWeight = 28.4264F;
             this.IdArmario.HeaderText = "ID";
             this.IdArmario.Name = "IdArmario";
+            this.IdArmario.Width = 37;
             // 
             // NumeroArmario
             // 
+            this.NumeroArmario.FillWeight = 123.8579F;
             this.NumeroArmario.HeaderText = "Número";
             this.NumeroArmario.Name = "NumeroArmario";
             // 
             // BlocoArmario
             // 
+            this.BlocoArmario.FillWeight = 123.8579F;
             this.BlocoArmario.HeaderText = "Bloco";
             this.BlocoArmario.Name = "BlocoArmario";
+            // 
+            // Secao
+            // 
+            this.Secao.FillWeight = 123.8579F;
+            this.Secao.HeaderText = "Seção";
+            this.Secao.Name = "Secao";
+            this.Secao.Width = 300;
             // 
             // ConsultaArmarioAvanc
             // 
@@ -462,13 +488,7 @@
         private System.Windows.Forms.Button btnCadastLocatario;
         private System.Windows.Forms.Button btnCadastBloco;
         private System.Windows.Forms.Button btnCadastSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdContrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValidadeContrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorContrato;
@@ -480,8 +500,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLocatario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ContratoLocatario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroBloco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
     }
 }
