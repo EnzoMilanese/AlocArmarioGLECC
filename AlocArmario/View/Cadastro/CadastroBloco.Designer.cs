@@ -54,8 +54,9 @@
             this.cbxSecao.FormattingEnabled = true;
             this.cbxSecao.Location = new System.Drawing.Point(107, 87);
             this.cbxSecao.Name = "cbxSecao";
-            this.cbxSecao.Size = new System.Drawing.Size(32, 24);
+            this.cbxSecao.Size = new System.Drawing.Size(103, 24);
             this.cbxSecao.TabIndex = 21;
+            this.cbxSecao.SelectedIndexChanged += new System.EventHandler(this.cbxSecao_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -99,6 +100,7 @@
             this.btnCancelar.TabIndex = 26;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -127,6 +129,7 @@
             this.Name = "CadastroBloco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Novo Bloco";
+            this.Activated += new System.EventHandler(this.CadastroBloco_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

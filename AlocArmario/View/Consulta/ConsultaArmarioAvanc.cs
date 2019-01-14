@@ -45,12 +45,13 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var c in contratos)
             {
+                //INCOMPLETO
                 dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells["ID"].Value = c.IdContrato;
-                dgvContratos.Rows[linha].Cells["Validade"].Value = c.Validade;
-                dgvContratos.Rows[linha].Cells["Valor"].Value = c.Valor;
-                dgvContratos.Rows[linha].Cells["Armário"].Value = c.IdArmario;
-                dgvContratos.Rows[linha].Cells["Locatário"].Value = c.IdLocatario;
+                dgvContratos.Rows[linha].Cells[0].Value = c.IdContrato;
+                dgvContratos.Rows[linha].Cells[1].Value = c.Validade;
+                dgvContratos.Rows[linha].Cells[2].Value = c.Valor;
+                dgvContratos.Rows[linha].Cells[3].Value = c.IdArmario;
+                dgvContratos.Rows[linha].Cells[4].Value = c.IdLocatario;
                 linha++;
             }
         }
@@ -66,11 +67,11 @@ namespace AlocArmario.View
             foreach (var l in locatarios)
             {
                 dgvLocatarios.Rows.Add();
-                dgvLocatarios.Rows[linha].Cells["ID"].Value = l.IdLocatario;
-                dgvLocatarios.Rows[linha].Cells["Nome"].Value = l.Nome;
-                dgvLocatarios.Rows[linha].Cells["Prontuário"].Value = l.Prontuario;
-                dgvLocatarios.Rows[linha].Cells["Email"].Value = l.Email;
-                dgvLocatarios.Rows[linha].Cells["Telefone"].Value = l.Telefone;
+                dgvLocatarios.Rows[linha].Cells[0].Value = l.IdLocatario;
+                dgvLocatarios.Rows[linha].Cells[1].Value = l.Nome;
+                dgvLocatarios.Rows[linha].Cells[2].Value = l.Prontuario;
+                dgvLocatarios.Rows[linha].Cells[3].Value = l.Email;
+                dgvLocatarios.Rows[linha].Cells[4].Value = l.Telefone;
                 linha++;
             }
         }
@@ -86,9 +87,9 @@ namespace AlocArmario.View
             foreach (var a in armarios)
             {
                 dgvArmarios.Rows.Add();
-                dgvArmarios.Rows[linha].Cells["ID"].Value = a.IdArmario;
-                dgvArmarios.Rows[linha].Cells["Bloco"].Value = a.IdBloco;
-                dgvArmarios.Rows[linha].Cells["Número"].Value = a.Numero;
+                dgvArmarios.Rows[linha].Cells[0].Value = a.IdArmario;
+                dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
+                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Nome;
                 linha++;
             }
         }
@@ -104,9 +105,9 @@ namespace AlocArmario.View
             foreach (var b in blocos)
             {
                 dgvBlocos.Rows.Add();
-                dgvBlocos.Rows[linha].Cells["ID"].Value = b.IdBloco;
-                dgvBlocos.Rows[linha].Cells["Nome"].Value = b.Nome;
-                dgvBlocos.Rows[linha].Cells["Seção"].Value = b.IdSecao;
+                dgvBlocos.Rows[linha].Cells[0].Value = b.IdBloco;
+                dgvBlocos.Rows[linha].Cells[1].Value = b.Nome;
+                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.IdSecao;
                 linha++;
             }
         }
@@ -143,6 +144,12 @@ namespace AlocArmario.View
         {
             CadastroSecao cs = new CadastroSecao();
             cs.ShowDialog();
+        }
+
+        private void btnCadastBloco_Click(object sender, EventArgs e)
+        {
+            CadastroBloco cb = new CadastroBloco();
+            cb.ShowDialog();
         }
     }
 }

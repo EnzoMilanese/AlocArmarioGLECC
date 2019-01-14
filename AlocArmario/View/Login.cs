@@ -24,7 +24,7 @@ namespace AlocArmario
         public Login()
         {
             InitializeComponent();
-            rdbSimples.Checked = true;
+            rdbAvancado.Checked = true;
             lc = new LoginController();
             usuario = new Usuario();
 

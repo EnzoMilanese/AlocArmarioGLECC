@@ -49,5 +49,10 @@ namespace AlocArmario.View.Cadastro
                 MessageBox.Show(("Erro de validação: \n" + resultado), "Nova Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

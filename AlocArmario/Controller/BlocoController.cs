@@ -14,8 +14,20 @@ namespace AlocArmario.Controller
 
         private String Numerar(int n)
         {
-            Char c = (Char) (94 + n);
+            Char c = (Char) (65 + n);
             return c.ToString();
+        }
+
+        private int QuantBlocos (Bloco bloco)
+        {
+            var listaBlocos = this.Consultar();
+            int quant = 0;
+            foreach (var b in listaBlocos)
+            {
+                if (b.IdSecao == bloco.IdSecao)
+                    quant++;
+            }
+            return quant;
         }
 
         public List<Bloco> Consultar()
@@ -26,8 +38,8 @@ namespace AlocArmario.Controller
 
         public string Inserir(Bloco bloco)
         {
-            int quantBlocos = (from IdSecao in db.Bloco where IdSecao.IdSecao == bloco.Secao.IdSecao select IdSecao).Count();
-            bloco.Nome = bloco.Secao.IdSecao.ToString() + Numerar(quantBlocos+1);
+            int quantBlocos = QuantBlocos(bloco);
+            bloco.Nome = bloco.IdSecao.ToString() + Numerar(quantBlocos);
 
             var erros = Validacao.ValidaDados(bloco);
             string resultado = "";
@@ -42,8 +54,8 @@ namespace AlocArmario.Controller
                     for (int i = 1; i <= 16; i++)
                     {
                         string num = bloco.Nome + (char)i;
-                        Armario armario = new Armario(num, bloco);
-                        ac.Inserir(armario);
+                        //Armario armario = new Armario(num, bloco);
+                        //ac.Inserir(armario);
                     }
                     resultado = "ok";
                 }

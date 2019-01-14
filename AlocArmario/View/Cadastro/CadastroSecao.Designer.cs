@@ -43,16 +43,17 @@
             this.btnCancelar.Location = new System.Drawing.Point(218, 227);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Location = new System.Drawing.Point(137, 227);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 17;
+            this.btnCadastrar.TabIndex = 2;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -76,7 +77,7 @@
             this.txbDescricao.Multiline = true;
             this.txbDescricao.Name = "txbDescricao";
             this.txbDescricao.Size = new System.Drawing.Size(260, 85);
-            this.txbDescricao.TabIndex = 9;
+            this.txbDescricao.TabIndex = 1;
             // 
             // label1
             // 
@@ -106,10 +107,11 @@
             this.txbNome.Location = new System.Drawing.Point(116, 74);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(260, 22);
-            this.txbNome.TabIndex = 21;
+            this.txbNome.TabIndex = 0;
             // 
             // CadastroSecao
             // 
+            this.AcceptButton = this.btnCadastrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 286);

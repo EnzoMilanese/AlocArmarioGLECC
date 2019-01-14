@@ -47,7 +47,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(221, 187);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -56,7 +56,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(140, 187);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.TabIndex = 4;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -68,7 +68,7 @@
             this.label5.Location = new System.Drawing.Point(122, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(182, 24);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 1;
             this.label5.Text = "Cadastrar Contrato";
             // 
             // label1
@@ -79,7 +79,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 16);
-            this.label1.TabIndex = 10;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Locatário:";
             // 
             // cbxLocatario
@@ -89,7 +89,7 @@
             this.cbxLocatario.Location = new System.Drawing.Point(102, 96);
             this.cbxLocatario.Name = "cbxLocatario";
             this.cbxLocatario.Size = new System.Drawing.Size(284, 24);
-            this.cbxLocatario.TabIndex = 22;
+            this.cbxLocatario.TabIndex = 0;
             // 
             // label2
             // 
@@ -99,7 +99,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 16);
-            this.label2.TabIndex = 23;
+            this.label2.TabIndex = 10;
             this.label2.Text = "Seção:";
             // 
             // cbxSecao
@@ -109,7 +109,7 @@
             this.cbxSecao.Location = new System.Drawing.Point(102, 128);
             this.cbxSecao.Name = "cbxSecao";
             this.cbxSecao.Size = new System.Drawing.Size(42, 24);
-            this.cbxSecao.TabIndex = 24;
+            this.cbxSecao.TabIndex = 1;
             // 
             // label3
             // 
@@ -119,7 +119,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
-            this.label3.TabIndex = 25;
+            this.label3.TabIndex = 8;
             this.label3.Text = "Bloco:";
             // 
             // cbxBloco
@@ -129,7 +129,7 @@
             this.cbxBloco.Location = new System.Drawing.Point(196, 128);
             this.cbxBloco.Name = "cbxBloco";
             this.cbxBloco.Size = new System.Drawing.Size(63, 24);
-            this.cbxBloco.TabIndex = 26;
+            this.cbxBloco.TabIndex = 2;
             // 
             // label4
             // 
@@ -139,7 +139,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
-            this.label4.TabIndex = 27;
+            this.label4.TabIndex = 9;
             this.label4.Text = "Armário:";
             // 
             // cbxArmario
@@ -149,7 +149,7 @@
             this.cbxArmario.Location = new System.Drawing.Point(323, 128);
             this.cbxArmario.Name = "cbxArmario";
             this.cbxArmario.Size = new System.Drawing.Size(63, 24);
-            this.cbxArmario.TabIndex = 28;
+            this.cbxArmario.TabIndex = 3;
             // 
             // CadastroContrato
             // 

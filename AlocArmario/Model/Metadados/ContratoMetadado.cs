@@ -13,9 +13,9 @@ namespace AlocArmario.Model.Metadados
     class ContratoMetadado
     {
         [Required(ErrorMessage = "Campo \"Locatário\" vazio.")]
-        public Locatario Locatario { get; set; }
+        public int IdLocatario { get; set; }
 
         [Required(ErrorMessage = "Campo \"Armário\" vazio.")]
-        public Armario Armario { get; set; }
+        public int IdArmario { get; set; }
     }
 }

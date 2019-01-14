@@ -43,5 +43,11 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        internal List<Secao> ListarSecoes()
+        {
+            var lista = db.Secao.AsNoTracking().ToList();
+            return lista;
+        }
     }
 }

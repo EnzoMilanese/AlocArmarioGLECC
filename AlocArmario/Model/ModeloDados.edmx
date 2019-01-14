@@ -138,22 +138,22 @@
           <EntitySet Name="Armario" EntityType="ModeloDados.Armario" />
           <EntitySet Name="Contrato" EntityType="ModeloDados.Contrato" />
           <AssociationSet Name="ArmarioContrato" Association="ModeloDados.ArmarioContrato">
-            <End Role="Armario" EntitySet="Armario" />
-            <End Role="Contrato" EntitySet="Contrato" />
+            <End EntitySet="Armario" Role="Armario" />
+            <End EntitySet="Contrato" Role="Contrato" />
           </AssociationSet>
           <AssociationSet Name="LocatarioContrato" Association="ModeloDados.Aluga">
-            <End Role="Locatario" EntitySet="Locatario" />
-            <End Role="Contrato" EntitySet="Contrato" />
+            <End EntitySet="Locatario" Role="Locatario" />
+            <End EntitySet="Contrato" Role="Contrato" />
           </AssociationSet>
           <EntitySet Name="Bloco" EntityType="ModeloDados.Bloco" />
           <AssociationSet Name="Possui" Association="ModeloDados.Possui">
-            <End Role="Bloco" EntitySet="Bloco" />
-            <End Role="Armario" EntitySet="Armario" />
+            <End EntitySet="Bloco" Role="Bloco" />
+            <End EntitySet="Armario" Role="Armario" />
           </AssociationSet>
           <EntitySet Name="Secao" EntityType="ModeloDados.Secao" />
           <AssociationSet Name="SecaoBloco" Association="ModeloDados.SecaoBloco">
-            <End Role="Secao" EntitySet="Secao" />
-            <End Role="Bloco" EntitySet="Bloco" />
+            <End EntitySet="Secao" Role="Secao" />
+            <End EntitySet="Bloco" Role="Bloco" />
           </AssociationSet>
           <EntitySet Name="Usuario" EntityType="ModeloDados.Usuario" />
         </EntityContainer>
@@ -172,10 +172,10 @@
           <Key>
             <PropertyRef Name="IdArmario" />
           </Key>
-          <Property Name="IdArmario" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdArmario" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
-          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <Property Name="IdBloco" Nullable="false" Type="Int32" />
           <Property Name="Numero" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
@@ -186,13 +186,13 @@
           <Property Name="Validade" Type="DateTime" Nullable="false" />
           <Property Name="Valor" Type="String" Nullable="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.ArmarioContrato" FromRole="Contrato" ToRole="Armario" />
-          <Property Name="IdArmario" Type="Int32" Nullable="false" />
+          <Property Name="IdArmario" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Locatario" Relationship="ModeloDados.Aluga" FromRole="Contrato" ToRole="Locatario" />
-          <Property Name="IdLocatario" Type="Int32" Nullable="false" />
+          <Property Name="IdLocatario" Nullable="false" Type="Int32" />
         </EntityType>
         <Association Name="ArmarioContrato">
-          <End Type="ModeloDados.Armario" Role="Armario" Multiplicity="1" />
-          <End Type="ModeloDados.Contrato" Role="Contrato" Multiplicity="*" />
+          <End Type="ModeloDados.Armario" Multiplicity="1" Role="Armario" />
+          <End Type="ModeloDados.Contrato" Multiplicity="*" Role="Contrato" />
           <ReferentialConstraint>
             <Principal Role="Armario">
               <PropertyRef Name="IdArmario" />
@@ -203,8 +203,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Aluga">
-          <End Type="ModeloDados.Locatario" Role="Locatario" Multiplicity="1" />
-          <End Type="ModeloDados.Contrato" Role="Contrato" Multiplicity="*" />
+          <End Type="ModeloDados.Locatario" Multiplicity="1" Role="Locatario" />
+          <End Type="ModeloDados.Contrato" Multiplicity="*" Role="Contrato" />
           <ReferentialConstraint>
             <Principal Role="Locatario">
               <PropertyRef Name="IdLocatario" />
@@ -218,15 +218,15 @@
           <Key>
             <PropertyRef Name="IdBloco" />
           </Key>
-          <Property Name="IdBloco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBloco" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="Nome" Type="String" Nullable="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.Possui" FromRole="Bloco" ToRole="Armario" />
           <NavigationProperty Name="Secao" Relationship="ModeloDados.SecaoBloco" FromRole="Bloco" ToRole="Secao" />
-          <Property Name="IdSecao" Type="Int32" Nullable="false" />
+          <Property Name="IdSecao" Nullable="false" Type="Int32" />
         </EntityType>
         <Association Name="Possui">
-          <End Type="ModeloDados.Bloco" Role="Bloco" Multiplicity="1" />
-          <End Type="ModeloDados.Armario" Role="Armario" Multiplicity="*" />
+          <End Type="ModeloDados.Bloco" Multiplicity="1" Role="Bloco" />
+          <End Type="ModeloDados.Armario" Multiplicity="*" Role="Armario" />
           <ReferentialConstraint>
             <Principal Role="Bloco">
               <PropertyRef Name="IdBloco" />
@@ -246,8 +246,8 @@
           <Property Name="Descricao" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="SecaoBloco">
-          <End Type="ModeloDados.Secao" Role="Secao" Multiplicity="1" />
-          <End Type="ModeloDados.Bloco" Role="Bloco" Multiplicity="*" />
+          <End Type="ModeloDados.Secao" Multiplicity="1" Role="Secao" />
+          <End Type="ModeloDados.Bloco" Multiplicity="*" Role="Bloco" />
           <ReferentialConstraint>
             <Principal Role="Secao">
               <PropertyRef Name="IdSecao" />

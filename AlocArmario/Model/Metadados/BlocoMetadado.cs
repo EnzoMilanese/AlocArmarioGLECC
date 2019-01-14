@@ -13,6 +13,6 @@ namespace AlocArmario.Model.Metadados
     class BlocoMetadado
     {
         [Required(ErrorMessage = "Campo \"Seção\" vazio.")]
-        public Secao Secao { get; set; }
+        public int IdSecao { get; set; }
     }
 }
