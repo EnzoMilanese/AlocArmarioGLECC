@@ -152,5 +152,17 @@ namespace AlocArmario.View
             CadastroBloco cb = new CadastroBloco();
             cb.ShowDialog();
         }
+
+        private void btnCadastLocatario_Click(object sender, EventArgs e)
+        {
+            CadastroLocatario cl = new CadastroLocatario();
+            cl.ShowDialog();
+        }
+
+        private void btnCadastContrato_Click(object sender, EventArgs e)
+        {
+            CadastroContrato cc = new CadastroContrato();
+            cc.ShowDialog();
+        }
     }
 }
