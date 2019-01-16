@@ -42,5 +42,10 @@ namespace AlocArmario.Controller
             var lista = db.Locatario.ToList();
             return lista;
         }
+
+        internal List<Locatario> ConsultarSemContrato()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

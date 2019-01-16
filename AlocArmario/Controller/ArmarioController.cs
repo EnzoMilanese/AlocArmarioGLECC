@@ -42,5 +42,10 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        internal List<Armario> ConsultarSemContrato()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

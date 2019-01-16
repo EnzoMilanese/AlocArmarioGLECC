@@ -16,5 +16,10 @@ namespace AlocArmario.Controller
             var lista = db.Contrato.ToList();
             return lista;
         }
+
+        internal string Inserir(Contrato contrato)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

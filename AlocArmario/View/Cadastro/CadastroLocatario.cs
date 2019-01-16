@@ -51,5 +51,10 @@ namespace AlocArmario.View.LocatarioView
                 MessageBox.Show(("Erro de validação: \n" + resultado), "Novo Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
