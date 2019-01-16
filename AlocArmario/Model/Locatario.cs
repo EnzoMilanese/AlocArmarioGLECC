@@ -24,6 +24,7 @@ namespace AlocArmario.Model
         public string Prontuario { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
+        public Nullable<bool> TemContrato { get; set; }
     
         public virtual ICollection<Contrato> Contrato { get; set; }
     }

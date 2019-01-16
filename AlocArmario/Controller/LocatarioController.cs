@@ -47,5 +47,10 @@ namespace AlocArmario.Controller
         {
             throw new NotImplementedException();
         }
+
+        internal void Alterar(Locatario l)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

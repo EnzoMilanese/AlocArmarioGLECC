@@ -38,6 +38,7 @@
     <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TemContrato" Type="bit" Nullable="true" />
   </EntityType>
   <EntityType Name="Armario">
     <Key>
@@ -46,6 +47,7 @@
     <Property Name="IdArmario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdBloco" Type="int" Nullable="false" />
     <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TemContrato" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Contrato">
     <Key>
@@ -167,6 +169,7 @@
           <Property Name="Email" Type="String" Nullable="true" />
           <Property Name="Telefone" Type="String" Nullable="true" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.Aluga" FromRole="Locatario" ToRole="Contrato" />
+          <Property Name="TemContrato" Type="Boolean" Nullable="true" />
         </EntityType>
         <EntityType Name="Armario">
           <Key>
@@ -177,6 +180,7 @@
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
           <Property Name="IdBloco" Nullable="false" Type="Int32" />
           <Property Name="Numero" Type="String" Nullable="false" />
+          <Property Name="TemContrato" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
           <Key>
@@ -279,6 +283,7 @@
           <ScalarProperty Name="Prontuario" ColumnName="Prontuario" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="TemContrato" ColumnName="TemContrato" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -288,6 +293,7 @@
           <ScalarProperty Name="IdArmario" ColumnName="IdArmario" />
           <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
           <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="TemContrato" ColumnName="TemContrato" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

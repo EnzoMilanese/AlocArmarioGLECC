@@ -10,7 +10,7 @@ namespace AlocArmario.Controller
     class BlocoController
     {
         private ModeloDadosContainer db = new ModeloDadosContainer();
-        ArmarioController ac;
+        ArmarioController ac = new ArmarioController();
 
         private String Numerar(int n)
         {
@@ -50,7 +50,6 @@ namespace AlocArmario.Controller
                 {
                     db.Bloco.Add(bloco);
                     db.SaveChanges();
-                    ac = new ArmarioController();
                     for (int i = 1; i <= 16; i++)
                     {
                         string num = bloco.Numero + (char)i;
