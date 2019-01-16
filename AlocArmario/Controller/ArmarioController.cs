@@ -13,7 +13,16 @@ namespace AlocArmario.Controller
 
         public List<Armario> Consultar()
         {
-            var lista = db.Armario.ToList();
+            List<Armario> lista = (from a in db.Armario
+                                   select a).ToList();
+            return lista;
+        }
+
+        private List<Armario> ConsultarSemContrato()
+        {
+            List<Armario> lista = (from a in db.Armario
+                                   where a.TemContrato == false
+                                   select a).ToList();
             return lista;
         }
 
@@ -43,14 +52,8 @@ namespace AlocArmario.Controller
             return resultado;
         }
 
-        internal List<Armario> ConsultarSemContrato()
+        internal void Alterar(Armario armario)
         {
-            throw new NotImplementedException();
-        }
-
-        internal void Alterar(Armario a)
-        {
-            throw new NotImplementedException();
         }
     }
 }
