@@ -58,6 +58,7 @@
     <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdArmario" Type="int" Nullable="false" />
     <Property Name="IdLocatario" Type="int" Nullable="false" />
+    <Property Name="TipoContrato" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Bloco">
     <Key>
@@ -193,6 +194,7 @@
           <Property Name="IdArmario" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Locatario" Relationship="ModeloDados.Aluga" FromRole="Contrato" ToRole="Locatario" />
           <Property Name="IdLocatario" Nullable="false" Type="Int32" />
+          <Property Name="TipoContrato" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="ArmarioContrato">
           <End Type="ModeloDados.Armario" Multiplicity="1" Role="Armario" />
@@ -305,6 +307,7 @@
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="IdArmario" ColumnName="IdArmario" />
           <ScalarProperty Name="IdLocatario" ColumnName="IdLocatario" />
+          <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

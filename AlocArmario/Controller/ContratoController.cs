@@ -12,6 +12,8 @@ namespace AlocArmario.Controller
         private ModeloDadosContainer db = new ModeloDadosContainer();
         private ArmarioController ac = new ArmarioController();
         private LocatarioController lc = new LocatarioController();
+        private List<Armario> armarios = new List<Armario>();
+        private List<Locatario> locatarios = new List<Locatario>();
         private Armario armario;
         private Locatario locatario;
 
@@ -23,8 +25,16 @@ namespace AlocArmario.Controller
 
         public string Inserir(Contrato contrato)
         {
-            armario = contrato.Armario;
-            locatario = contrato.Locatario;
+            armarios = ac.ConsultarSemContrato();
+            locatarios = lc.ConsultarSemContrato();
+
+            foreach (var a in armarios)
+                if (a.IdArmario == contrato.IdArmario)
+                    armario = a;
+
+            foreach (var l in locatarios)
+                if (l.IdLocatario == contrato.IdLocatario)
+                    locatario = l;
 
             armario.TemContrato = true;
             locatario.TemContrato = true;

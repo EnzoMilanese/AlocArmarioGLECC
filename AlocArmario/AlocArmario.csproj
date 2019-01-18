@@ -59,6 +59,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\SecaoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Controller\VarGlobal.cs" />
     <Compile Include="Model\Armario.cs">
       <DependentUpon>ModeloDados.tt</DependentUpon>
     </Compile>

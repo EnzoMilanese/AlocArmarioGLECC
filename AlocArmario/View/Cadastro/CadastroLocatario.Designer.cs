@@ -146,6 +146,7 @@
             // mktTel
             // 
             this.mktTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mktTel.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.mktTel.Location = new System.Drawing.Point(112, 184);
             this.mktTel.Mask = "(00) 0000-00009";
             this.mktTel.Name = "mktTel";

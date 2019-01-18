@@ -35,6 +35,7 @@ namespace AlocArmario.View.Cadastro
 
             this.CarregarLocatarios();
             this.CarregarArmarios();
+            this.CarregarTiposContrato();
 
             var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Contrato));
             TypeDescriptor.AddProvider(provedor, typeof(Contrato));
@@ -42,9 +43,16 @@ namespace AlocArmario.View.Cadastro
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            contrato.Valor = lblDataValor.Text;
+            contrato.TipoContrato = cbxTipoContrato.Text;
+            DateTime data;
+            if (DateTime.TryParse(lblDataValidade.Text, out data))
+                contrato.Validade = DateTime.Parse(lblDataValidade.Text);
+
             foreach (var l in listaLocatarios)
                 if (l.Nome.Equals(cbxLocatario.Text))
                     contrato.IdLocatario = l.IdLocatario;
+
             foreach (var a in listaArmarios)
                 if (a.Numero.Equals(cbxArmario.Text))
                     contrato.IdArmario = a.IdArmario;
@@ -79,6 +87,15 @@ namespace AlocArmario.View.Cadastro
             {
                 MessageBox.Show(("Erro de validação: \n" + resultado), "Novo Contrato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void CarregarTiposContrato()
+        {
+            cbxTipoContrato.SelectedIndex = cbxTipoContrato.FindStringExact("Anual");
+            //INCOMPLETO
+            lblDataValor.Text = "R$" + VarGlobal.ValorAnual;
+            DateTime agora = DateTime.Now;
+            lblDataValidade.Text = agora.ToString();
         }
 
         private void CarregarLocatarios()
@@ -160,6 +177,19 @@ namespace AlocArmario.View.Cadastro
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxTipoContrato_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxTipoContrato.Text)
+            {
+                case "Anual":
+                    lblDataValor.Text = "R$" + VarGlobal.ValorAnual;
+                    break;
+                case "Semestral":
+                    lblDataValor.Text = "R$" + VarGlobal.ValorSemestral;
+                    break;
+            }
         }
     }
 }

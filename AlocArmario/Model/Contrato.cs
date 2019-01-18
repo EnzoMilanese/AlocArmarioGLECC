@@ -19,6 +19,7 @@ namespace AlocArmario.Model
         public string Valor { get; set; }
         public int IdArmario { get; set; }
         public int IdLocatario { get; set; }
+        public string TipoContrato { get; set; }
     
         public virtual Armario Armario { get; set; }
         public virtual Locatario Locatario { get; set; }

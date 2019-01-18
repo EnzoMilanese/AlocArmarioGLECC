@@ -40,11 +40,17 @@
             this.cbxBloco = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbxArmario = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbxTipoContrato = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblDataValidade = new System.Windows.Forms.Label();
+            this.lblDataValor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(251, 188);
+            this.btnCancelar.Location = new System.Drawing.Point(247, 289);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -54,7 +60,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(170, 188);
+            this.btnCadastrar.Location = new System.Drawing.Point(166, 289);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 4;
@@ -155,11 +161,86 @@
             this.cbxArmario.TabIndex = 3;
             this.cbxArmario.SelectionChangeCommitted += new System.EventHandler(this.cbxArmario_SelectionChangeCommitted);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(33, 184);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Validade:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(323, 184);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Valor:";
+            // 
+            // cbxTipoContrato
+            // 
+            this.cbxTipoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoContrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipoContrato.FormattingEnabled = true;
+            this.cbxTipoContrato.Items.AddRange(new object[] {
+            "Anual",
+            "Semestral"});
+            this.cbxTipoContrato.Location = new System.Drawing.Point(102, 184);
+            this.cbxTipoContrato.Name = "cbxTipoContrato";
+            this.cbxTipoContrato.Size = new System.Drawing.Size(218, 24);
+            this.cbxTipoContrato.TabIndex = 15;
+            this.cbxTipoContrato.SelectedIndexChanged += new System.EventHandler(this.cbxTipoContrato_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(27, 219);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Válido até:";
+            // 
+            // lblDataValidade
+            // 
+            this.lblDataValidade.AutoSize = true;
+            this.lblDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataValidade.Location = new System.Drawing.Point(99, 219);
+            this.lblDataValidade.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDataValidade.Name = "lblDataValidade";
+            this.lblDataValidade.Size = new System.Drawing.Size(99, 16);
+            this.lblDataValidade.TabIndex = 18;
+            this.lblDataValidade.Text = "[data validade]";
+            // 
+            // lblDataValor
+            // 
+            this.lblDataValor.AutoSize = true;
+            this.lblDataValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataValor.Location = new System.Drawing.Point(366, 184);
+            this.lblDataValor.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDataValor.Name = "lblDataValor";
+            this.lblDataValor.Size = new System.Drawing.Size(51, 16);
+            this.lblDataValor.TabIndex = 19;
+            this.lblDataValor.Text = "[preço]";
+            // 
             // CadastroContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 242);
+            this.ClientSize = new System.Drawing.Size(494, 353);
+            this.Controls.Add(this.lblDataValor);
+            this.Controls.Add(this.lblDataValidade);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cbxTipoContrato);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cbxArmario);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbxBloco);
@@ -194,5 +275,11 @@
         private System.Windows.Forms.ComboBox cbxBloco;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxArmario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbxTipoContrato;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDataValidade;
+        private System.Windows.Forms.Label lblDataValor;
     }
 }

@@ -25,7 +25,7 @@ namespace AlocArmario.View
         {
             InitializeComponent();
         }
-        
+
         private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
         {
             this.ConsultarContratos();
@@ -45,18 +45,35 @@ namespace AlocArmario.View
         {
             DataGridViewColumn coluna = dgv.Columns[dgv.ColumnCount - 1];
 
-            if (dgv.RowCount <= 16 && dgv.Width == 565)
+            if (dgv.Width == 565)
             {
-                vsb.Visible = false;
-                dgv.Width += 15;
-                coluna.Width += 15;
+                if (dgv.RowCount <= 16)
+                {
+                    vsb.Visible = false;
+                    dgv.Width = 580;
+                    coluna.Width += 15;
+                }
+                else if (dgv.RowCount > 16)
+                {
+                    vsb.Maximum = dgv.RowCount - 6;
+                    return;
+                }
             }
-            else
+
+            if (dgv.Width == 580)
             {
-                vsb.Visible = true;
-                dgv.Width += -15;
-                coluna.Width += -15;
-            }
+                if (dgv.RowCount > 16)
+                {
+                    vsb.Visible = true;
+                    dgv.Width = 565;
+                    coluna.Width += -15;
+                }
+                else if (dgv.RowCount <= 16)
+                {
+                    vsb.Maximum = dgv.RowCount - 6;
+                    return;
+                }
+                }
 
             vsb.Maximum = dgv.RowCount - 6;
         }
@@ -105,8 +122,9 @@ namespace AlocArmario.View
                 dgvContratos.Rows[linha].Cells[0].Value = c.IdContrato;
                 dgvContratos.Rows[linha].Cells[1].Value = c.Validade;
                 dgvContratos.Rows[linha].Cells[2].Value = c.Valor;
-                dgvContratos.Rows[linha].Cells[3].Value = c.Armario.Numero;
-                dgvContratos.Rows[linha].Cells[4].Value = c.Locatario.Nome;
+                dgvContratos.Rows[linha].Cells[3].Value = c.TipoContrato;
+                dgvContratos.Rows[linha].Cells[4].Value = c.Armario.Numero;
+                dgvContratos.Rows[linha].Cells[5].Value = c.Locatario.Nome;
                 linha++;
             }
         }
@@ -127,6 +145,7 @@ namespace AlocArmario.View
                 dgvLocatarios.Rows[linha].Cells[2].Value = l.Prontuario;
                 dgvLocatarios.Rows[linha].Cells[3].Value = l.Email;
                 dgvLocatarios.Rows[linha].Cells[4].Value = l.Telefone;
+                dgvLocatarios.Rows[linha].Cells[5].Value = l.TemContrato;
                 linha++;
             }
         }
@@ -210,5 +229,53 @@ namespace AlocArmario.View
             CadastroSecao cs = new CadastroSecao();
             cs.ShowDialog();
         }
+
+        private void tbcConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tbcConsulta.SelectedIndex)
+            {
+                case 0:
+                    vsbDgvContr.Focus();
+                    break;
+                case 1:
+                    vsbDgvLoc.Focus();
+                    break;
+                case 2:
+                    vsbDgvArm.Focus();
+                    break;
+                case 3:
+                    vsbDgvBloc.Focus();
+                    break;
+                case 4:
+                    vsbDgvSec.Focus();
+                    break;
+            }
+        }
+
+        private void tbpSecoes_MouseMove(object sender, MouseEventArgs e)
+        {
+            vsbDgvSec.Focus();
+        }
+
+        private void tbpBlocos_MouseMove(object sender, MouseEventArgs e)
+        {
+            vsbDgvBloc.Focus();
+        }
+
+        private void tbpArmarios_MouseMove(object sender, MouseEventArgs e)
+        {
+            vsbDgvArm.Focus();
+        }
+
+        private void tbpLocatarios_MouseMove(object sender, MouseEventArgs e)
+        {
+            vsbDgvLoc.Focus();
+        }
+
+        private void tbpContratos_MouseMove(object sender, MouseEventArgs e)
+        {
+            vsbDgvContr.Focus();
+        }
+
     }
 }
