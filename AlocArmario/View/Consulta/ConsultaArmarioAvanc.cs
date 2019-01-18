@@ -33,6 +33,62 @@ namespace AlocArmario.View
             this.ConsultarArmarios();
             this.ConsultarBlocos();
             this.ConsultarSecoes();
+
+            this.CarregarScrollBars(dgvContratos, vsbDgvContr);
+            this.CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
+            this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
+            this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
+            this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+        }
+
+        private void CarregarScrollBars(DataGridView dgv, VScrollBar vsb)
+        {
+            DataGridViewColumn coluna = dgv.Columns[dgv.ColumnCount - 1];
+
+            if (dgv.RowCount <= 16 && dgv.Width == 565)
+            {
+                vsb.Visible = false;
+                dgv.Width += 15;
+                coluna.Width += 15;
+            }
+            else
+            {
+                vsb.Visible = true;
+                dgv.Width += -15;
+                coluna.Width += -15;
+            }
+
+            vsb.Maximum = dgv.RowCount - 6;
+        }
+
+        private void vsbDgvContr_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue > -1 && e.NewValue < dgvContratos.Rows.Count + 2)
+                dgvContratos.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void vsbDgvLoc_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue > -1 && e.NewValue < dgvLocatarios.Rows.Count + 2)
+                dgvLocatarios.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void vsbDgvArm_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue > -1 && e.NewValue < dgvArmarios.Rows.Count + 2)
+                dgvArmarios.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void vsbDgvBloc_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue > -1 && e.NewValue < dgvBlocos.Rows.Count + 2)
+                dgvBlocos.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void vsbDgvSec_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue > -1 && e.NewValue < dgvSecoes.Rows.Count + 2)
+                dgvSecoes.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
 
         private void ConsultarContratos()
@@ -45,13 +101,12 @@ namespace AlocArmario.View
             int linha = 0;
             foreach (var c in contratos)
             {
-                //INCOMPLETO
                 dgvContratos.Rows.Add();
                 dgvContratos.Rows[linha].Cells[0].Value = c.IdContrato;
                 dgvContratos.Rows[linha].Cells[1].Value = c.Validade;
                 dgvContratos.Rows[linha].Cells[2].Value = c.Valor;
-                dgvContratos.Rows[linha].Cells[3].Value = c.IdArmario;
-                dgvContratos.Rows[linha].Cells[4].Value = c.IdLocatario;
+                dgvContratos.Rows[linha].Cells[3].Value = c.Armario.Numero;
+                dgvContratos.Rows[linha].Cells[4].Value = c.Locatario.Nome;
                 linha++;
             }
         }
@@ -91,6 +146,7 @@ namespace AlocArmario.View
                 dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
                 dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
                 dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
+                dgvArmarios.Rows[linha].Cells[4].Value = a.TemContrato;
                 linha++;
             }
         }
@@ -131,26 +187,10 @@ namespace AlocArmario.View
             }
         }
 
-        private void dgvContratos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnCadastContrato_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ConsultaArmarioAvanc_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCadastSecao_Click(object sender, EventArgs e)
-        {
-            CadastroSecao cs = new CadastroSecao();
-            cs.ShowDialog();
-        }
-
-        private void btnCadastBloco_Click(object sender, EventArgs e)
-        {
-            CadastroBloco cb = new CadastroBloco();
-            cb.ShowDialog();
+            CadastroContrato cc = new CadastroContrato();
+            cc.ShowDialog();
         }
 
         private void btnCadastLocatario_Click(object sender, EventArgs e)
@@ -159,10 +199,16 @@ namespace AlocArmario.View
             cl.ShowDialog();
         }
 
-        private void btnCadastContrato_Click(object sender, EventArgs e)
+        private void btnCadastBloco_Click(object sender, EventArgs e)
         {
-            CadastroContrato cc = new CadastroContrato();
-            cc.ShowDialog();
+            CadastroBloco cb = new CadastroBloco();
+            cb.ShowDialog();
+        }
+
+        private void btnCadastSecao_Click(object sender, EventArgs e)
+        {
+            CadastroSecao cs = new CadastroSecao();
+            cs.ShowDialog();
         }
     }
 }

@@ -19,8 +19,8 @@ namespace AlocArmario.View.Cadastro
         private ArmarioController ac;
         private LocatarioController lc;
         private Contrato contrato;
-        List<Armario> listaArmarios;
-        List<Locatario> listaLocatarios;
+        List<Armario> listaArmarios = new List<Armario>();
+        List<Locatario> listaLocatarios = new List<Locatario>();
         List<Bloco> listaBlocos = new List<Bloco>();
         List<Secao> listaSecoes = new List<Secao>();
 
@@ -42,8 +42,6 @@ namespace AlocArmario.View.Cadastro
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
-
             foreach (var l in listaLocatarios)
                 if (l.Nome.Equals(cbxLocatario.Text))
                     contrato.IdLocatario = l.IdLocatario;

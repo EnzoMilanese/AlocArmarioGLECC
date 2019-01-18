@@ -12,13 +12,22 @@ namespace AlocArmario.Controller
         private ModeloDadosContainer db = new ModeloDadosContainer();
         private ArmarioController ac = new ArmarioController();
         private LocatarioController lc = new LocatarioController();
-        private List<Armario> listaArmarios;
-        private List<Locatario> listaLocatarios;
+        private Armario armario;
+        private Locatario locatario;
+
+        public List<Contrato> Consultar()
+        {
+            var lista = db.Contrato.ToList();
+            return lista;
+        }
 
         public string Inserir(Contrato contrato)
         {
-            listaArmarios = ac.ConsultarSemContrato();
-            listaLocatarios = lc.ConsultarSemContrato();
+            armario = contrato.Armario;
+            locatario = contrato.Locatario;
+
+            armario.TemContrato = true;
+            locatario.TemContrato = true;
 
             var erros = Validacao.ValidaDados(contrato);
             string resultado = "";
@@ -28,20 +37,13 @@ namespace AlocArmario.Controller
                 try
                 {
                     db.Contrato.Add(contrato);
+                    resultado = ac.Alterar(armario);
+                    if (resultado == "erro")
+                        return resultado;
+                    resultado = lc.Alterar(locatario);
+                    if (resultado == "erro")
+                        return resultado; 
                     db.SaveChanges();
-                    resultado = "ok";
-                    foreach (var a in listaArmarios)
-                        if (a.IdArmario == contrato.IdArmario)
-                        {
-                            a.TemContrato = true;
-                            ac.Alterar(a);
-                        }
-                    foreach (var l in listaLocatarios)
-                        if (l.IdLocatario == contrato.IdLocatario)
-                        {
-                            l.TemContrato = true;
-                            lc.Alterar(l);
-                        }
                 }
                 catch (Exception)
                 {
@@ -54,12 +56,6 @@ namespace AlocArmario.Controller
                     resultado = (resultado + "\n" + e);
             }
             return resultado;
-        }
-
-        public List<Contrato> Consultar()
-        {
-            var lista = db.Contrato.ToList();
-            return lista;
         }
     }
 }

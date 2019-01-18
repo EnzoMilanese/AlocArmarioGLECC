@@ -31,29 +31,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaArmarioAvanc));
             this.tbcConsulta = new System.Windows.Forms.TabControl();
             this.tbpContratos = new System.Windows.Forms.TabPage();
+            this.vsbDgvContr = new System.Windows.Forms.VScrollBar();
             this.btnCadastContrato = new System.Windows.Forms.Button();
             this.dgvContratos = new System.Windows.Forms.DataGridView();
-            this.IdContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidadeContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArmarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocatarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpLocatarios = new System.Windows.Forms.TabPage();
+            this.vsbDgvLoc = new System.Windows.Forms.VScrollBar();
             this.btnCadastLocatario = new System.Windows.Forms.Button();
             this.dgvLocatarios = new System.Windows.Forms.DataGridView();
+            this.IdLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProntLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmailLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefoneLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContratoLocatario = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpArmarios = new System.Windows.Forms.TabPage();
+            this.vsbDgvArm = new System.Windows.Forms.VScrollBar();
             this.dgvArmarios = new System.Windows.Forms.DataGridView();
             this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpBlocos = new System.Windows.Forms.TabPage();
+            this.vsbDgvBloc = new System.Windows.Forms.VScrollBar();
             this.btnCadastBloco = new System.Windows.Forms.Button();
             this.dgvBlocos = new System.Windows.Forms.DataGridView();
             this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpSecoes = new System.Windows.Forms.TabPage();
+            this.vsbDgvSec = new System.Windows.Forms.VScrollBar();
             this.btnCadastSecao = new System.Windows.Forms.Button();
             this.dgvSecoes = new System.Windows.Forms.DataGridView();
             this.IdSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,12 +69,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.IdLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProntLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmailLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefoneLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContratoLocatario = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IdContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValidadeContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocatarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -96,6 +102,7 @@
             // 
             // tbpContratos
             // 
+            this.tbpContratos.Controls.Add(this.vsbDgvContr);
             this.tbpContratos.Controls.Add(this.btnCadastContrato);
             this.tbpContratos.Controls.Add(this.dgvContratos);
             this.tbpContratos.Location = new System.Drawing.Point(4, 22);
@@ -105,6 +112,14 @@
             this.tbpContratos.TabIndex = 0;
             this.tbpContratos.Text = "Contratos";
             this.tbpContratos.UseVisualStyleBackColor = true;
+            // 
+            // vsbDgvContr
+            // 
+            this.vsbDgvContr.Location = new System.Drawing.Point(831, 6);
+            this.vsbDgvContr.Name = "vsbDgvContr";
+            this.vsbDgvContr.Size = new System.Drawing.Size(15, 377);
+            this.vsbDgvContr.TabIndex = 5;
+            this.vsbDgvContr.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbDgvContr_Scroll);
             // 
             // btnCadastContrato
             // 
@@ -130,42 +145,13 @@
             this.LocatarioContrato});
             this.dgvContratos.Location = new System.Drawing.Point(266, 6);
             this.dgvContratos.Name = "dgvContratos";
-            this.dgvContratos.Size = new System.Drawing.Size(580, 377);
+            this.dgvContratos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvContratos.Size = new System.Drawing.Size(565, 377);
             this.dgvContratos.TabIndex = 3;
-            this.dgvContratos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContratos_CellContentClick);
-            // 
-            // IdContrato
-            // 
-            this.IdContrato.HeaderText = "ID";
-            this.IdContrato.Name = "IdContrato";
-            this.IdContrato.Width = 107;
-            // 
-            // ValidadeContrato
-            // 
-            this.ValidadeContrato.HeaderText = "Validade";
-            this.ValidadeContrato.Name = "ValidadeContrato";
-            this.ValidadeContrato.Width = 108;
-            // 
-            // ValorContrato
-            // 
-            this.ValorContrato.HeaderText = "Valor";
-            this.ValorContrato.Name = "ValorContrato";
-            this.ValorContrato.Width = 107;
-            // 
-            // ArmarioContrato
-            // 
-            this.ArmarioContrato.HeaderText = "Armário";
-            this.ArmarioContrato.Name = "ArmarioContrato";
-            this.ArmarioContrato.Width = 108;
-            // 
-            // LocatarioContrato
-            // 
-            this.LocatarioContrato.HeaderText = "Locatário";
-            this.LocatarioContrato.Name = "LocatarioContrato";
-            this.LocatarioContrato.Width = 107;
             // 
             // tbpLocatarios
             // 
+            this.tbpLocatarios.Controls.Add(this.vsbDgvLoc);
             this.tbpLocatarios.Controls.Add(this.btnCadastLocatario);
             this.tbpLocatarios.Controls.Add(this.dgvLocatarios);
             this.tbpLocatarios.Location = new System.Drawing.Point(4, 22);
@@ -175,6 +161,14 @@
             this.tbpLocatarios.TabIndex = 1;
             this.tbpLocatarios.Text = "Locatários";
             this.tbpLocatarios.UseVisualStyleBackColor = true;
+            // 
+            // vsbDgvLoc
+            // 
+            this.vsbDgvLoc.Location = new System.Drawing.Point(831, 6);
+            this.vsbDgvLoc.Name = "vsbDgvLoc";
+            this.vsbDgvLoc.Size = new System.Drawing.Size(15, 377);
+            this.vsbDgvLoc.TabIndex = 6;
+            this.vsbDgvLoc.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbDgvLoc_Scroll);
             // 
             // btnCadastLocatario
             // 
@@ -201,11 +195,49 @@
             this.ContratoLocatario});
             this.dgvLocatarios.Location = new System.Drawing.Point(266, 6);
             this.dgvLocatarios.Name = "dgvLocatarios";
-            this.dgvLocatarios.Size = new System.Drawing.Size(580, 377);
+            this.dgvLocatarios.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvLocatarios.Size = new System.Drawing.Size(565, 377);
             this.dgvLocatarios.TabIndex = 3;
+            // 
+            // IdLocatario
+            // 
+            this.IdLocatario.HeaderText = "ID";
+            this.IdLocatario.Name = "IdLocatario";
+            this.IdLocatario.Width = 37;
+            // 
+            // NomeLocatario
+            // 
+            this.NomeLocatario.HeaderText = "Nome";
+            this.NomeLocatario.Name = "NomeLocatario";
+            this.NomeLocatario.Width = 120;
+            // 
+            // ProntLocatario
+            // 
+            this.ProntLocatario.HeaderText = "Prontuário";
+            this.ProntLocatario.Name = "ProntLocatario";
+            this.ProntLocatario.Width = 60;
+            // 
+            // EmailLocatario
+            // 
+            this.EmailLocatario.HeaderText = "Email";
+            this.EmailLocatario.Name = "EmailLocatario";
+            this.EmailLocatario.Width = 160;
+            // 
+            // TelefoneLocatario
+            // 
+            this.TelefoneLocatario.HeaderText = "Telefone";
+            this.TelefoneLocatario.Name = "TelefoneLocatario";
+            this.TelefoneLocatario.Width = 90;
+            // 
+            // ContratoLocatario
+            // 
+            this.ContratoLocatario.HeaderText = "Contrato";
+            this.ContratoLocatario.Name = "ContratoLocatario";
+            this.ContratoLocatario.Width = 55;
             // 
             // tbpArmarios
             // 
+            this.tbpArmarios.Controls.Add(this.vsbDgvArm);
             this.tbpArmarios.Controls.Add(this.dgvArmarios);
             this.tbpArmarios.Location = new System.Drawing.Point(4, 22);
             this.tbpArmarios.Name = "tbpArmarios";
@@ -214,6 +246,14 @@
             this.tbpArmarios.TabIndex = 2;
             this.tbpArmarios.Text = "Armarios";
             this.tbpArmarios.UseVisualStyleBackColor = true;
+            // 
+            // vsbDgvArm
+            // 
+            this.vsbDgvArm.Location = new System.Drawing.Point(831, 6);
+            this.vsbDgvArm.Name = "vsbDgvArm";
+            this.vsbDgvArm.Size = new System.Drawing.Size(15, 377);
+            this.vsbDgvArm.TabIndex = 4;
+            this.vsbDgvArm.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbDgvArm_Scroll);
             // 
             // dgvArmarios
             // 
@@ -227,12 +267,13 @@
             this.IdArmario,
             this.NumeroArmario,
             this.BlocoArmario,
-            this.Secao});
+            this.Secao,
+            this.ArmarioTemContrato});
             this.dgvArmarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArmarios.Location = new System.Drawing.Point(266, 6);
             this.dgvArmarios.Name = "dgvArmarios";
-            this.dgvArmarios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvArmarios.Size = new System.Drawing.Size(580, 377);
+            this.dgvArmarios.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvArmarios.Size = new System.Drawing.Size(565, 377);
             this.dgvArmarios.TabIndex = 3;
             // 
             // IdArmario
@@ -259,10 +300,17 @@
             this.Secao.FillWeight = 123.8579F;
             this.Secao.HeaderText = "Seção";
             this.Secao.Name = "Secao";
-            this.Secao.Width = 300;
+            this.Secao.Width = 230;
+            // 
+            // ArmarioTemContrato
+            // 
+            this.ArmarioTemContrato.HeaderText = "Contato";
+            this.ArmarioTemContrato.Name = "ArmarioTemContrato";
+            this.ArmarioTemContrato.Width = 55;
             // 
             // tbpBlocos
             // 
+            this.tbpBlocos.Controls.Add(this.vsbDgvBloc);
             this.tbpBlocos.Controls.Add(this.btnCadastBloco);
             this.tbpBlocos.Controls.Add(this.dgvBlocos);
             this.tbpBlocos.Location = new System.Drawing.Point(4, 22);
@@ -272,6 +320,14 @@
             this.tbpBlocos.TabIndex = 3;
             this.tbpBlocos.Text = "Blocos";
             this.tbpBlocos.UseVisualStyleBackColor = true;
+            // 
+            // vsbDgvBloc
+            // 
+            this.vsbDgvBloc.Location = new System.Drawing.Point(831, 6);
+            this.vsbDgvBloc.Name = "vsbDgvBloc";
+            this.vsbDgvBloc.Size = new System.Drawing.Size(15, 377);
+            this.vsbDgvBloc.TabIndex = 6;
+            this.vsbDgvBloc.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbDgvBloc_Scroll);
             // 
             // btnCadastBloco
             // 
@@ -297,7 +353,8 @@
             this.SecaoBloco});
             this.dgvBlocos.Location = new System.Drawing.Point(266, 6);
             this.dgvBlocos.Name = "dgvBlocos";
-            this.dgvBlocos.Size = new System.Drawing.Size(580, 377);
+            this.dgvBlocos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvBlocos.Size = new System.Drawing.Size(565, 377);
             this.dgvBlocos.TabIndex = 3;
             // 
             // IdBloco
@@ -318,10 +375,11 @@
             this.SecaoBloco.FillWeight = 284.7716F;
             this.SecaoBloco.HeaderText = "Seção";
             this.SecaoBloco.Name = "SecaoBloco";
-            this.SecaoBloco.Width = 400;
+            this.SecaoBloco.Width = 385;
             // 
             // tbpSecoes
             // 
+            this.tbpSecoes.Controls.Add(this.vsbDgvSec);
             this.tbpSecoes.Controls.Add(this.btnCadastSecao);
             this.tbpSecoes.Controls.Add(this.dgvSecoes);
             this.tbpSecoes.Location = new System.Drawing.Point(4, 22);
@@ -331,6 +389,14 @@
             this.tbpSecoes.TabIndex = 4;
             this.tbpSecoes.Text = "Seções";
             this.tbpSecoes.UseVisualStyleBackColor = true;
+            // 
+            // vsbDgvSec
+            // 
+            this.vsbDgvSec.Location = new System.Drawing.Point(831, 6);
+            this.vsbDgvSec.Name = "vsbDgvSec";
+            this.vsbDgvSec.Size = new System.Drawing.Size(15, 377);
+            this.vsbDgvSec.TabIndex = 6;
+            this.vsbDgvSec.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbDgvSec_Scroll);
             // 
             // btnCadastSecao
             // 
@@ -355,7 +421,8 @@
             this.dgvSecoes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSecoes.Location = new System.Drawing.Point(266, 6);
             this.dgvSecoes.Name = "dgvSecoes";
-            this.dgvSecoes.Size = new System.Drawing.Size(580, 377);
+            this.dgvSecoes.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvSecoes.Size = new System.Drawing.Size(565, 377);
             this.dgvSecoes.TabIndex = 4;
             // 
             // IdSecao
@@ -376,7 +443,7 @@
             this.DescricaoSecao.FillWeight = 202.6386F;
             this.DescricaoSecao.HeaderText = "Descrição";
             this.DescricaoSecao.Name = "DescricaoSecao";
-            this.DescricaoSecao.Width = 400;
+            this.DescricaoSecao.Width = 385;
             // 
             // textBox1
             // 
@@ -404,41 +471,35 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Alocação de Armários - GLECC";
             // 
-            // IdLocatario
+            // IdContrato
             // 
-            this.IdLocatario.HeaderText = "ID";
-            this.IdLocatario.Name = "IdLocatario";
-            this.IdLocatario.Width = 37;
+            this.IdContrato.HeaderText = "ID";
+            this.IdContrato.Name = "IdContrato";
+            this.IdContrato.Width = 37;
             // 
-            // NomeLocatario
+            // ValidadeContrato
             // 
-            this.NomeLocatario.HeaderText = "Nome";
-            this.NomeLocatario.Name = "NomeLocatario";
-            this.NomeLocatario.Width = 130;
+            this.ValidadeContrato.HeaderText = "Validade";
+            this.ValidadeContrato.Name = "ValidadeContrato";
+            this.ValidadeContrato.Width = 125;
             // 
-            // ProntLocatario
+            // ValorContrato
             // 
-            this.ProntLocatario.HeaderText = "Prontuário";
-            this.ProntLocatario.Name = "ProntLocatario";
-            this.ProntLocatario.Width = 60;
+            this.ValorContrato.HeaderText = "Valor";
+            this.ValorContrato.Name = "ValorContrato";
+            this.ValorContrato.Width = 125;
             // 
-            // EmailLocatario
+            // ArmarioContrato
             // 
-            this.EmailLocatario.HeaderText = "Email";
-            this.EmailLocatario.Name = "EmailLocatario";
-            this.EmailLocatario.Width = 170;
+            this.ArmarioContrato.HeaderText = "Armário";
+            this.ArmarioContrato.Name = "ArmarioContrato";
+            this.ArmarioContrato.Width = 95;
             // 
-            // TelefoneLocatario
+            // LocatarioContrato
             // 
-            this.TelefoneLocatario.HeaderText = "Telefone";
-            this.TelefoneLocatario.Name = "TelefoneLocatario";
-            this.TelefoneLocatario.Width = 90;
-            // 
-            // ContratoLocatario
-            // 
-            this.ContratoLocatario.HeaderText = "Contrato";
-            this.ContratoLocatario.Name = "ContratoLocatario";
-            this.ContratoLocatario.Width = 50;
+            this.LocatarioContrato.HeaderText = "Locatário";
+            this.LocatarioContrato.Name = "LocatarioContrato";
+            this.LocatarioContrato.Width = 140;
             // 
             // ConsultaArmarioAvanc
             // 
@@ -455,7 +516,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alocação de Armários";
             this.Activated += new System.EventHandler(this.ConsultaArmarioAvanc_Activated);
-            this.Load += new System.EventHandler(this.ConsultaArmarioAvanc_Load);
             this.tbcConsulta.ResumeLayout(false);
             this.tbpContratos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).EndInit();
@@ -491,26 +551,32 @@
         private System.Windows.Forms.Button btnCadastBloco;
         private System.Windows.Forms.Button btnCadastSecao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValidadeContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ArmarioContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LocatarioContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
+        private System.Windows.Forms.VScrollBar vsbDgvLoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProntLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLocatario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ContratoLocatario;
+        private System.Windows.Forms.VScrollBar vsbDgvArm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ArmarioTemContrato;
+        private System.Windows.Forms.VScrollBar vsbDgvBloc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroBloco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
+        private System.Windows.Forms.VScrollBar vsbDgvContr;
+        private System.Windows.Forms.VScrollBar vsbDgvSec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdContrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValidadeContrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorContrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ArmarioContrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LocatarioContrato;
     }
 }

@@ -35,6 +35,7 @@ namespace AlocArmario.View.LocatarioView
             locatario.Prontuario = txbPront.Text;
             locatario.Email = txbEmail.Text;
             locatario.Telefone = mktTel.Text;
+            locatario.TemContrato = false;
 
             string resultado = lc.Inserir(locatario);
             if (resultado.Equals("ok"))

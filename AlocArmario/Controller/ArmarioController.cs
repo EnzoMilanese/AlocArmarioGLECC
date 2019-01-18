@@ -18,7 +18,7 @@ namespace AlocArmario.Controller
             return lista;
         }
 
-        private List<Armario> ConsultarSemContrato()
+        public List<Armario> ConsultarSemContrato()
         {
             List<Armario> lista = (from a in db.Armario
                                    where a.TemContrato == false
@@ -52,8 +52,34 @@ namespace AlocArmario.Controller
             return resultado;
         }
 
-        internal void Alterar(Armario armario)
+        public string Alterar(Armario armario)
         {
+            var erros = Validacao.ValidaDados(armario);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    Armario armarioDb = (from a in db.Armario
+                                         where a.IdArmario == armario.IdArmario 
+                                         select a).SingleOrDefault();
+                    armarioDb = armario;
+                    db.SaveChanges();
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+
         }
     }
 }
