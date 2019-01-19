@@ -40,7 +40,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(218, 227);
+            this.btnCancelar.Location = new System.Drawing.Point(218, 156);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -50,7 +50,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(137, 227);
+            this.btnCadastrar.Location = new System.Drawing.Point(137, 156);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 2;
@@ -74,9 +74,8 @@
             this.txbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbDescricao.Location = new System.Drawing.Point(116, 107);
             this.txbDescricao.Margin = new System.Windows.Forms.Padding(0);
-            this.txbDescricao.Multiline = true;
             this.txbDescricao.Name = "txbDescricao";
-            this.txbDescricao.Size = new System.Drawing.Size(260, 85);
+            this.txbDescricao.Size = new System.Drawing.Size(260, 22);
             this.txbDescricao.TabIndex = 1;
             // 
             // label1
@@ -114,7 +113,7 @@
             this.AcceptButton = this.btnCadastrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 286);
+            this.ClientSize = new System.Drawing.Size(434, 209);
             this.Controls.Add(this.txbNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);

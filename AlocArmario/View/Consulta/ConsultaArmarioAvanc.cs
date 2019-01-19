@@ -276,6 +276,5 @@ namespace AlocArmario.View
         {
             vsbDgvContr.Focus();
         }
-
     }
 }
