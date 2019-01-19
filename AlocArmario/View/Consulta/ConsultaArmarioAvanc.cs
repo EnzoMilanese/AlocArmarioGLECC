@@ -1,4 +1,5 @@
 ﻿using AlocArmario.Controller;
+using AlocArmario.Model;
 using AlocArmario.View.Cadastro;
 using AlocArmario.View.LocatarioView;
 using System;
@@ -20,14 +21,42 @@ namespace AlocArmario.View
         private ArmarioController ac;
         private BlocoController bc;
         private SecaoController sc;
+        List<Contrato> listaContratos = new List<Contrato>();
+        List<Locatario> listaLocatarios = new List<Locatario>();
+        List<Armario> listaArmarios = new List<Armario>();
+        List<Bloco> listaBlocos = new List<Bloco>();
+        List<Secao> listaSecoes = new List<Secao>();
+        private Contrato contratoAtivo = new Contrato();
+        private Locatario locatarioAtivo = new Locatario();
+        private Armario armarioAtivo = new Armario();
+        private Bloco blocoAtivo = new Bloco();
+        private Secao secaoAtiva = new Secao();
 
         public ConsultaArmarioAvanc()
         {
             InitializeComponent();
+
+            contratoAtivo = new Contrato();
+            locatarioAtivo = new Locatario();
+            armarioAtivo = new Armario();
+            blocoAtivo = new Bloco();
+            secaoAtiva = new Secao();
+
+            cc = new ContratoController();
+            lc = new LocatarioController();
+            ac = new ArmarioController();
+            bc = new BlocoController();
+            sc = new SecaoController();
         }
 
         private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
         {
+            listaContratos = cc.Consultar();
+            listaLocatarios = lc.Consultar();
+            listaArmarios = ac.Consultar();
+            listaBlocos = bc.Consultar();
+            listaSecoes = sc.Consultar();
+
             this.ConsultarContratos();
             this.ConsultarLocatarios();
             this.ConsultarArmarios();
@@ -39,6 +68,84 @@ namespace AlocArmario.View
             this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
             this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
             this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+        }
+
+        private void ConsultarContratos()
+        {
+            dgvContratos.Rows.Clear();
+            int linha = 0;
+            foreach (var c in listaContratos)
+            {
+                dgvContratos.Rows.Add();
+                dgvContratos.Rows[linha].Cells[0].Value = c.IdContrato;
+                dgvContratos.Rows[linha].Cells[1].Value = c.Validade;
+                dgvContratos.Rows[linha].Cells[2].Value = c.Valor;
+                dgvContratos.Rows[linha].Cells[3].Value = c.TipoContrato;
+                dgvContratos.Rows[linha].Cells[4].Value = c.Armario.Numero;
+                dgvContratos.Rows[linha].Cells[5].Value = c.Locatario.Nome;
+                linha++;
+            }
+        }
+
+        private void ConsultarLocatarios()
+        {
+            dgvLocatarios.Rows.Clear();
+            int linha = 0;
+            foreach (var l in listaLocatarios)
+            {
+                dgvLocatarios.Rows.Add();
+                dgvLocatarios.Rows[linha].Cells[0].Value = l.IdLocatario;
+                dgvLocatarios.Rows[linha].Cells[1].Value = l.Nome;
+                dgvLocatarios.Rows[linha].Cells[2].Value = l.Prontuario;
+                dgvLocatarios.Rows[linha].Cells[3].Value = l.Email;
+                dgvLocatarios.Rows[linha].Cells[4].Value = l.Telefone;
+                dgvLocatarios.Rows[linha].Cells[5].Value = l.TemContrato;
+                linha++;
+            }
+        }
+
+        private void ConsultarArmarios()
+        {
+            dgvArmarios.Rows.Clear();
+            int linha = 0;
+            foreach (var a in listaArmarios)
+            {
+                dgvArmarios.Rows.Add();
+                dgvArmarios.Rows[linha].Cells[0].Value = a.IdArmario;
+                dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
+                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
+                dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
+                dgvArmarios.Rows[linha].Cells[4].Value = a.TemContrato;
+                linha++;
+            }
+        }
+
+        private void ConsultarBlocos()
+        {
+            dgvBlocos.Rows.Clear();
+            int linha = 0;
+            foreach (var b in listaBlocos)
+            {
+                dgvBlocos.Rows.Add();
+                dgvBlocos.Rows[linha].Cells[0].Value = b.IdBloco;
+                dgvBlocos.Rows[linha].Cells[1].Value = b.Numero;
+                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.Nome;
+                linha++;
+            }
+        }
+
+        private void ConsultarSecoes()
+        {
+            dgvSecoes.Rows.Clear();
+            int linha = 0;
+            foreach (var s in listaSecoes)
+            {
+                dgvSecoes.Rows.Add();
+                dgvSecoes.Rows[linha].Cells[0].Value = s.IdSecao;
+                dgvSecoes.Rows[linha].Cells[1].Value = s.Nome;
+                dgvSecoes.Rows[linha].Cells[2].Value = s.Descricao;
+                linha++;
+            }
         }
 
         private void CarregarScrollBars(DataGridView dgv, VScrollBar vsb)
@@ -73,7 +180,7 @@ namespace AlocArmario.View
                     vsb.Maximum = dgv.RowCount - 6;
                     return;
                 }
-                }
+            }
 
             vsb.Maximum = dgv.RowCount - 6;
         }
@@ -106,104 +213,6 @@ namespace AlocArmario.View
         {
             if (e.NewValue > -1 && e.NewValue < dgvSecoes.Rows.Count + 2)
                 dgvSecoes.FirstDisplayedScrollingRowIndex = e.NewValue;
-        }
-
-        private void ConsultarContratos()
-        {
-            dgvContratos.Rows.Clear();
-
-            cc = new ContratoController();
-            var contratos = cc.Consultar();
-
-            int linha = 0;
-            foreach (var c in contratos)
-            {
-                dgvContratos.Rows.Add();
-                dgvContratos.Rows[linha].Cells[0].Value = c.IdContrato;
-                dgvContratos.Rows[linha].Cells[1].Value = c.Validade;
-                dgvContratos.Rows[linha].Cells[2].Value = c.Valor;
-                dgvContratos.Rows[linha].Cells[3].Value = c.TipoContrato;
-                dgvContratos.Rows[linha].Cells[4].Value = c.Armario.Numero;
-                dgvContratos.Rows[linha].Cells[5].Value = c.Locatario.Nome;
-                linha++;
-            }
-        }
-
-        private void ConsultarLocatarios()
-        {
-            dgvLocatarios.Rows.Clear();
-
-            lc = new LocatarioController();
-            var locatarios = lc.Consultar();
-
-            int linha = 0;
-            foreach (var l in locatarios)
-            {
-                dgvLocatarios.Rows.Add();
-                dgvLocatarios.Rows[linha].Cells[0].Value = l.IdLocatario;
-                dgvLocatarios.Rows[linha].Cells[1].Value = l.Nome;
-                dgvLocatarios.Rows[linha].Cells[2].Value = l.Prontuario;
-                dgvLocatarios.Rows[linha].Cells[3].Value = l.Email;
-                dgvLocatarios.Rows[linha].Cells[4].Value = l.Telefone;
-                dgvLocatarios.Rows[linha].Cells[5].Value = l.TemContrato;
-                linha++;
-            }
-        }
-
-        private void ConsultarArmarios()
-        {
-            dgvArmarios.Rows.Clear();
-
-            ac = new ArmarioController();
-            var armarios = ac.Consultar();
-
-            int linha = 0;
-            foreach (var a in armarios)
-            {
-                dgvArmarios.Rows.Add();
-                dgvArmarios.Rows[linha].Cells[0].Value = a.IdArmario;
-                dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
-                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
-                dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
-                dgvArmarios.Rows[linha].Cells[4].Value = a.TemContrato;
-                linha++;
-            }
-        }
-
-        private void ConsultarBlocos()
-        {
-            dgvBlocos.Rows.Clear();
-
-            bc = new BlocoController();
-            var blocos = bc.Consultar();
-
-            int linha = 0;
-            foreach (var b in blocos)
-            {
-                dgvBlocos.Rows.Add();
-                dgvBlocos.Rows[linha].Cells[0].Value = b.IdBloco;
-                dgvBlocos.Rows[linha].Cells[1].Value = b.Numero;
-                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.Nome;
-                linha++;
-            }
-        }
-
-        private void ConsultarSecoes()
-        {
-            dgvSecoes.Rows.Clear();
-
-            sc = new SecaoController();
-            var secoes = sc.Consultar();
-
-            int linha = 0;
-            foreach (var s in secoes)
-            {
-                dgvSecoes.Rows.Add();
-                dgvSecoes.Rows[linha].Cells[0].Value = s.IdSecao;
-                dgvSecoes.Rows[linha].Cells[1].Value = s.Nome;
-                dgvSecoes.Rows[linha].Cells[2].Value = s.Descricao;
-                linha++;
-            }
         }
 
         private void btnCadastContrato_Click(object sender, EventArgs e)
@@ -275,6 +284,194 @@ namespace AlocArmario.View
         private void tbpContratos_MouseMove(object sender, MouseEventArgs e)
         {
             vsbDgvContr.Focus();
+        }
+
+        private void CarregarContLabels()
+        {
+            locatarioAtivo = contratoAtivo.Locatario;
+            armarioAtivo = contratoAtivo.Armario;
+
+            lblContIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+            lblContValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+            lblContTipoCont.Text = contratoAtivo.TipoContrato;
+            lblContValorCont.Text = contratoAtivo.Valor;
+
+            lblContIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
+            lblContNomeLoc.Text = locatarioAtivo.Nome;
+            lblContProntLoc.Text = locatarioAtivo.Prontuario;
+            lblContEmailLoc.Text = locatarioAtivo.Email;
+            lblContTelLoc.Text = locatarioAtivo.Telefone;
+
+            lblContIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+            lblContNumArm.Text = armarioAtivo.Numero;
+            lblContBlocArm.Text = armarioAtivo.Bloco.Numero;
+            lblContSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
+        }
+
+        private void CarregarLocLabels()
+        {
+            foreach (var c in listaContratos)
+                if (c.IdContrato == locatarioAtivo.ContratoAtivo)
+                    contratoAtivo = c;
+
+            lblLocIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
+            lblLocNomeLoc.Text = locatarioAtivo.Nome;
+            lblLocProntLoc.Text = locatarioAtivo.Prontuario;
+            lblLocEmailLoc.Text = locatarioAtivo.Email;
+            lblLocTelLoc.Text = locatarioAtivo.Telefone;
+
+            if (locatarioAtivo.TemContrato == true)
+            {
+                lblLocIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+                lblLocValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+                lblLocTipoCont.Text = contratoAtivo.TipoContrato;
+                lblLocValorCont.Text = contratoAtivo.Valor;
+            }
+            else
+            {
+                lblLocIdCont.Text = "...";
+                lblLocValidadeCont.Text = "...";
+                lblLocTipoCont.Text = "...";
+                lblLocValorCont.Text = "...";
+            }
+        }
+
+        private void CarregarArmLabels()
+        {
+            foreach (var c in listaContratos)
+                if (c.IdContrato == armarioAtivo.ContratoAtivo)
+                    contratoAtivo = c;
+
+            lblArmIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+            lblArmNumArm.Text = armarioAtivo.Numero;
+            lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
+            lblArmSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
+
+            if (armarioAtivo.TemContrato == true)
+            {
+                lblArmIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+                lblArmValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+                lblArmTipoCont.Text = contratoAtivo.TipoContrato;
+                lblArmValorCont.Text = contratoAtivo.Valor;
+            }
+            else
+            {
+                lblArmIdCont.Text = "...";
+                lblArmValidadeCont.Text = "...";
+                lblArmTipoCont.Text = "...";
+                lblArmValorCont.Text = "...";
+            }
+        }
+
+        private void CarregarBlocLabels()
+        {
+            int qntArm = 0;
+            foreach (var a in listaArmarios)
+                if (a.IdBloco == blocoAtivo.IdBloco && a.Danificado == false)
+                    qntArm++;
+
+            lblBlocIdBloc.Text = Convert.ToString(blocoAtivo.IdBloco);
+            lblBlocNumBloc.Text = blocoAtivo.Numero;
+            lblBlocSecBloc.Text = blocoAtivo.Secao.Nome;
+            lblBlocQntArm.Text = Convert.ToString(qntArm);
+        }
+
+        private void CarregarSecLabels()
+        {
+            int qntBloc = 0;
+            foreach (var b in listaBlocos)
+                if (b.IdSecao == secaoAtiva.IdSecao)
+                    qntBloc++;
+            int qntArm = 0;
+            foreach (var a in listaArmarios)
+                if (a.Bloco.IdSecao == secaoAtiva.IdSecao && a.Danificado == false)
+                    qntArm++;
+
+            lblSecIdSec.Text = Convert.ToString(secaoAtiva.IdSecao);
+            lblSecNomeSec.Text = secaoAtiva.Nome;
+            lblSecDescSec.Text = secaoAtiva.Descricao;
+            lblSecQntBloc.Text = Convert.ToString(qntBloc);
+            lblSecQntArm.Text = Convert.ToString(qntArm);
+        }
+
+        private void dgvContratos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vsbDgvContr.Focus();
+
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int idLinha = (int) dgvContratos[0, e.RowIndex].Value;
+            foreach (var c in listaContratos)
+                if (c.IdContrato.Equals(idLinha))
+                {
+                    contratoAtivo = c;
+                    this.CarregarContLabels();
+                }        
+        }
+
+        private void dgvLocatarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vsbDgvLoc.Focus();
+
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int idLinha = (int) dgvLocatarios[0, e.RowIndex].Value;
+            foreach (var l in listaLocatarios)
+                if (l.IdLocatario.Equals(idLinha))
+                {
+                    locatarioAtivo = l;
+                    this.CarregarLocLabels();
+                }
+        }
+
+        private void dgvArmarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vsbDgvArm.Focus();
+
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int idLinha = (int) dgvArmarios[0, e.RowIndex].Value;
+            foreach (var a in listaArmarios)
+                if (a.IdArmario.Equals(idLinha))
+                {
+                    armarioAtivo = a;
+                    this.CarregarArmLabels();
+                }
+        }
+
+        private void dgvBlocos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vsbDgvBloc.Focus();
+
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int idLinha = (int) dgvBlocos[0, e.RowIndex].Value;
+            foreach (var b in listaBlocos)
+                if (b.IdBloco.Equals(idLinha))
+                {
+                    blocoAtivo = b;
+                    this.CarregarBlocLabels();
+                }
+        }
+
+        private void dgvSecoes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vsbDgvSec.Focus();
+
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int idLinha = (int) dgvSecoes[0, e.RowIndex].Value;
+            foreach (var s in listaSecoes)
+                if (s.IdSecao.Equals(idLinha))
+                {
+                    secaoAtiva = s;
+                    this.CarregarSecLabels();
+                }
         }
     }
 }

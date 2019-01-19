@@ -10,9 +10,9 @@
         <EntityTypeShape EntityType="ModeloDados.Contrato" Width="1.5" PointX="3.25" PointY="1.125" />
         <AssociationConnector Association="ModeloDados.ArmarioContrato" />
         <AssociationConnector Association="ModeloDados.Aluga" />
-        <EntityTypeShape EntityType="ModeloDados.Bloco" Width="1.5" PointX="0.875" PointY="3.875" />
+        <EntityTypeShape EntityType="ModeloDados.Bloco" Width="1.5" PointX="0.875" PointY="4.25" />
         <AssociationConnector Association="ModeloDados.Possui" />
-        <EntityTypeShape EntityType="ModeloDados.Secao" Width="1.5" PointX="0.875" PointY="6.5" />
+        <EntityTypeShape EntityType="ModeloDados.Secao" Width="1.5" PointX="0.875" PointY="6.875" />
         <AssociationConnector Association="ModeloDados.SecaoBloco" />
         <EntityTypeShape EntityType="ModeloDados.Usuario" Width="1.5" PointX="3.75" PointY="5" />
       </Diagram>

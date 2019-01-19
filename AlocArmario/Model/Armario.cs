@@ -23,6 +23,8 @@ namespace AlocArmario.Model
         public int IdBloco { get; set; }
         public string Numero { get; set; }
         public bool TemContrato { get; set; }
+        public int ContratoAtivo { get; set; }
+        public bool Danificado { get; set; }
     
         public virtual ICollection<Contrato> Contrato { get; set; }
         public virtual Bloco Bloco { get; set; }

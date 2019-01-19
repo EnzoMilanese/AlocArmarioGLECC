@@ -14,8 +14,8 @@ namespace AlocArmario.Controller
         private LocatarioController lc = new LocatarioController();
         private List<Armario> armarios = new List<Armario>();
         private List<Locatario> locatarios = new List<Locatario>();
-        private Armario armario;
-        private Locatario locatario;
+        private Armario armario = new Armario();
+        private Locatario locatario = new Locatario();
 
         public List<Contrato> Consultar()
         {
@@ -47,10 +47,12 @@ namespace AlocArmario.Controller
                 try
                 {
                     db.Contrato.Add(contrato);
+                    armario.ContratoAtivo = contrato.IdArmario;
                     resultado = ac.Alterar(armario);
                     if (resultado == "erro")
                         return resultado;
                     resultado = lc.Alterar(locatario);
+                    locatario.ContratoAtivo = contrato.IdArmario;
                     if (resultado == "erro")
                         return resultado; 
                     db.SaveChanges();

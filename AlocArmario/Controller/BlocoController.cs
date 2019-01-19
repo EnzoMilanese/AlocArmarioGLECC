@@ -57,6 +57,7 @@ namespace AlocArmario.Controller
                         armario.IdBloco = bloco.IdBloco;
                         armario.Numero = bloco.Numero + i;
                         armario.TemContrato = false;
+                        armario.Danificado = false;
                         ac.Inserir(armario);
                     }
                     resultado = "ok";

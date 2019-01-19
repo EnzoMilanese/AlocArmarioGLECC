@@ -44,14 +44,3 @@ namespace AlocArmario
         }
     }
 }
-
-/*
-            using (Login login = new Login())
-            {
-                var result = login.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    this.Visible = true;
-                }
-            }
-*/
