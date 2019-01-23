@@ -21,16 +21,27 @@ namespace AlocArmario.View
         private ArmarioController ac;
         private BlocoController bc;
         private SecaoController sc;
-        List<Contrato> listaContratos = new List<Contrato>();
-        List<Locatario> listaLocatarios = new List<Locatario>();
-        List<Armario> listaArmarios = new List<Armario>();
-        List<Bloco> listaBlocos = new List<Bloco>();
-        List<Secao> listaSecoes = new List<Secao>();
+        private List<Contrato> baseContratos = new List<Contrato>();
+        private List<Locatario> baseLocatarios = new List<Locatario>();
+        private List<Armario> baseArmarios = new List<Armario>();
+        private List<Bloco> baseBlocos = new List<Bloco>();
+        private List<Secao> baseSecoes = new List<Secao>();
+        private List<Contrato> listaContratos = new List<Contrato>();
+        private List<Locatario> listaLocatarios = new List<Locatario>();
+        private List<Armario> listaArmarios = new List<Armario>();
+        private List<Bloco> listaBlocos = new List<Bloco>();
+        private List<Secao> listaSecoes = new List<Secao>();
+        private List<Contrato> listaContratosFiltrada = new List<Contrato>();
+        private List<Locatario> listaLocatariosFiltrada = new List<Locatario>();
+        private List<Armario> listaArmariosFiltrada = new List<Armario>();
+        private List<Bloco> listaBlocosFiltrada = new List<Bloco>();
+        private List<Secao> listaSecoesFiltrada = new List<Secao>();
         private Contrato contratoAtivo = new Contrato();
         private Locatario locatarioAtivo = new Locatario();
         private Armario armarioAtivo = new Armario();
         private Bloco blocoAtivo = new Bloco();
         private Secao secaoAtiva = new Secao();
+
 
         public ConsultaArmarioAvanc()
         {
@@ -47,15 +58,28 @@ namespace AlocArmario.View
             ac = new ArmarioController();
             bc = new BlocoController();
             sc = new SecaoController();
-        }
 
-        private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
-        {
             listaContratos = cc.Consultar();
             listaLocatarios = lc.Consultar();
             listaArmarios = ac.Consultar();
             listaBlocos = bc.Consultar();
             listaSecoes = sc.Consultar();
+
+            baseContratos = cc.Consultar();
+            baseLocatarios = lc.Consultar();
+            baseArmarios = ac.Consultar();
+            baseBlocos = bc.Consultar();
+            baseSecoes = sc.Consultar();
+
+        }
+
+        private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
+        {
+            baseContratos = cc.Consultar();
+            baseLocatarios = lc.Consultar();
+            baseArmarios = ac.Consultar();
+            baseBlocos = bc.Consultar();
+            baseSecoes = sc.Consultar();
 
             this.ConsultarContratos();
             this.ConsultarLocatarios();
@@ -151,6 +175,8 @@ namespace AlocArmario.View
         private void CarregarScrollBars(DataGridView dgv, VScrollBar vsb)
         {
             DataGridViewColumn coluna = dgv.Columns[dgv.ColumnCount - 1];
+
+            vsb.Value = vsb.Minimum;
 
             if (dgv.Width == 565)
             {
@@ -401,13 +427,13 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int) dgvContratos[0, e.RowIndex].Value;
+            int idLinha = (int)dgvContratos[0, e.RowIndex].Value;
             foreach (var c in listaContratos)
                 if (c.IdContrato.Equals(idLinha))
                 {
                     contratoAtivo = c;
                     this.CarregarContLabels();
-                }        
+                }
         }
 
         private void dgvLocatarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -417,7 +443,7 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int) dgvLocatarios[0, e.RowIndex].Value;
+            int idLinha = (int)dgvLocatarios[0, e.RowIndex].Value;
             foreach (var l in listaLocatarios)
                 if (l.IdLocatario.Equals(idLinha))
                 {
@@ -433,7 +459,7 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int) dgvArmarios[0, e.RowIndex].Value;
+            int idLinha = (int)dgvArmarios[0, e.RowIndex].Value;
             foreach (var a in listaArmarios)
                 if (a.IdArmario.Equals(idLinha))
                 {
@@ -449,7 +475,7 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int) dgvBlocos[0, e.RowIndex].Value;
+            int idLinha = (int)dgvBlocos[0, e.RowIndex].Value;
             foreach (var b in listaBlocos)
                 if (b.IdBloco.Equals(idLinha))
                 {
@@ -465,13 +491,202 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int) dgvSecoes[0, e.RowIndex].Value;
+            int idLinha = (int)dgvSecoes[0, e.RowIndex].Value;
             foreach (var s in listaSecoes)
                 if (s.IdSecao.Equals(idLinha))
                 {
                     secaoAtiva = s;
                     this.CarregarSecLabels();
                 }
+        }
+
+        private void txbPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            this.resetarFiltro();
+
+            listaContratosFiltrada.Clear();
+            listaLocatariosFiltrada.Clear();
+            listaArmariosFiltrada.Clear();
+            listaBlocosFiltrada.Clear();
+            listaSecoesFiltrada.Clear();
+
+            bool temTexto = false;
+            switch (tbcConsulta.SelectedIndex)
+            {
+                case 0:
+                    foreach (DataGridViewRow r in dgvContratos.Rows)
+                    {
+                        temTexto = false;
+                        foreach (DataGridViewCell c in r.Cells)
+                        {
+                            if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
+                            {
+                                this.adicionarFiltro(0, r);
+                                temTexto = true;
+                                break;
+                            }
+                        }
+                        if (temTexto == false)
+                            continue;
+                    }
+                    this.carregarFiltro();
+                    break;
+                case 1:
+                    foreach (DataGridViewRow r in dgvLocatarios.Rows)
+                    {
+                        temTexto = false;
+                        foreach (DataGridViewCell c in r.Cells)
+                        {
+                            if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
+                            {
+                                this.adicionarFiltro(1, r);
+                                temTexto = true;
+                                break;
+                            }
+                        }
+                        if (temTexto == false)
+                            continue;
+                    }
+                    this.carregarFiltro();
+                    break;
+                case 2:
+                    foreach (DataGridViewRow r in dgvArmarios.Rows)
+                    {
+                        temTexto = false;
+                        foreach (DataGridViewCell c in r.Cells)
+                        {
+                            if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
+                            {
+                                this.adicionarFiltro(2, r);
+                                temTexto = true;
+                                break;
+                            }
+                        }
+                        if (temTexto == false)
+                            continue;
+                    }
+                    this.carregarFiltro();
+                    break;
+                case 3:
+                    foreach (DataGridViewRow r in dgvBlocos.Rows)
+                    {
+                        temTexto = false;
+                        foreach (DataGridViewCell c in r.Cells)
+                        {
+                            if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
+                            {
+                                this.adicionarFiltro(3, r);
+                                temTexto = true;
+                                break;
+                            }
+                        }
+                        if (temTexto == false)
+                            continue;
+                    }
+                    this.carregarFiltro();
+                    break;
+                case 4:
+                    foreach (DataGridViewRow r in dgvSecoes.Rows)
+                    {
+                        temTexto = false;
+                        foreach (DataGridViewCell c in r.Cells)
+                        {
+                            if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
+                            {
+                                this.adicionarFiltro(4, r);
+                                temTexto = true;
+                                break;
+                            }
+                        }
+                        if (temTexto == false)
+                            continue;
+                    }
+                    this.carregarFiltro();
+                    break;
+            }
+        }
+
+        private void carregarFiltro()
+        {
+            listaContratos = listaContratosFiltrada;
+            listaLocatarios = listaLocatariosFiltrada;
+            listaArmarios = listaArmariosFiltrada;
+            listaBlocos = listaBlocosFiltrada;
+            listaSecoes = listaSecoesFiltrada;
+
+            object a = new object();
+            EventArgs b = new EventArgs();
+            this.ConsultaArmarioAvanc_Activated(a, b);
+        }
+
+        private void adicionarFiltro(int opcao, DataGridViewRow r)
+        {
+            switch (opcao)
+            {
+                case 0:
+                    foreach (var c in baseContratos)
+                        if (c.IdContrato.Equals(r.Cells[0].Value))
+                            listaContratosFiltrada.Add(c);
+                    break;
+                case 1:
+                    foreach (var l in baseLocatarios)
+                        if (l.IdLocatario.Equals(r.Cells[0].Value))
+                            listaLocatariosFiltrada.Add(l);
+                    break;
+                case 2:
+                    foreach (var a in baseArmarios)
+                        if (a.IdArmario.Equals(r.Cells[0].Value))
+                            listaArmariosFiltrada.Add(a);
+                    break;
+                case 3:
+                    foreach (var b in baseBlocos)
+                        if (b.IdBloco.Equals(r.Cells[0].Value))
+                            listaBlocosFiltrada.Add(b);
+                    break;
+                case 4:
+                    foreach (var s in baseSecoes)
+                        if (s.IdSecao.Equals(r.Cells[0].Value))
+                            listaSecoesFiltrada.Add(s);
+                    break;
+            }
+        }
+
+        private void resetarFiltro()
+        {
+            listaContratos = baseContratos;
+            listaLocatarios = baseLocatarios;
+            listaArmarios = baseArmarios;
+            listaBlocos = baseBlocos;
+            listaSecoes = baseSecoes;
+
+            object a = new object();
+            EventArgs b = new EventArgs();
+            this.ConsultaArmarioAvanc_Activated(a, b);
+        }
+
+        private void tbpContratos_Enter(object sender, EventArgs e)
+        {
+            this.CarregarScrollBars(dgvContratos, vsbDgvContr);
+        }
+
+        private void tbpLocatarios_Enter(object sender, EventArgs e)
+        {
+            this.CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
+        }
+
+        private void tbpArmarios_Enter(object sender, EventArgs e)
+        {
+            this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
+        }
+
+        private void tbpBlocos_Enter(object sender, EventArgs e)
+        {
+            this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
+        }
+
+        private void tbpSecoes_Enter(object sender, EventArgs e)
+        {
+            this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
         }
     }
 }

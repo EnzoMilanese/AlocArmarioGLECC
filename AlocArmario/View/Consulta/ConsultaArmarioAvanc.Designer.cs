@@ -71,6 +71,12 @@
             this.vsbDgvContr = new System.Windows.Forms.VScrollBar();
             this.btnCadastContrato = new System.Windows.Forms.Button();
             this.dgvContratos = new System.Windows.Forms.DataGridView();
+            this.IdContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValidadeContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContratoTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocatarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpLocatarios = new System.Windows.Forms.TabPage();
             this.btnLocGerarCert = new System.Windows.Forms.Button();
             this.lblLocTelLoc = new System.Windows.Forms.Label();
@@ -98,6 +104,12 @@
             this.vsbDgvLoc = new System.Windows.Forms.VScrollBar();
             this.btnCadastLocatario = new System.Windows.Forms.Button();
             this.dgvLocatarios = new System.Windows.Forms.DataGridView();
+            this.IdLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProntLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmailLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefoneLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContratoLocatario = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpArmarios = new System.Windows.Forms.TabPage();
             this.lblArmSecArm = new System.Windows.Forms.Label();
             this.lblArmBlocArm = new System.Windows.Forms.Label();
@@ -121,6 +133,11 @@
             this.btnArmInutil = new System.Windows.Forms.Button();
             this.vsbDgvArm = new System.Windows.Forms.VScrollBar();
             this.dgvArmarios = new System.Windows.Forms.DataGridView();
+            this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpBlocos = new System.Windows.Forms.TabPage();
             this.lblBlocQntArm = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -135,6 +152,9 @@
             this.vsbDgvBloc = new System.Windows.Forms.VScrollBar();
             this.btnCadastBloco = new System.Windows.Forms.Button();
             this.dgvBlocos = new System.Windows.Forms.DataGridView();
+            this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpSecoes = new System.Windows.Forms.TabPage();
             this.lblSecQntBloc = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -152,32 +172,12 @@
             this.vsbDgvSec = new System.Windows.Forms.VScrollBar();
             this.btnCadastSecao = new System.Windows.Forms.Button();
             this.dgvSecoes = new System.Windows.Forms.DataGridView();
-            this.txbPesquisar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.IdContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidadeContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContratoTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArmarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocatarioContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProntLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmailLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefoneLocatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContratoLocatario = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescricaoSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txbPesquisar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -249,6 +249,7 @@
             this.tbpContratos.TabIndex = 0;
             this.tbpContratos.Text = "Contratos";
             this.tbpContratos.UseVisualStyleBackColor = true;
+            this.tbpContratos.Enter += new System.EventHandler(this.tbpContratos_Enter);
             this.tbpContratos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbpContratos_MouseMove);
             // 
             // btnContGerarCert
@@ -617,6 +618,41 @@
             this.dgvContratos.TabIndex = 3;
             this.dgvContratos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContratos_CellClick);
             // 
+            // IdContrato
+            // 
+            this.IdContrato.HeaderText = "ID";
+            this.IdContrato.Name = "IdContrato";
+            this.IdContrato.Width = 32;
+            // 
+            // ValidadeContrato
+            // 
+            this.ValidadeContrato.HeaderText = "Validade";
+            this.ValidadeContrato.Name = "ValidadeContrato";
+            // 
+            // ValorContrato
+            // 
+            this.ValorContrato.HeaderText = "Valor";
+            this.ValorContrato.Name = "ValorContrato";
+            this.ValorContrato.Width = 90;
+            // 
+            // ContratoTipo
+            // 
+            this.ContratoTipo.HeaderText = "Tipo";
+            this.ContratoTipo.Name = "ContratoTipo";
+            this.ContratoTipo.Width = 90;
+            // 
+            // ArmarioContrato
+            // 
+            this.ArmarioContrato.HeaderText = "Armário";
+            this.ArmarioContrato.Name = "ArmarioContrato";
+            this.ArmarioContrato.Width = 85;
+            // 
+            // LocatarioContrato
+            // 
+            this.LocatarioContrato.HeaderText = "Locatário";
+            this.LocatarioContrato.Name = "LocatarioContrato";
+            this.LocatarioContrato.Width = 165;
+            // 
             // tbpLocatarios
             // 
             this.tbpLocatarios.Controls.Add(this.btnLocGerarCert);
@@ -652,6 +688,7 @@
             this.tbpLocatarios.TabIndex = 1;
             this.tbpLocatarios.Text = "Locatários";
             this.tbpLocatarios.UseVisualStyleBackColor = true;
+            this.tbpLocatarios.Enter += new System.EventHandler(this.tbpLocatarios_Enter);
             this.tbpLocatarios.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbpLocatarios_MouseMove);
             // 
             // btnLocGerarCert
@@ -928,6 +965,42 @@
             this.dgvLocatarios.TabIndex = 3;
             this.dgvLocatarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLocatarios_CellClick);
             // 
+            // IdLocatario
+            // 
+            this.IdLocatario.HeaderText = "ID";
+            this.IdLocatario.Name = "IdLocatario";
+            this.IdLocatario.Width = 32;
+            // 
+            // NomeLocatario
+            // 
+            this.NomeLocatario.HeaderText = "Nome";
+            this.NomeLocatario.Name = "NomeLocatario";
+            this.NomeLocatario.Width = 165;
+            // 
+            // ProntLocatario
+            // 
+            this.ProntLocatario.HeaderText = "Prontuário";
+            this.ProntLocatario.Name = "ProntLocatario";
+            this.ProntLocatario.Width = 60;
+            // 
+            // EmailLocatario
+            // 
+            this.EmailLocatario.HeaderText = "Email";
+            this.EmailLocatario.Name = "EmailLocatario";
+            this.EmailLocatario.Width = 160;
+            // 
+            // TelefoneLocatario
+            // 
+            this.TelefoneLocatario.HeaderText = "Telefone";
+            this.TelefoneLocatario.Name = "TelefoneLocatario";
+            this.TelefoneLocatario.Width = 90;
+            // 
+            // ContratoLocatario
+            // 
+            this.ContratoLocatario.HeaderText = "Contrato";
+            this.ContratoLocatario.Name = "ContratoLocatario";
+            this.ContratoLocatario.Width = 55;
+            // 
             // tbpArmarios
             // 
             this.tbpArmarios.Controls.Add(this.lblArmSecArm);
@@ -959,6 +1032,7 @@
             this.tbpArmarios.TabIndex = 2;
             this.tbpArmarios.Text = "Armarios";
             this.tbpArmarios.UseVisualStyleBackColor = true;
+            this.tbpArmarios.Enter += new System.EventHandler(this.tbpArmarios_Enter);
             this.tbpArmarios.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbpArmarios_MouseMove);
             // 
             // lblArmSecArm
@@ -1190,6 +1264,40 @@
             this.dgvArmarios.TabIndex = 3;
             this.dgvArmarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArmarios_CellClick);
             // 
+            // IdArmario
+            // 
+            this.IdArmario.FillWeight = 28.4264F;
+            this.IdArmario.HeaderText = "ID";
+            this.IdArmario.Name = "IdArmario";
+            this.IdArmario.Width = 32;
+            // 
+            // NumeroArmario
+            // 
+            this.NumeroArmario.FillWeight = 123.8579F;
+            this.NumeroArmario.HeaderText = "Número";
+            this.NumeroArmario.Name = "NumeroArmario";
+            this.NumeroArmario.Width = 105;
+            // 
+            // BlocoArmario
+            // 
+            this.BlocoArmario.FillWeight = 123.8579F;
+            this.BlocoArmario.HeaderText = "Bloco";
+            this.BlocoArmario.Name = "BlocoArmario";
+            this.BlocoArmario.Width = 120;
+            // 
+            // Secao
+            // 
+            this.Secao.FillWeight = 123.8579F;
+            this.Secao.HeaderText = "Seção";
+            this.Secao.Name = "Secao";
+            this.Secao.Width = 225;
+            // 
+            // ArmarioTemContrato
+            // 
+            this.ArmarioTemContrato.HeaderText = "Contato";
+            this.ArmarioTemContrato.Name = "ArmarioTemContrato";
+            this.ArmarioTemContrato.Width = 80;
+            // 
             // tbpBlocos
             // 
             this.tbpBlocos.Controls.Add(this.lblBlocQntArm);
@@ -1212,6 +1320,7 @@
             this.tbpBlocos.TabIndex = 3;
             this.tbpBlocos.Text = "Blocos";
             this.tbpBlocos.UseVisualStyleBackColor = true;
+            this.tbpBlocos.Enter += new System.EventHandler(this.tbpBlocos_Enter);
             this.tbpBlocos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbpBlocos_MouseMove);
             // 
             // lblBlocQntArm
@@ -1350,6 +1459,27 @@
             this.dgvBlocos.TabIndex = 3;
             this.dgvBlocos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlocos_CellClick);
             // 
+            // IdBloco
+            // 
+            this.IdBloco.FillWeight = 2.809951F;
+            this.IdBloco.HeaderText = "ID";
+            this.IdBloco.Name = "IdBloco";
+            this.IdBloco.Width = 32;
+            // 
+            // NumeroBloco
+            // 
+            this.NumeroBloco.FillWeight = 12.41847F;
+            this.NumeroBloco.HeaderText = "Numero";
+            this.NumeroBloco.Name = "NumeroBloco";
+            this.NumeroBloco.Width = 125;
+            // 
+            // SecaoBloco
+            // 
+            this.SecaoBloco.FillWeight = 284.7716F;
+            this.SecaoBloco.HeaderText = "Seção";
+            this.SecaoBloco.Name = "SecaoBloco";
+            this.SecaoBloco.Width = 405;
+            // 
             // tbpSecoes
             // 
             this.tbpSecoes.Controls.Add(this.lblSecQntBloc);
@@ -1375,6 +1505,7 @@
             this.tbpSecoes.TabIndex = 4;
             this.tbpSecoes.Text = "Seções";
             this.tbpSecoes.UseVisualStyleBackColor = true;
+            this.tbpSecoes.Enter += new System.EventHandler(this.tbpSecoes_Enter);
             this.tbpSecoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbpSecoes_MouseMove);
             // 
             // lblSecQntBloc
@@ -1543,158 +1674,6 @@
             this.dgvSecoes.TabIndex = 4;
             this.dgvSecoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecoes_CellClick);
             // 
-            // txbPesquisar
-            // 
-            this.txbPesquisar.Location = new System.Drawing.Point(654, 28);
-            this.txbPesquisar.Name = "txbPesquisar";
-            this.txbPesquisar.Size = new System.Drawing.Size(208, 20);
-            this.txbPesquisar.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(592, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Pesquisar:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(300, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Alocação de Armários - GLECC";
-            // 
-            // IdContrato
-            // 
-            this.IdContrato.HeaderText = "ID";
-            this.IdContrato.Name = "IdContrato";
-            this.IdContrato.Width = 32;
-            // 
-            // ValidadeContrato
-            // 
-            this.ValidadeContrato.HeaderText = "Validade";
-            this.ValidadeContrato.Name = "ValidadeContrato";
-            // 
-            // ValorContrato
-            // 
-            this.ValorContrato.HeaderText = "Valor";
-            this.ValorContrato.Name = "ValorContrato";
-            this.ValorContrato.Width = 90;
-            // 
-            // ContratoTipo
-            // 
-            this.ContratoTipo.HeaderText = "Tipo";
-            this.ContratoTipo.Name = "ContratoTipo";
-            this.ContratoTipo.Width = 90;
-            // 
-            // ArmarioContrato
-            // 
-            this.ArmarioContrato.HeaderText = "Armário";
-            this.ArmarioContrato.Name = "ArmarioContrato";
-            this.ArmarioContrato.Width = 85;
-            // 
-            // LocatarioContrato
-            // 
-            this.LocatarioContrato.HeaderText = "Locatário";
-            this.LocatarioContrato.Name = "LocatarioContrato";
-            this.LocatarioContrato.Width = 165;
-            // 
-            // IdLocatario
-            // 
-            this.IdLocatario.HeaderText = "ID";
-            this.IdLocatario.Name = "IdLocatario";
-            this.IdLocatario.Width = 32;
-            // 
-            // NomeLocatario
-            // 
-            this.NomeLocatario.HeaderText = "Nome";
-            this.NomeLocatario.Name = "NomeLocatario";
-            this.NomeLocatario.Width = 165;
-            // 
-            // ProntLocatario
-            // 
-            this.ProntLocatario.HeaderText = "Prontuário";
-            this.ProntLocatario.Name = "ProntLocatario";
-            this.ProntLocatario.Width = 60;
-            // 
-            // EmailLocatario
-            // 
-            this.EmailLocatario.HeaderText = "Email";
-            this.EmailLocatario.Name = "EmailLocatario";
-            this.EmailLocatario.Width = 160;
-            // 
-            // TelefoneLocatario
-            // 
-            this.TelefoneLocatario.HeaderText = "Telefone";
-            this.TelefoneLocatario.Name = "TelefoneLocatario";
-            this.TelefoneLocatario.Width = 90;
-            // 
-            // ContratoLocatario
-            // 
-            this.ContratoLocatario.HeaderText = "Contrato";
-            this.ContratoLocatario.Name = "ContratoLocatario";
-            this.ContratoLocatario.Width = 55;
-            // 
-            // IdArmario
-            // 
-            this.IdArmario.FillWeight = 28.4264F;
-            this.IdArmario.HeaderText = "ID";
-            this.IdArmario.Name = "IdArmario";
-            this.IdArmario.Width = 32;
-            // 
-            // NumeroArmario
-            // 
-            this.NumeroArmario.FillWeight = 123.8579F;
-            this.NumeroArmario.HeaderText = "Número";
-            this.NumeroArmario.Name = "NumeroArmario";
-            this.NumeroArmario.Width = 105;
-            // 
-            // BlocoArmario
-            // 
-            this.BlocoArmario.FillWeight = 123.8579F;
-            this.BlocoArmario.HeaderText = "Bloco";
-            this.BlocoArmario.Name = "BlocoArmario";
-            this.BlocoArmario.Width = 120;
-            // 
-            // Secao
-            // 
-            this.Secao.FillWeight = 123.8579F;
-            this.Secao.HeaderText = "Seção";
-            this.Secao.Name = "Secao";
-            this.Secao.Width = 225;
-            // 
-            // ArmarioTemContrato
-            // 
-            this.ArmarioTemContrato.HeaderText = "Contato";
-            this.ArmarioTemContrato.Name = "ArmarioTemContrato";
-            this.ArmarioTemContrato.Width = 80;
-            // 
-            // IdBloco
-            // 
-            this.IdBloco.FillWeight = 2.809951F;
-            this.IdBloco.HeaderText = "ID";
-            this.IdBloco.Name = "IdBloco";
-            this.IdBloco.Width = 32;
-            // 
-            // NumeroBloco
-            // 
-            this.NumeroBloco.FillWeight = 12.41847F;
-            this.NumeroBloco.HeaderText = "Numero";
-            this.NumeroBloco.Name = "NumeroBloco";
-            this.NumeroBloco.Width = 125;
-            // 
-            // SecaoBloco
-            // 
-            this.SecaoBloco.FillWeight = 284.7716F;
-            this.SecaoBloco.HeaderText = "Seção";
-            this.SecaoBloco.Name = "SecaoBloco";
-            this.SecaoBloco.Width = 405;
-            // 
             // IdSecao
             // 
             this.IdSecao.FillWeight = 33.40196F;
@@ -1715,6 +1694,33 @@
             this.DescricaoSecao.HeaderText = "Descrição";
             this.DescricaoSecao.Name = "DescricaoSecao";
             this.DescricaoSecao.Width = 400;
+            // 
+            // txbPesquisar
+            // 
+            this.txbPesquisar.Location = new System.Drawing.Point(654, 28);
+            this.txbPesquisar.Name = "txbPesquisar";
+            this.txbPesquisar.Size = new System.Drawing.Size(208, 20);
+            this.txbPesquisar.TabIndex = 2;
+            this.txbPesquisar.TextChanged += new System.EventHandler(this.txbPesquisar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(592, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Pesquisar:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(300, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Alocação de Armários - GLECC";
             // 
             // ConsultaArmarioAvanc
             // 
