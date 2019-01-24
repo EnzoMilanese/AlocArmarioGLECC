@@ -618,6 +618,7 @@
             this.dgvContratos.Name = "dgvContratos";
             this.dgvContratos.RowHeadersVisible = false;
             this.dgvContratos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContratos.Size = new System.Drawing.Size(565, 377);
             this.dgvContratos.TabIndex = 3;
             this.dgvContratos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContratos_CellClick);
@@ -966,6 +967,7 @@
             this.dgvLocatarios.Name = "dgvLocatarios";
             this.dgvLocatarios.RowHeadersVisible = false;
             this.dgvLocatarios.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvLocatarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLocatarios.Size = new System.Drawing.Size(565, 377);
             this.dgvLocatarios.TabIndex = 3;
             this.dgvLocatarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLocatarios_CellClick);
@@ -1475,6 +1477,7 @@
             this.dgvBlocos.Name = "dgvBlocos";
             this.dgvBlocos.RowHeadersVisible = false;
             this.dgvBlocos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvBlocos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBlocos.Size = new System.Drawing.Size(565, 377);
             this.dgvBlocos.TabIndex = 3;
             this.dgvBlocos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlocos_CellClick);
@@ -1691,6 +1694,7 @@
             this.dgvSecoes.Name = "dgvSecoes";
             this.dgvSecoes.RowHeadersVisible = false;
             this.dgvSecoes.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvSecoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSecoes.Size = new System.Drawing.Size(565, 377);
             this.dgvSecoes.TabIndex = 4;
             this.dgvSecoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecoes_CellClick);
@@ -1763,6 +1767,7 @@
             this.btnArmUtil.TabIndex = 94;
             this.btnArmUtil.Text = "Utilizável";
             this.btnArmUtil.UseVisualStyleBackColor = true;
+            this.btnArmUtil.Click += new System.EventHandler(this.btnArmUtil_Click);
             // 
             // ConsultaArmarioAvanc
             // 

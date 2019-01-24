@@ -639,12 +639,6 @@ namespace AlocArmario.View
             listaBlocos = listaBlocosFiltrada;
             listaSecoes = listaSecoesFiltrada;
 
-            listaContratosFiltrada.Clear();
-            listaLocatariosFiltrada.Clear();
-            listaArmariosFiltrada.Clear();
-            listaBlocosFiltrada.Clear();
-            listaSecoesFiltrada.Clear();
-
             object a = new object();
             EventArgs b = new EventArgs();
             this.ConsultaArmarioAvanc_Activated(a, b);
@@ -690,6 +684,12 @@ namespace AlocArmario.View
             listaBlocos = baseBlocos;
             listaSecoes = baseSecoes;
 
+            listaContratosFiltrada.Clear();
+            listaLocatariosFiltrada.Clear();
+            listaArmariosFiltrada.Clear();
+            listaBlocosFiltrada.Clear();
+            listaSecoesFiltrada.Clear();
+
             object a = new object();
             EventArgs b = new EventArgs();
             this.ConsultaArmarioAvanc_Activated(a, b);
@@ -732,7 +732,7 @@ namespace AlocArmario.View
 
                 armarioAtivo = armariosSelecionados.First();
                 this.CarregarArmLabels();
-                btnArmUtil.Enabled = false;
+                btnArmUtil.Enabled = true;
                 btnArmDano.Enabled = true;
             }
         }
@@ -752,6 +752,9 @@ namespace AlocArmario.View
                     if (a.TemContrato)
                         armariosUteis.Remove(a);
 
+                if (armariosUteis.Count == 0)
+                    return;
+
                 resultado = ac.Danificado(armariosUteis); 
                 switch (resultado)
                 {
@@ -765,9 +768,60 @@ namespace AlocArmario.View
                         this.CarregarArmLabels();
                         break;
                 }
+                return;
             }
 
-            resultado = ac.Danificado(armarioAtivo); ;
+            resultado = ac.Danificado(armarioAtivo);
+            switch (resultado)
+            {
+                case "ok":
+                    this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                    this.CarregarArmLabels();
+                    break;
+                case "erro":
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nO armário possui um contrato ativo.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                case "erroBanco":
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nImpossível acessar o banco.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                default:
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n" + resultado, "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+            }
+        }
+
+        private void btnArmUtil_Click(object sender, EventArgs e)
+        {
+            object obj = new object();
+            EventArgs evnt = new EventArgs();
+            string resultado;
+            if (dgvArmarios.SelectedRows.Count > 1)
+            {
+                List<Armario> armariosDano = new List<Armario>();
+                foreach (Armario a in armariosSelecionados)
+                    if (a.Danificado)
+                        armariosDano.Add(a);
+
+                if (armariosDano.Count == 0)
+                    return;
+
+                resultado = ac.Utilizavel(armariosDano);
+                switch (resultado)
+                {
+                    case "ok":
+                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.CarregarArmLabels();
+                        break;
+                    default:
+                        MessageBox.Show("Alguns armários não puderam ser marcados como utilizáveis\n" + resultado, "Armário Utilizável", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.CarregarArmLabels();
+                        break;
+                }
+                return;
+            }
+
+            resultado = ac.Utilizavel(armarioAtivo); 
             switch (resultado)
             {
                 case "ok":

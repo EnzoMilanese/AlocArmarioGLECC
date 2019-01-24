@@ -20,9 +20,15 @@ namespace AlocArmario.Controller
 
         public List<Armario> ConsultarSemContrato()
         {
-            List<Armario> lista = (from a in db.Armario
+            List<Armario> lista = new List<Armario>();
+            List<Armario> listaBase = (from a in db.Armario
                                    where a.TemContrato == false
                                    select a).ToList();
+
+            foreach (Armario a in listaBase)
+                if (!a.Danificado)
+                    lista.Add(a);
+
             return lista;
         }
 
@@ -110,6 +116,43 @@ namespace AlocArmario.Controller
             foreach (Armario a in armarios)
             {
                 a.Danificado = true;
+                try
+                {
+                    this.Alterar(a);
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erroBanco";
+                    break;
+                }
+            }
+            return resultado;
+        }
+
+        public string Utilizavel(Armario armario)
+        {
+            string resultado = "";
+
+            armario.Danificado = false;
+            try
+            {
+                this.Alterar(armario);
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
+        }
+
+        public string Utilizavel(List<Armario> armarios)
+        {
+            string resultado = "";
+            foreach (Armario a in armarios)
+            {
+                a.Danificado = false;
                 try
                 {
                     this.Alterar(a);
