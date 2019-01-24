@@ -41,6 +41,7 @@ namespace AlocArmario.View
         private Armario armarioAtivo = new Armario();
         private Bloco blocoAtivo = new Bloco();
         private Secao secaoAtiva = new Secao();
+        private List<Armario> armariosSelecionados = new List<Armario>();
 
 
         public ConsultaArmarioAvanc()
@@ -139,7 +140,8 @@ namespace AlocArmario.View
                 dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
                 dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
                 dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
-                dgvArmarios.Rows[linha].Cells[4].Value = a.TemContrato;
+                dgvArmarios.Rows[linha].Cells[4].Value = a.Danificado;
+                dgvArmarios.Rows[linha].Cells[5].Value = a.TemContrato;
                 linha++;
             }
         }
@@ -368,6 +370,12 @@ namespace AlocArmario.View
                 if (c.IdContrato == armarioAtivo.ContratoAtivo)
                     contratoAtivo = c;
 
+            if (armarioAtivo.Danificado)
+                lblArmDano.Visible = true;
+            else
+                lblArmDano.Visible = true;
+
+
             lblArmIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
             lblArmNumArm.Text = armarioAtivo.Numero;
             lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
@@ -434,6 +442,9 @@ namespace AlocArmario.View
                     contratoAtivo = c;
                     this.CarregarContLabels();
                 }
+            btnAlterContrato.Enabled = true;
+            btnDeletContrato.Enabled = true;
+            btnContGerarCert.Enabled = true;
         }
 
         private void dgvLocatarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -450,11 +461,15 @@ namespace AlocArmario.View
                     locatarioAtivo = l;
                     this.CarregarLocLabels();
                 }
+            btnAlterLoc.Enabled = true;
+            btnDeletLoc.Enabled = true;
+            btnLocGerarCert.Enabled = true;
         }
 
         private void dgvArmarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             vsbDgvArm.Focus();
+            armariosSelecionados.Clear();
 
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
@@ -466,6 +481,19 @@ namespace AlocArmario.View
                     armarioAtivo = a;
                     this.CarregarArmLabels();
                 }
+            if (armarioAtivo.Danificado)
+            {
+                btnArmUtil.Enabled = true;
+                btnArmDano.Enabled = false;
+                lblArmDano.Visible = true;
+            }
+            else
+            {
+                btnArmUtil.Enabled = false;
+                btnArmDano.Enabled = true;
+                lblArmDano.Visible = false;
+            }
+            btnArmGerarCert.Enabled = true;
         }
 
         private void dgvBlocos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -482,6 +510,7 @@ namespace AlocArmario.View
                     blocoAtivo = b;
                     this.CarregarBlocLabels();
                 }
+            btnDeletBloc.Enabled = true;
         }
 
         private void dgvSecoes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -498,17 +527,13 @@ namespace AlocArmario.View
                     secaoAtiva = s;
                     this.CarregarSecLabels();
                 }
+            btnAlterSec.Enabled = true;
+            btnDeletSec.Enabled = true;
         }
-
+        //COMEÇO FILTRO DE PESQUISA
         private void txbPesquisar_TextChanged(object sender, EventArgs e)
         {
             this.resetarFiltro();
-
-            listaContratosFiltrada.Clear();
-            listaLocatariosFiltrada.Clear();
-            listaArmariosFiltrada.Clear();
-            listaBlocosFiltrada.Clear();
-            listaSecoesFiltrada.Clear();
 
             bool temTexto = false;
             switch (tbcConsulta.SelectedIndex)
@@ -614,6 +639,12 @@ namespace AlocArmario.View
             listaBlocos = listaBlocosFiltrada;
             listaSecoes = listaSecoesFiltrada;
 
+            listaContratosFiltrada.Clear();
+            listaLocatariosFiltrada.Clear();
+            listaArmariosFiltrada.Clear();
+            listaBlocosFiltrada.Clear();
+            listaSecoesFiltrada.Clear();
+
             object a = new object();
             EventArgs b = new EventArgs();
             this.ConsultaArmarioAvanc_Activated(a, b);
@@ -663,7 +694,7 @@ namespace AlocArmario.View
             EventArgs b = new EventArgs();
             this.ConsultaArmarioAvanc_Activated(a, b);
         }
-
+        //FIM FILTRO DE PESQUISA
         private void tbpContratos_Enter(object sender, EventArgs e)
         {
             this.CarregarScrollBars(dgvContratos, vsbDgvContr);
@@ -687,6 +718,92 @@ namespace AlocArmario.View
         private void tbpSecoes_Enter(object sender, EventArgs e)
         {
             this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+        }
+
+        private void dgvArmarios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArmarios.SelectedRows.Count > 1)
+            {
+                armariosSelecionados.Clear();
+                foreach (Armario a in baseArmarios)
+                    foreach (DataGridViewRow r in dgvArmarios.SelectedRows)
+                        if (a.IdArmario.Equals(r.Cells[0].Value))
+                            armariosSelecionados.Add(a);
+
+                armarioAtivo = armariosSelecionados.First();
+                this.CarregarArmLabels();
+                btnArmUtil.Enabled = false;
+                btnArmDano.Enabled = true;
+            }
+        }
+
+        private void btnArmDano_Click(object sender, EventArgs e)
+        {
+            object obj = new object();
+            EventArgs evnt = new EventArgs();
+            string resultado;
+            if (dgvArmarios.SelectedRows.Count > 1)
+            {
+                List<Armario> armariosUteis = new List<Armario>();
+                foreach (Armario a in armariosSelecionados)
+                    if (!a.Danificado)
+                        armariosUteis.Add(a);
+                foreach (Armario a in armariosUteis)
+                    if (a.TemContrato)
+                        armariosUteis.Remove(a);
+
+                resultado = ac.Danificado(armariosUteis); 
+                switch (resultado)
+                {
+                    case "ok":
+                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.CarregarArmLabels();
+                        break;
+                    default:
+                        MessageBox.Show("Alguns armários não puderam ser marcados como danificados\n" + resultado, "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.CarregarArmLabels();
+                        break;
+                }
+            }
+
+            resultado = ac.Danificado(armarioAtivo); ;
+            switch (resultado)
+            {
+                case "ok":
+                    this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                    this.CarregarArmLabels();
+                    break;
+                case "erro":
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nO armário possui um contrato ativo.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                case "erroBanco":
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nImpossível acessar o banco.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                default:
+                    MessageBox.Show("Não foi possível marcar o armário como danificado.\n" + resultado, "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+            }
+        }
+
+        private void btnDeletContrato_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletLoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletBloc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletSec_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

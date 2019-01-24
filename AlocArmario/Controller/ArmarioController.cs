@@ -62,7 +62,7 @@ namespace AlocArmario.Controller
                 try
                 {
                     Armario armarioDb = (from a in db.Armario
-                                         where a.IdArmario == armario.IdArmario 
+                                         where a.IdArmario == armario.IdArmario
                                          select a).SingleOrDefault();
                     armarioDb = armario;
                     db.SaveChanges();
@@ -80,6 +80,48 @@ namespace AlocArmario.Controller
             }
             return resultado;
 
+        }
+
+        public string Danificado(Armario armario)
+        {
+            string resultado = "";
+            if (armario.TemContrato)
+            {
+                resultado = "erro";
+                return resultado;
+            }
+
+            armario.Danificado = true;
+            try
+            {
+                this.Alterar(armario);
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
+        }
+
+        public string Danificado(List<Armario> armarios)
+        {
+            string resultado = "";
+            foreach (Armario a in armarios)
+            {
+                a.Danificado = true;
+                try
+                {
+                    this.Alterar(a);
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erroBanco";
+                    break;
+                }
+            }
+            return resultado;
         }
     }
 }

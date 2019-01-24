@@ -130,13 +130,14 @@
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.btnArmInutil = new System.Windows.Forms.Button();
+            this.btnArmDano = new System.Windows.Forms.Button();
             this.vsbDgvArm = new System.Windows.Forms.VScrollBar();
             this.dgvArmarios = new System.Windows.Forms.DataGridView();
             this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmDanific = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpBlocos = new System.Windows.Forms.TabPage();
             this.lblBlocQntArm = new System.Windows.Forms.Label();
@@ -178,6 +179,8 @@
             this.txbPesquisar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblArmDano = new System.Windows.Forms.Label();
+            this.btnArmUtil = new System.Windows.Forms.Button();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -512,6 +515,7 @@
             this.btnDeletContrato.TabIndex = 14;
             this.btnDeletContrato.Text = "Terminar Contrato";
             this.btnDeletContrato.UseVisualStyleBackColor = true;
+            this.btnDeletContrato.Click += new System.EventHandler(this.btnDeletContrato_Click);
             // 
             // btnAlterContrato
             // 
@@ -861,6 +865,7 @@
             this.btnDeletLoc.TabIndex = 46;
             this.btnDeletLoc.Text = "Excluir Locatário";
             this.btnDeletLoc.UseVisualStyleBackColor = true;
+            this.btnDeletLoc.Click += new System.EventHandler(this.btnDeletLoc_Click);
             // 
             // btnAlterLoc
             // 
@@ -1003,6 +1008,8 @@
             // 
             // tbpArmarios
             // 
+            this.tbpArmarios.Controls.Add(this.btnArmUtil);
+            this.tbpArmarios.Controls.Add(this.lblArmDano);
             this.tbpArmarios.Controls.Add(this.lblArmSecArm);
             this.tbpArmarios.Controls.Add(this.lblArmBlocArm);
             this.tbpArmarios.Controls.Add(this.lblArmNumArm);
@@ -1022,7 +1029,7 @@
             this.tbpArmarios.Controls.Add(this.label48);
             this.tbpArmarios.Controls.Add(this.label49);
             this.tbpArmarios.Controls.Add(this.label50);
-            this.tbpArmarios.Controls.Add(this.btnArmInutil);
+            this.tbpArmarios.Controls.Add(this.btnArmDano);
             this.tbpArmarios.Controls.Add(this.vsbDgvArm);
             this.tbpArmarios.Controls.Add(this.dgvArmarios);
             this.tbpArmarios.Location = new System.Drawing.Point(4, 22);
@@ -1221,15 +1228,16 @@
             this.label50.TabIndex = 66;
             this.label50.Text = "ID:";
             // 
-            // btnArmInutil
+            // btnArmDano
             // 
-            this.btnArmInutil.Enabled = false;
-            this.btnArmInutil.Location = new System.Drawing.Point(6, 6);
-            this.btnArmInutil.Name = "btnArmInutil";
-            this.btnArmInutil.Size = new System.Drawing.Size(254, 28);
-            this.btnArmInutil.TabIndex = 65;
-            this.btnArmInutil.Text = "Marcar Inutilizável";
-            this.btnArmInutil.UseVisualStyleBackColor = true;
+            this.btnArmDano.Enabled = false;
+            this.btnArmDano.Location = new System.Drawing.Point(6, 6);
+            this.btnArmDano.Name = "btnArmDano";
+            this.btnArmDano.Size = new System.Drawing.Size(123, 28);
+            this.btnArmDano.TabIndex = 65;
+            this.btnArmDano.Text = "Danificado";
+            this.btnArmDano.UseVisualStyleBackColor = true;
+            this.btnArmDano.Click += new System.EventHandler(this.btnArmDano_Click);
             // 
             // vsbDgvArm
             // 
@@ -1254,15 +1262,18 @@
             this.NumeroArmario,
             this.BlocoArmario,
             this.Secao,
+            this.ArmDanific,
             this.ArmarioTemContrato});
             this.dgvArmarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArmarios.Location = new System.Drawing.Point(266, 6);
             this.dgvArmarios.Name = "dgvArmarios";
             this.dgvArmarios.RowHeadersVisible = false;
             this.dgvArmarios.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvArmarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArmarios.Size = new System.Drawing.Size(565, 377);
             this.dgvArmarios.TabIndex = 3;
             this.dgvArmarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArmarios_CellClick);
+            this.dgvArmarios.SelectionChanged += new System.EventHandler(this.dgvArmarios_SelectionChanged);
             // 
             // IdArmario
             // 
@@ -1290,7 +1301,15 @@
             this.Secao.FillWeight = 123.8579F;
             this.Secao.HeaderText = "Seção";
             this.Secao.Name = "Secao";
-            this.Secao.Width = 225;
+            this.Secao.Width = 145;
+            // 
+            // ArmDanific
+            // 
+            this.ArmDanific.HeaderText = "Danificado";
+            this.ArmDanific.Name = "ArmDanific";
+            this.ArmDanific.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ArmDanific.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ArmDanific.Width = 80;
             // 
             // ArmarioTemContrato
             // 
@@ -1418,6 +1437,7 @@
             this.btnDeletBloc.TabIndex = 7;
             this.btnDeletBloc.Text = "Excluir Bloco";
             this.btnDeletBloc.UseVisualStyleBackColor = true;
+            this.btnDeletBloc.Click += new System.EventHandler(this.btnDeletBloc_Click);
             // 
             // vsbDgvBloc
             // 
@@ -1622,6 +1642,7 @@
             this.btnDeletSec.TabIndex = 48;
             this.btnDeletSec.Text = "Excluir Seção";
             this.btnDeletSec.UseVisualStyleBackColor = true;
+            this.btnDeletSec.Click += new System.EventHandler(this.btnDeletSec_Click);
             // 
             // btnAlterSec
             // 
@@ -1721,6 +1742,27 @@
             this.label2.Size = new System.Drawing.Size(260, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Alocação de Armários - GLECC";
+            // 
+            // lblArmDano
+            // 
+            this.lblArmDano.AutoSize = true;
+            this.lblArmDano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmDano.Location = new System.Drawing.Point(72, 73);
+            this.lblArmDano.Name = "lblArmDano";
+            this.lblArmDano.Size = new System.Drawing.Size(79, 16);
+            this.lblArmDano.TabIndex = 93;
+            this.lblArmDano.Text = "(danificado)";
+            this.lblArmDano.Visible = false;
+            // 
+            // btnArmUtil
+            // 
+            this.btnArmUtil.Enabled = false;
+            this.btnArmUtil.Location = new System.Drawing.Point(137, 6);
+            this.btnArmUtil.Name = "btnArmUtil";
+            this.btnArmUtil.Size = new System.Drawing.Size(123, 28);
+            this.btnArmUtil.TabIndex = 94;
+            this.btnArmUtil.Text = "Utilizável";
+            this.btnArmUtil.UseVisualStyleBackColor = true;
             // 
             // ConsultaArmarioAvanc
             // 
@@ -1856,7 +1898,7 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Button btnArmInutil;
+        private System.Windows.Forms.Button btnArmDano;
         private System.Windows.Forms.Label lblBlocSecBloc;
         private System.Windows.Forms.Label lblBlocNumBloc;
         private System.Windows.Forms.Label lblBlocIdBloc;
@@ -1892,16 +1934,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLocatario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ContratoLocatario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ArmarioTemContrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ArmDanific;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ArmarioTemContrato;
+        private System.Windows.Forms.Label lblArmDano;
+        private System.Windows.Forms.Button btnArmUtil;
     }
 }
