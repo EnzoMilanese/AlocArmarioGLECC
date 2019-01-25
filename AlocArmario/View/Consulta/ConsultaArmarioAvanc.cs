@@ -180,8 +180,9 @@ namespace AlocArmario.View
             {
                 dgvSecoes.Rows.Add();
                 dgvSecoes.Rows[linha].Cells[0].Value = s.IdSecao;
-                dgvSecoes.Rows[linha].Cells[1].Value = s.Nome;
-                dgvSecoes.Rows[linha].Cells[2].Value = s.Descricao;
+                dgvSecoes.Rows[linha].Cells[1].Value = s.Numero;
+                dgvSecoes.Rows[linha].Cells[2].Value = s.Nome;
+                dgvSecoes.Rows[linha].Cells[3].Value = s.Descricao;
                 linha++;
             }
         }

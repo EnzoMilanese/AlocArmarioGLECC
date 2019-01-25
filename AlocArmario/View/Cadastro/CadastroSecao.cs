@@ -17,6 +17,7 @@ namespace AlocArmario.View.Cadastro
     {
         private Secao secao;
         private SecaoController sc;
+        private List<Secao> listaSecoes = new List<Secao>();
 
         public CadastroSecao()
         {
@@ -25,14 +26,31 @@ namespace AlocArmario.View.Cadastro
             secao = new Secao();
             sc = new SecaoController();
 
+            listaSecoes = sc.Consultar();
+            txbId.Text = Convert.ToString(listaSecoes.Count + 1);
+
             var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Secao));
             TypeDescriptor.AddProvider(provedor, typeof(Secao));
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            int numSecao;
+            if (!int.TryParse(txbId.Text, out numSecao))
+            {
+                MessageBox.Show(("O ID deve ser um número"), "Nova Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            secao.Numero = numSecao;
             secao.Nome = txbNome.Text;
             secao.Descricao = txbDescricao.Text;
+            
+            foreach (Secao s in listaSecoes)
+                if(s.Numero == secao.Numero)
+                {
+                    MessageBox.Show(("Já existe uma seção com o número indicado."), "Nova Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
             string resultado = sc.Inserir(secao);
             if (resultado.Equals("ok"))

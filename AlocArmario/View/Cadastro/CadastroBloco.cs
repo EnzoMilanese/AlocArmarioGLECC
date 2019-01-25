@@ -36,7 +36,10 @@ namespace AlocArmario.View.Cadastro
         {
             foreach (var s in listaSecoes)
                 if (s.Nome.Equals(cbxSecao.SelectedItem.ToString()))
+                {
                     bloco.IdSecao = s.IdSecao;
+                    bloco.Secao = s;
+                }
 
             string resultado = bc.Inserir(bloco);
             if (resultado.Equals("ok"))

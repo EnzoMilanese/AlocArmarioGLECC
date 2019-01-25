@@ -39,7 +39,9 @@ namespace AlocArmario.Controller
         public string Inserir(Bloco bloco)
         {
             int quantBlocos = QuantBlocos(bloco);
-            bloco.Numero = bloco.IdSecao.ToString() + Numerar(quantBlocos);
+            bloco.Numero = bloco.Secao.Numero.ToString() + Numerar(quantBlocos);
+
+            bloco.Secao = null;
 
             var erros = Validacao.ValidaDados(bloco);
             string resultado = "";

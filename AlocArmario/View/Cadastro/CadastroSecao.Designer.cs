@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbNome = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txbId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -93,7 +95,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 74);
+            this.label2.Location = new System.Drawing.Point(152, 73);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
@@ -103,10 +105,29 @@
             // txbNome
             // 
             this.txbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNome.Location = new System.Drawing.Point(116, 74);
+            this.txbNome.Location = new System.Drawing.Point(203, 73);
             this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(260, 22);
+            this.txbNome.Size = new System.Drawing.Size(173, 22);
             this.txbNome.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(57, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Número:";
+            // 
+            // txbId
+            // 
+            this.txbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbId.Location = new System.Drawing.Point(116, 73);
+            this.txbId.Name = "txbId";
+            this.txbId.Size = new System.Drawing.Size(33, 22);
+            this.txbId.TabIndex = 22;
             // 
             // CadastroSecao
             // 
@@ -114,6 +135,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 209);
+            this.Controls.Add(this.txbId);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txbNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
@@ -139,5 +162,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbNome;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txbId;
     }
 }

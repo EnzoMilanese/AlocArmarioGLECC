@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/19/2019 17:52:18
+-- Date Created: 01/25/2019 00:52:47
 -- Generated from EDMX file: C:\Users\HOME\source\repos\AlocArmario\AlocArmario\Model\ModeloDados.edmx
 -- --------------------------------------------------
 
@@ -103,7 +103,8 @@ GO
 CREATE TABLE [dbo].[Secao] (
     [IdSecao] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
-    [Descricao] nvarchar(max)  NOT NULL
+    [Descricao] nvarchar(max)  NOT NULL,
+    [Numero] int  NOT NULL
 );
 GO
 

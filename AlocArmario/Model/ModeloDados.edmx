@@ -78,6 +78,7 @@
     <Property Name="IdSecao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -256,6 +257,7 @@
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.SecaoBloco" FromRole="Secao" ToRole="Bloco" />
           <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="SecaoBloco">
           <End Type="ModeloDados.Secao" Multiplicity="1" Role="Secao" />
@@ -335,6 +337,7 @@
           <ScalarProperty Name="IdSecao" ColumnName="IdSecao" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
