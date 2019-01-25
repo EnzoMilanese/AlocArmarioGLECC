@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AlocArmario.Controller
 {
     class SecaoController
-        {
+    {
         private ModeloDadosContainer db = new ModeloDadosContainer();
 
         public List<Secao> Consultar()
@@ -44,10 +44,27 @@ namespace AlocArmario.Controller
             return resultado;
         }
 
-        internal List<Secao> ListarSecoes()
+        public List<Secao> ListarSecoes()
         {
             var lista = db.Secao.AsNoTracking().ToList();
             return lista;
+        }
+
+        public string Deletar(Secao secao)
+        {
+            string resultado;
+
+            try
+            {
+                db.Secao.Remove(secao);
+                db.SaveChanges();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
         }
     }
 }

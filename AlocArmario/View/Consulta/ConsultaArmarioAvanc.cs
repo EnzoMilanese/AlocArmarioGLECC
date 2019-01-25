@@ -59,28 +59,15 @@ namespace AlocArmario.View
             ac = new ArmarioController();
             bc = new BlocoController();
             sc = new SecaoController();
-
-            listaContratos = cc.Consultar();
-            listaLocatarios = lc.Consultar();
-            listaArmarios = ac.Consultar();
-            listaBlocos = bc.Consultar();
-            listaSecoes = sc.Consultar();
-
-            baseContratos = cc.Consultar();
-            baseLocatarios = lc.Consultar();
-            baseArmarios = ac.Consultar();
-            baseBlocos = bc.Consultar();
-            baseSecoes = sc.Consultar();
+            
+            this.CarregarListaBase();
+            this.CarregarListasExib();
 
         }
 
         private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
         {
-            baseContratos = cc.Consultar();
-            baseLocatarios = lc.Consultar();
-            baseArmarios = ac.Consultar();
-            baseBlocos = bc.Consultar();
-            baseSecoes = sc.Consultar();
+            this.CarregarListaBase();
 
             this.ConsultarContratos();
             this.ConsultarLocatarios();
@@ -93,6 +80,31 @@ namespace AlocArmario.View
             this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
             this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
             this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+        }
+
+        private void AtivarForm()
+        {
+            object obj = new object();
+            EventArgs evnt = new EventArgs();
+            this.ConsultaArmarioAvanc_Activated(obj, evnt);
+        }
+
+        private void CarregarListaBase()
+        {
+            baseContratos = cc.Consultar();
+            baseLocatarios = lc.Consultar();
+            baseArmarios = ac.Consultar();
+            baseBlocos = bc.Consultar();
+            baseSecoes = sc.Consultar();
+        }
+
+        private void CarregarListasExib()
+        {
+            listaContratos = baseContratos;
+            listaLocatarios = baseLocatarios;
+            listaArmarios = baseArmarios;
+            listaBlocos = baseBlocos;
+            listaSecoes = baseSecoes;
         }
 
         private void ConsultarContratos()
@@ -247,24 +259,40 @@ namespace AlocArmario.View
         {
             CadastroContrato cc = new CadastroContrato();
             cc.ShowDialog();
+            txbPesquisar.Text = "";
+            this.CarregarListaBase();
+            this.CarregarListasExib();
+            this.AtivarForm();
         }
 
         private void btnCadastLocatario_Click(object sender, EventArgs e)
         {
             CadastroLocatario cl = new CadastroLocatario();
             cl.ShowDialog();
+            txbPesquisar.Text = "";
+            this.CarregarListaBase();
+            this.CarregarListasExib();
+            this.AtivarForm();
         }
 
         private void btnCadastBloco_Click(object sender, EventArgs e)
         {
             CadastroBloco cb = new CadastroBloco();
             cb.ShowDialog();
+            txbPesquisar.Text = "";
+            this.CarregarListaBase();
+            this.CarregarListasExib();
+            this.AtivarForm();
         }
 
         private void btnCadastSecao_Click(object sender, EventArgs e)
         {
             CadastroSecao cs = new CadastroSecao();
             cs.ShowDialog();
+            txbPesquisar.Text = "";
+            this.CarregarListaBase();
+            this.CarregarListasExib();
+            this.AtivarForm();
         }
 
         private void tbcConsulta_SelectedIndexChanged(object sender, EventArgs e)
@@ -316,116 +344,189 @@ namespace AlocArmario.View
 
         private void CarregarContLabels()
         {
-            locatarioAtivo = contratoAtivo.Locatario;
-            armarioAtivo = contratoAtivo.Armario;
+            if (contratoAtivo == null)
+            {
+                lblContIdCont.Text = "...";
+                lblContValidadeCont.Text = "...";
+                lblContTipoCont.Text = "...";
+                lblContValorCont.Text = "...";
 
-            lblContIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
-            lblContValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
-            lblContTipoCont.Text = contratoAtivo.TipoContrato;
-            lblContValorCont.Text = contratoAtivo.Valor;
+                lblContIdLoc.Text = "...";
+                lblContNomeLoc.Text = "...";
+                lblContProntLoc.Text = "...";
+                lblContEmailLoc.Text = "...";
+                lblContTelLoc.Text = "...";
 
-            lblContIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
-            lblContNomeLoc.Text = locatarioAtivo.Nome;
-            lblContProntLoc.Text = locatarioAtivo.Prontuario;
-            lblContEmailLoc.Text = locatarioAtivo.Email;
-            lblContTelLoc.Text = locatarioAtivo.Telefone;
+                lblContIdArm.Text = "...";
+                lblContNumArm.Text = "...";
+                lblContBlocArm.Text = "...";
+                lblContSecArm.Text = "...";
+            }
+            else
+            {
+                locatarioAtivo = contratoAtivo.Locatario;
+                armarioAtivo = contratoAtivo.Armario;
 
-            lblContIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
-            lblContNumArm.Text = armarioAtivo.Numero;
-            lblContBlocArm.Text = armarioAtivo.Bloco.Numero;
-            lblContSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
+                lblContIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+                lblContValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+                lblContTipoCont.Text = contratoAtivo.TipoContrato;
+                lblContValorCont.Text = contratoAtivo.Valor;
+
+                lblContIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
+                lblContNomeLoc.Text = locatarioAtivo.Nome;
+                lblContProntLoc.Text = locatarioAtivo.Prontuario;
+                lblContEmailLoc.Text = locatarioAtivo.Email;
+                lblContTelLoc.Text = locatarioAtivo.Telefone;
+
+                lblContIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+                lblContNumArm.Text = armarioAtivo.Numero;
+                lblContBlocArm.Text = armarioAtivo.Bloco.Numero;
+                lblContSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
+            }
         }
 
         private void CarregarLocLabels()
         {
-            foreach (var c in listaContratos)
-                if (c.IdContrato == locatarioAtivo.ContratoAtivo)
-                    contratoAtivo = c;
-
-            lblLocIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
-            lblLocNomeLoc.Text = locatarioAtivo.Nome;
-            lblLocProntLoc.Text = locatarioAtivo.Prontuario;
-            lblLocEmailLoc.Text = locatarioAtivo.Email;
-            lblLocTelLoc.Text = locatarioAtivo.Telefone;
-
-            if (locatarioAtivo.TemContrato == true)
+            if (locatarioAtivo == null)
             {
-                lblLocIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
-                lblLocValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
-                lblLocTipoCont.Text = contratoAtivo.TipoContrato;
-                lblLocValorCont.Text = contratoAtivo.Valor;
-            }
-            else
-            {
+                lblLocIdLoc.Text = "...";
+                lblLocNomeLoc.Text = "...";
+                lblLocProntLoc.Text = "...";
+                lblLocEmailLoc.Text = "...";
+                lblLocTelLoc.Text = "...";
+
                 lblLocIdCont.Text = "...";
                 lblLocValidadeCont.Text = "...";
                 lblLocTipoCont.Text = "...";
                 lblLocValorCont.Text = "...";
             }
+            else
+            {
+                foreach (var c in listaContratos)
+                    if (c.IdContrato == locatarioAtivo.ContratoAtivo)
+                        contratoAtivo = c;
+
+                lblLocIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
+                lblLocNomeLoc.Text = locatarioAtivo.Nome;
+                lblLocProntLoc.Text = locatarioAtivo.Prontuario;
+                lblLocEmailLoc.Text = locatarioAtivo.Email;
+                lblLocTelLoc.Text = locatarioAtivo.Telefone;
+
+                if (locatarioAtivo.TemContrato == true)
+                {
+                    lblLocIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+                    lblLocValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+                    lblLocTipoCont.Text = contratoAtivo.TipoContrato;
+                    lblLocValorCont.Text = contratoAtivo.Valor;
+                }
+                else
+                {
+                    lblLocIdCont.Text = "...";
+                    lblLocValidadeCont.Text = "...";
+                    lblLocTipoCont.Text = "...";
+                    lblLocValorCont.Text = "...";
+                }
+            }
         }
 
         private void CarregarArmLabels()
         {
-            foreach (var c in listaContratos)
-                if (c.IdContrato == armarioAtivo.ContratoAtivo)
-                    contratoAtivo = c;
-
-            if (armarioAtivo.Danificado)
-                lblArmDano.Visible = true;
-            else
-                lblArmDano.Visible = true;
-
-
-            lblArmIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
-            lblArmNumArm.Text = armarioAtivo.Numero;
-            lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
-            lblArmSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
-
-            if (armarioAtivo.TemContrato == true)
+            if (armarioAtivo == null)
             {
-                lblArmIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
-                lblArmValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
-                lblArmTipoCont.Text = contratoAtivo.TipoContrato;
-                lblArmValorCont.Text = contratoAtivo.Valor;
-            }
-            else
-            {
+                lblArmIdArm.Text = "...";
+                lblArmNumArm.Text = "...";
+                lblArmBlocArm.Text = "...";
+                lblArmSecArm.Text = "...";
+
                 lblArmIdCont.Text = "...";
                 lblArmValidadeCont.Text = "...";
                 lblArmTipoCont.Text = "...";
                 lblArmValorCont.Text = "...";
             }
+            else
+            {
+                foreach (var c in listaContratos)
+                    if (c.IdContrato == armarioAtivo.ContratoAtivo)
+                        contratoAtivo = c;
+
+                if (armarioAtivo.Danificado)
+                    lblArmDano.Visible = true;
+                else
+                    lblArmDano.Visible = true;
+
+
+                lblArmIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+                lblArmNumArm.Text = armarioAtivo.Numero;
+                lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
+                lblArmSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
+
+                if (armarioAtivo.TemContrato == true)
+                {
+                    lblArmIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
+                    lblArmValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
+                    lblArmTipoCont.Text = contratoAtivo.TipoContrato;
+                    lblArmValorCont.Text = contratoAtivo.Valor;
+                }
+                else
+                {
+                    lblArmIdCont.Text = "...";
+                    lblArmValidadeCont.Text = "...";
+                    lblArmTipoCont.Text = "...";
+                    lblArmValorCont.Text = "...";
+                }
+            }
         }
 
         private void CarregarBlocLabels()
         {
-            int qntArm = 0;
-            foreach (var a in listaArmarios)
-                if (a.IdBloco == blocoAtivo.IdBloco && a.Danificado == false)
-                    qntArm++;
+            if (blocoAtivo == null)
+            {
+                lblBlocIdBloc.Text = "...";
+                lblBlocNumBloc.Text = "...";
+                lblBlocSecBloc.Text = "...";
+                lblBlocQntArm.Text = "...";
+            }
+            else
+            {
+                int qntArm = 0;
+                foreach (var a in listaArmarios)
+                    if (a.IdBloco == blocoAtivo.IdBloco && a.Danificado == false)
+                        qntArm++;
 
-            lblBlocIdBloc.Text = Convert.ToString(blocoAtivo.IdBloco);
-            lblBlocNumBloc.Text = blocoAtivo.Numero;
-            lblBlocSecBloc.Text = blocoAtivo.Secao.Nome;
-            lblBlocQntArm.Text = Convert.ToString(qntArm);
+                lblBlocIdBloc.Text = Convert.ToString(blocoAtivo.IdBloco);
+                lblBlocNumBloc.Text = blocoAtivo.Numero;
+                lblBlocSecBloc.Text = blocoAtivo.Secao.Nome;
+                lblBlocQntArm.Text = Convert.ToString(qntArm);
+            }
         }
 
         private void CarregarSecLabels()
         {
-            int qntBloc = 0;
-            foreach (var b in listaBlocos)
-                if (b.IdSecao == secaoAtiva.IdSecao)
-                    qntBloc++;
-            int qntArm = 0;
-            foreach (var a in listaArmarios)
-                if (a.Bloco.IdSecao == secaoAtiva.IdSecao && a.Danificado == false)
-                    qntArm++;
+            if (secaoAtiva == null)
+            {
+                lblSecIdSec.Text = "...";
+                lblSecNomeSec.Text = "...";
+                lblSecDescSec.Text = "...";
+                lblSecQntBloc.Text = "...";
+                lblSecQntArm.Text = "...";
+            }
+            else
+            {
+                int qntBloc = 0;
+                foreach (var b in listaBlocos)
+                    if (b.IdSecao == secaoAtiva.IdSecao)
+                        qntBloc++;
+                int qntArm = 0;
+                foreach (var a in listaArmarios)
+                    if (a.Bloco.IdSecao == secaoAtiva.IdSecao && a.Danificado == false)
+                        qntArm++;
 
-            lblSecIdSec.Text = Convert.ToString(secaoAtiva.IdSecao);
-            lblSecNomeSec.Text = secaoAtiva.Nome;
-            lblSecDescSec.Text = secaoAtiva.Descricao;
-            lblSecQntBloc.Text = Convert.ToString(qntBloc);
-            lblSecQntArm.Text = Convert.ToString(qntArm);
+                lblSecIdSec.Text = Convert.ToString(secaoAtiva.IdSecao);
+                lblSecNomeSec.Text = secaoAtiva.Nome;
+                lblSecDescSec.Text = secaoAtiva.Descricao;
+                lblSecQntBloc.Text = Convert.ToString(qntBloc);
+                lblSecQntArm.Text = Convert.ToString(qntArm);
+            }
         }
 
         private void dgvContratos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -739,8 +840,6 @@ namespace AlocArmario.View
 
         private void btnArmDano_Click(object sender, EventArgs e)
         {
-            object obj = new object();
-            EventArgs evnt = new EventArgs();
             string resultado;
             if (dgvArmarios.SelectedRows.Count > 1)
             {
@@ -759,12 +858,12 @@ namespace AlocArmario.View
                 switch (resultado)
                 {
                     case "ok":
-                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.AtivarForm();
                         this.CarregarArmLabels();
                         break;
                     default:
                         MessageBox.Show("Alguns armários não puderam ser marcados como danificados\n" + resultado, "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                        this.AtivarForm();
                         this.CarregarArmLabels();
                         break;
                 }
@@ -775,7 +874,7 @@ namespace AlocArmario.View
             switch (resultado)
             {
                 case "ok":
-                    this.ConsultaArmarioAvanc_Activated(obj, evnt);
+                    this.AtivarForm();
                     this.CarregarArmLabels();
                     break;
                 case "erro":
@@ -857,7 +956,38 @@ namespace AlocArmario.View
 
         private void btnDeletSec_Click(object sender, EventArgs e)
         {
+            bool TemContrato = false;
+            foreach (Bloco b in secaoAtiva.Bloco)
+                foreach (Armario a in b.Armario)
+                    if (a.TemContrato)
+                        TemContrato = true;
 
+            if (TemContrato)
+            {
+                MessageBox.Show("Não foi possível excluir a seção\n\nA seção possui pelo menos um armário com um contrato ativo.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                string resultado = sc.Deletar(secaoAtiva);
+                switch (resultado)
+                {
+                    case "ok":
+                        secaoAtiva = null;
+                        this.CarregarSecLabels();
+                        this.CarregarListaBase();
+                        this.CarregarListasExib();
+                        this.AtivarForm();
+                        break;
+                    case "erroBanco":
+                        MessageBox.Show("Não foi possível excluir a seção\n\nA sessão já foi excluída.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        secaoAtiva = null;
+                        this.CarregarSecLabels();
+                        this.CarregarListaBase();
+                        this.CarregarListasExib();
+                        this.AtivarForm();
+                        break;
+                }
+            }
         }
     }
 }
