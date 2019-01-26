@@ -223,12 +223,11 @@ namespace AlocArmario.View
             foreach (var a in listaArmarios)
             {
                 dgvArmarios.Rows.Add();
-                dgvArmarios.Rows[linha].Cells[0].Value = a.IdArmario;
-                dgvArmarios.Rows[linha].Cells[1].Value = a.Numero;
-                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Numero;
-                dgvArmarios.Rows[linha].Cells[3].Value = a.Bloco.Secao.Nome;
-                dgvArmarios.Rows[linha].Cells[4].Value = a.Danificado;
-                dgvArmarios.Rows[linha].Cells[5].Value = a.TemContrato;
+                dgvArmarios.Rows[linha].Cells[0].Value = a.Numero;
+                dgvArmarios.Rows[linha].Cells[1].Value = a.Bloco.Numero;
+                dgvArmarios.Rows[linha].Cells[2].Value = a.Bloco.Secao.Nome;
+                dgvArmarios.Rows[linha].Cells[3].Value = a.Danificado;
+                dgvArmarios.Rows[linha].Cells[4].Value = a.TemContrato;
                 linha++;
             }
         }
@@ -240,9 +239,8 @@ namespace AlocArmario.View
             foreach (var b in listaBlocos)
             {
                 dgvBlocos.Rows.Add();
-                dgvBlocos.Rows[linha].Cells[0].Value = b.IdBloco;
-                dgvBlocos.Rows[linha].Cells[1].Value = b.Numero;
-                dgvBlocos.Rows[linha].Cells[2].Value = b.Secao.Nome;
+                dgvBlocos.Rows[linha].Cells[0].Value = b.Numero;
+                dgvBlocos.Rows[linha].Cells[1].Value = b.Secao.Nome;
                 linha++;
             }
         }
@@ -254,10 +252,9 @@ namespace AlocArmario.View
             foreach (var s in listaSecoes)
             {
                 dgvSecoes.Rows.Add();
-                dgvSecoes.Rows[linha].Cells[0].Value = s.IdSecao;
-                dgvSecoes.Rows[linha].Cells[1].Value = s.Numero;
-                dgvSecoes.Rows[linha].Cells[2].Value = s.Nome;
-                dgvSecoes.Rows[linha].Cells[3].Value = s.Descricao;
+                dgvSecoes.Rows[linha].Cells[0].Value = s.Numero;
+                dgvSecoes.Rows[linha].Cells[1].Value = s.Nome;
+                dgvSecoes.Rows[linha].Cells[2].Value = s.Descricao;
                 linha++;
             }
         }
@@ -1022,7 +1019,30 @@ namespace AlocArmario.View
 
         private void btnDeletLoc_Click(object sender, EventArgs e)
         {
+            if (locatarioAtivo == null)
+                return;
 
+            if (locatarioAtivo.TemContrato)
+                MessageBox.Show("Não foi possível excluir o locatário\n\nO locatário possui um contrato ativo.", "Excluir Locatário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            string resultado = lc.Deletar(locatarioAtivo);
+            switch (resultado)
+            {
+                case "ok":
+                    locatarioAtivo = null;
+                    CarregarLocLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
+                case "erroBanco":
+                    MessageBox.Show("Não foi possível excluir o locatário\n\nOcorreu um erro.", "Excluir Locatário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CarregarBlocLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
+            }
         }
 
         private void btnDeletBloc_Click(object sender, EventArgs e)
@@ -1052,8 +1072,7 @@ namespace AlocArmario.View
                         AtivarForm();
                         break;
                     case "erroBanco":
-                        MessageBox.Show("Não foi possível excluir o bloco\n\nO bloco já foi excluído.", "Excluir Bloco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        secaoAtiva = null;
+                        MessageBox.Show("Não foi possível excluir o bloco\n\nOcorreu um erro.", "Excluir Bloco", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         CarregarBlocLabels();
                         CarregarListaBase();
                         CarregarListasExib();
@@ -1086,7 +1105,7 @@ namespace AlocArmario.View
                     AtivarForm();
                     break;
                 case "erroBanco":
-                    MessageBox.Show("Não foi possível excluir a seção\n\nOcorreu um erro no banco de dados.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                        
+                    MessageBox.Show("Não foi possível excluir a seção\n\nOcorreu um erro.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
                     CarregarSecLabels();
                     CarregarListaBase();
                     CarregarListasExib();

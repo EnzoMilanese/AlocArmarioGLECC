@@ -38,7 +38,7 @@
     <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="TemContrato" Type="bit" Nullable="true" />
+    <Property Name="TemContrato" Type="bit" Nullable="false" />
     <Property Name="ContratoAtivo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Armario">
@@ -174,7 +174,7 @@
           <Property Name="Email" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Telefone" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.Aluga" FromRole="Locatario" ToRole="Contrato" />
-          <Property Name="TemContrato" Type="Boolean" Nullable="true" />
+          <Property Name="TemContrato" Type="Boolean" Nullable="false" />
           <Property Name="ContratoAtivo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Armario">

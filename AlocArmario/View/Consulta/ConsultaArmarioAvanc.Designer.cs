@@ -966,6 +966,7 @@
             this.TelefoneLocatario,
             this.ContratoLocatario});
             this.dgvLocatarios.Location = new System.Drawing.Point(266, 6);
+            this.dgvLocatarios.MultiSelect = false;
             this.dgvLocatarios.Name = "dgvLocatarios";
             this.dgvLocatarios.RowHeadersVisible = false;
             this.dgvLocatarios.ScrollBars = System.Windows.Forms.ScrollBars.None;

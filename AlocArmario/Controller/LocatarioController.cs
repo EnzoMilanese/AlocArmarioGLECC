@@ -80,5 +80,22 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        public string Deletar(Locatario locatario)
+        {
+            string resultado = "";
+            try
+            {
+                db.Locatario.Attach(locatario);
+                db.Locatario.Remove(locatario);
+                db.SaveChanges();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
+        }
     }
 }
