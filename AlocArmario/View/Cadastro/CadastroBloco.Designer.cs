@@ -29,111 +29,111 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroBloco));
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbxSecao = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblDataDescricao = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label5 = new System.Windows.Forms.Label();
+            cbxSecao = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            lblDataDescricao = new System.Windows.Forms.Label();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnCadastrar = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(134, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 24);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Cadastrar Bloco";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(134, 32);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(157, 24);
+            label5.TabIndex = 20;
+            label5.Text = "Cadastrar Bloco";
             // 
             // cbxSecao
             // 
-            this.cbxSecao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxSecao.FormattingEnabled = true;
-            this.cbxSecao.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.cbxSecao.Location = new System.Drawing.Point(107, 87);
-            this.cbxSecao.Name = "cbxSecao";
-            this.cbxSecao.Size = new System.Drawing.Size(103, 24);
-            this.cbxSecao.TabIndex = 21;
-            this.cbxSecao.SelectedIndexChanged += new System.EventHandler(this.cbxSecao_SelectedIndexChanged);
+            cbxSecao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbxSecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxSecao.FormattingEnabled = true;
+            cbxSecao.ImeMode = System.Windows.Forms.ImeMode.Off;
+            cbxSecao.Location = new System.Drawing.Point(107, 87);
+            cbxSecao.Name = "cbxSecao";
+            cbxSecao.Size = new System.Drawing.Size(103, 24);
+            cbxSecao.TabIndex = 21;
+            cbxSecao.SelectedIndexChanged += new System.EventHandler(cbxSecao_SelectedIndexChanged);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 116);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Descrição:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(31, 116);
+            label1.Margin = new System.Windows.Forms.Padding(0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(73, 16);
+            label1.TabIndex = 22;
+            label1.Text = "Descrição:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 87);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 16);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Seção:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(53, 87);
+            label2.Margin = new System.Windows.Forms.Padding(0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(51, 16);
+            label2.TabIndex = 23;
+            label2.Text = "Seção:";
             // 
             // lblDataDescricao
             // 
-            this.lblDataDescricao.AutoSize = true;
-            this.lblDataDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataDescricao.Location = new System.Drawing.Point(104, 116);
-            this.lblDataDescricao.Margin = new System.Windows.Forms.Padding(0);
-            this.lblDataDescricao.MaximumSize = new System.Drawing.Size(260, 0);
-            this.lblDataDescricao.Name = "lblDataDescricao";
-            this.lblDataDescricao.Size = new System.Drawing.Size(76, 16);
-            this.lblDataDescricao.TabIndex = 24;
-            this.lblDataDescricao.Text = "[descricao]";
+            lblDataDescricao.AutoSize = true;
+            lblDataDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblDataDescricao.Location = new System.Drawing.Point(104, 116);
+            lblDataDescricao.Margin = new System.Windows.Forms.Padding(0);
+            lblDataDescricao.MaximumSize = new System.Drawing.Size(260, 0);
+            lblDataDescricao.Name = "lblDataDescricao";
+            lblDataDescricao.Size = new System.Drawing.Size(76, 16);
+            lblDataDescricao.TabIndex = 24;
+            lblDataDescricao.Text = "[descricao]";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(216, 213);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 26;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.Location = new System.Drawing.Point(216, 213);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(75, 23);
+            btnCancelar.TabIndex = 26;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += new System.EventHandler(btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(135, 213);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 25;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            btnCadastrar.Location = new System.Drawing.Point(135, 213);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            btnCadastrar.TabIndex = 25;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += new System.EventHandler(btnCadastrar_Click);
             // 
             // CadastroBloco
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 263);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.lblDataDescricao);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbxSecao);
-            this.Controls.Add(this.label5);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CadastroBloco";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Novo Bloco";
-            this.Activated += new System.EventHandler(this.CadastroBloco_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(434, 263);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnCadastrar);
+            Controls.Add(lblDataDescricao);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(cbxSecao);
+            Controls.Add(label5);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            Name = "CadastroBloco";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Novo Bloco";
+            Activated += new System.EventHandler(CadastroBloco_Load);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

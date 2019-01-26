@@ -29,128 +29,128 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroSecao));
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txbDescricao = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbNome = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbId = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnCadastrar = new System.Windows.Forms.Button();
+            label5 = new System.Windows.Forms.Label();
+            txbDescricao = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            txbNome = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            txbId = new System.Windows.Forms.TextBox();
+            SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(218, 156);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.Location = new System.Drawing.Point(218, 156);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(75, 23);
+            btnCancelar.TabIndex = 3;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += new System.EventHandler(btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(137, 156);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 2;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            btnCadastrar.Location = new System.Drawing.Point(137, 156);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            btnCadastrar.TabIndex = 2;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += new System.EventHandler(btnCadastrar_Click);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(133, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 24);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Cadastrar Seção";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(133, 28);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(163, 24);
+            label5.TabIndex = 19;
+            label5.Text = "Cadastrar Seção";
             // 
             // txbDescricao
             // 
-            this.txbDescricao.AcceptsReturn = true;
-            this.txbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescricao.Location = new System.Drawing.Point(116, 107);
-            this.txbDescricao.Margin = new System.Windows.Forms.Padding(0);
-            this.txbDescricao.Name = "txbDescricao";
-            this.txbDescricao.Size = new System.Drawing.Size(260, 22);
-            this.txbDescricao.TabIndex = 1;
+            txbDescricao.AcceptsReturn = true;
+            txbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txbDescricao.Location = new System.Drawing.Point(116, 107);
+            txbDescricao.Margin = new System.Windows.Forms.Padding(0);
+            txbDescricao.Name = "txbDescricao";
+            txbDescricao.Size = new System.Drawing.Size(260, 22);
+            txbDescricao.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 107);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Descrição:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(43, 107);
+            label1.Margin = new System.Windows.Forms.Padding(0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(73, 16);
+            label1.TabIndex = 10;
+            label1.Text = "Descrição:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(152, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Nome:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(152, 73);
+            label2.Margin = new System.Windows.Forms.Padding(0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(48, 16);
+            label2.TabIndex = 20;
+            label2.Text = "Nome:";
             // 
             // txbNome
             // 
-            this.txbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNome.Location = new System.Drawing.Point(203, 73);
-            this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(173, 22);
-            this.txbNome.TabIndex = 0;
+            txbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txbNome.Location = new System.Drawing.Point(203, 73);
+            txbNome.Name = "txbNome";
+            txbNome.Size = new System.Drawing.Size(173, 22);
+            txbNome.TabIndex = 0;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 73);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Número:";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(57, 73);
+            label3.Margin = new System.Windows.Forms.Padding(0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(59, 16);
+            label3.TabIndex = 21;
+            label3.Text = "Número:";
             // 
             // txbId
             // 
-            this.txbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbId.Location = new System.Drawing.Point(116, 73);
-            this.txbId.Name = "txbId";
-            this.txbId.Size = new System.Drawing.Size(33, 22);
-            this.txbId.TabIndex = 22;
+            txbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txbId.Location = new System.Drawing.Point(116, 73);
+            txbId.Name = "txbId";
+            txbId.Size = new System.Drawing.Size(33, 22);
+            txbId.TabIndex = 22;
             // 
             // CadastroSecao
             // 
-            this.AcceptButton = this.btnCadastrar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 209);
-            this.Controls.Add(this.txbId);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txbNome);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txbDescricao);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CadastroSecao";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Nova Seção";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = btnCadastrar;
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(434, 209);
+            Controls.Add(txbId);
+            Controls.Add(label3);
+            Controls.Add(txbNome);
+            Controls.Add(label2);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnCadastrar);
+            Controls.Add(label5);
+            Controls.Add(txbDescricao);
+            Controls.Add(label1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            Name = "CadastroSecao";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Nova Seção";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

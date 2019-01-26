@@ -85,7 +85,37 @@ namespace AlocArmario.Controller
                     resultado = (resultado + "\n" + e);
             }
             return resultado;
+        }
 
+        public string Deletar(Bloco bloco)
+        {
+            string resultado = "";
+
+            List<Armario> lista = ListarArmarios(bloco);
+            foreach (Armario a in lista)
+            {
+                try
+                {
+                    db.Armario.Attach(a);
+                    db.Armario.Remove(a);
+                    db.SaveChanges();
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erroBanco";
+                    break;
+                }
+            }
+            return resultado;
+        }
+
+        public List<Armario> ListarArmarios (Bloco bloco)
+        {
+            List<Armario> lista = (from a in db.Armario
+                                   where a.IdBloco == bloco.IdBloco
+                                   select a).ToList();
+            return lista;
         }
 
         public string Danificado(Armario armario)
@@ -100,7 +130,7 @@ namespace AlocArmario.Controller
             armario.Danificado = true;
             try
             {
-                this.Alterar(armario);
+                Alterar(armario);
                 resultado = "ok";
             }
             catch (Exception)
@@ -118,7 +148,7 @@ namespace AlocArmario.Controller
                 a.Danificado = true;
                 try
                 {
-                    this.Alterar(a);
+                    Alterar(a);
                     resultado = "ok";
                 }
                 catch (Exception)
@@ -137,7 +167,7 @@ namespace AlocArmario.Controller
             armario.Danificado = false;
             try
             {
-                this.Alterar(armario);
+                Alterar(armario);
                 resultado = "ok";
             }
             catch (Exception)
@@ -155,7 +185,7 @@ namespace AlocArmario.Controller
                 a.Danificado = false;
                 try
                 {
-                    this.Alterar(a);
+                    Alterar(a);
                     resultado = "ok";
                 }
                 catch (Exception)

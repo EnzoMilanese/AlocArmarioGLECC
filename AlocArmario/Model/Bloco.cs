@@ -16,12 +16,12 @@ namespace AlocArmario.Model
     {
         public Bloco()
         {
-            this.Armario = new HashSet<Armario>();
+            Armario = new HashSet<Armario>();
         }
     
         public int IdBloco { get; set; }
         public string Numero { get; set; }
-        public int IdSecao { get; set; }
+        public Nullable<int> IdSecao { get; set; }
     
         public virtual ICollection<Armario> Armario { get; set; }
         public virtual Secao Secao { get; set; }

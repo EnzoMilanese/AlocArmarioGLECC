@@ -135,12 +135,6 @@
             this.btnArmDano = new System.Windows.Forms.Button();
             this.vsbDgvArm = new System.Windows.Forms.VScrollBar();
             this.dgvArmarios = new System.Windows.Forms.DataGridView();
-            this.IdArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArmDanific = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbpBlocos = new System.Windows.Forms.TabPage();
             this.lblBlocQntArm = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -175,13 +169,16 @@
             this.txbPesquisar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.IdBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SecaoNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescricaoSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SecaoBloco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BlocoArmario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmDanific = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -615,10 +612,15 @@
             this.LocatarioContrato});
             this.dgvContratos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvContratos.Location = new System.Drawing.Point(266, 6);
+            this.dgvContratos.MultiSelect = false;
             this.dgvContratos.Name = "dgvContratos";
             this.dgvContratos.RowHeadersVisible = false;
             this.dgvContratos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContratos.ShowCellErrors = false;
+            this.dgvContratos.ShowCellToolTips = false;
+            this.dgvContratos.ShowEditingIcon = false;
+            this.dgvContratos.ShowRowErrors = false;
             this.dgvContratos.Size = new System.Drawing.Size(565, 377);
             this.dgvContratos.TabIndex = 3;
             this.dgvContratos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContratos_CellClick);
@@ -1282,7 +1284,6 @@
             this.dgvArmarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvArmarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvArmarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdArmario,
             this.NumeroArmario,
             this.BlocoArmario,
             this.Secao,
@@ -1298,48 +1299,6 @@
             this.dgvArmarios.TabIndex = 3;
             this.dgvArmarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArmarios_CellClick);
             this.dgvArmarios.SelectionChanged += new System.EventHandler(this.dgvArmarios_SelectionChanged);
-            // 
-            // IdArmario
-            // 
-            this.IdArmario.FillWeight = 28.4264F;
-            this.IdArmario.HeaderText = "ID";
-            this.IdArmario.Name = "IdArmario";
-            this.IdArmario.Width = 32;
-            // 
-            // NumeroArmario
-            // 
-            this.NumeroArmario.FillWeight = 123.8579F;
-            this.NumeroArmario.HeaderText = "Número";
-            this.NumeroArmario.Name = "NumeroArmario";
-            this.NumeroArmario.Width = 105;
-            // 
-            // BlocoArmario
-            // 
-            this.BlocoArmario.FillWeight = 123.8579F;
-            this.BlocoArmario.HeaderText = "Bloco";
-            this.BlocoArmario.Name = "BlocoArmario";
-            this.BlocoArmario.Width = 120;
-            // 
-            // Secao
-            // 
-            this.Secao.FillWeight = 123.8579F;
-            this.Secao.HeaderText = "Seção";
-            this.Secao.Name = "Secao";
-            this.Secao.Width = 145;
-            // 
-            // ArmDanific
-            // 
-            this.ArmDanific.HeaderText = "Danificado";
-            this.ArmDanific.Name = "ArmDanific";
-            this.ArmDanific.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ArmDanific.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ArmDanific.Width = 80;
-            // 
-            // ArmarioTemContrato
-            // 
-            this.ArmarioTemContrato.HeaderText = "Contato";
-            this.ArmarioTemContrato.Name = "ArmarioTemContrato";
-            this.ArmarioTemContrato.Width = 80;
             // 
             // tbpBlocos
             // 
@@ -1492,7 +1451,6 @@
             this.dgvBlocos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvBlocos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBlocos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdBloco,
             this.NumeroBloco,
             this.SecaoBloco});
             this.dgvBlocos.Location = new System.Drawing.Point(266, 6);
@@ -1687,7 +1645,6 @@
             this.dgvSecoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSecoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSecoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdSecao,
             this.SecaoNumero,
             this.NomeSecao,
             this.DescricaoSecao});
@@ -1728,12 +1685,25 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Alocação de Armários - GLECC";
             // 
-            // IdBloco
+            // SecaoNumero
             // 
-            this.IdBloco.FillWeight = 2.809951F;
-            this.IdBloco.HeaderText = "ID";
-            this.IdBloco.Name = "IdBloco";
-            this.IdBloco.Width = 32;
+            this.SecaoNumero.HeaderText = "Número";
+            this.SecaoNumero.Name = "SecaoNumero";
+            this.SecaoNumero.Width = 50;
+            // 
+            // NomeSecao
+            // 
+            this.NomeSecao.FillWeight = 63.95938F;
+            this.NomeSecao.HeaderText = "Nome";
+            this.NomeSecao.Name = "NomeSecao";
+            this.NomeSecao.Width = 167;
+            // 
+            // DescricaoSecao
+            // 
+            this.DescricaoSecao.FillWeight = 202.6386F;
+            this.DescricaoSecao.HeaderText = "Descrição";
+            this.DescricaoSecao.Name = "DescricaoSecao";
+            this.DescricaoSecao.Width = 350;
             // 
             // NumeroBloco
             // 
@@ -1747,34 +1717,42 @@
             this.SecaoBloco.FillWeight = 284.7716F;
             this.SecaoBloco.HeaderText = "Seção";
             this.SecaoBloco.Name = "SecaoBloco";
-            this.SecaoBloco.Width = 405;
+            this.SecaoBloco.Width = 442;
             // 
-            // IdSecao
+            // NumeroArmario
             // 
-            this.IdSecao.FillWeight = 33.40196F;
-            this.IdSecao.HeaderText = "ID";
-            this.IdSecao.Name = "IdSecao";
-            this.IdSecao.Width = 32;
+            this.NumeroArmario.FillWeight = 123.8579F;
+            this.NumeroArmario.HeaderText = "Número";
+            this.NumeroArmario.Name = "NumeroArmario";
+            this.NumeroArmario.Width = 115;
             // 
-            // SecaoNumero
+            // BlocoArmario
             // 
-            this.SecaoNumero.HeaderText = "Número";
-            this.SecaoNumero.Name = "SecaoNumero";
-            this.SecaoNumero.Width = 50;
+            this.BlocoArmario.FillWeight = 123.8579F;
+            this.BlocoArmario.HeaderText = "Bloco";
+            this.BlocoArmario.Name = "BlocoArmario";
+            this.BlocoArmario.Width = 140;
             // 
-            // NomeSecao
+            // Secao
             // 
-            this.NomeSecao.FillWeight = 63.95938F;
-            this.NomeSecao.HeaderText = "Nome";
-            this.NomeSecao.Name = "NomeSecao";
-            this.NomeSecao.Width = 130;
+            this.Secao.FillWeight = 123.8579F;
+            this.Secao.HeaderText = "Seção";
+            this.Secao.Name = "Secao";
+            this.Secao.Width = 147;
             // 
-            // DescricaoSecao
+            // ArmDanific
             // 
-            this.DescricaoSecao.FillWeight = 202.6386F;
-            this.DescricaoSecao.HeaderText = "Descrição";
-            this.DescricaoSecao.Name = "DescricaoSecao";
-            this.DescricaoSecao.Width = 350;
+            this.ArmDanific.HeaderText = "Danificado";
+            this.ArmDanific.Name = "ArmDanific";
+            this.ArmDanific.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ArmDanific.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ArmDanific.Width = 80;
+            // 
+            // ArmarioTemContrato
+            // 
+            this.ArmarioTemContrato.HeaderText = "Contato";
+            this.ArmarioTemContrato.Name = "ArmarioTemContrato";
+            this.ArmarioTemContrato.Width = 80;
             // 
             // ConsultaArmarioAvanc
             // 
@@ -1946,18 +1924,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailLocatario;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLocatario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ContratoLocatario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdArmario;
+        private System.Windows.Forms.Label lblArmDano;
+        private System.Windows.Forms.Button btnArmUtil;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroArmario;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlocoArmario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Secao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ArmDanific;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ArmarioTemContrato;
-        private System.Windows.Forms.Label lblArmDano;
-        private System.Windows.Forms.Button btnArmUtil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroBloco;
         private System.Windows.Forms.DataGridViewTextBoxColumn SecaoBloco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn SecaoNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;

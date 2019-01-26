@@ -59,34 +59,109 @@ namespace AlocArmario.View
             ac = new ArmarioController();
             bc = new BlocoController();
             sc = new SecaoController();
-            
-            this.CarregarListaBase();
-            this.CarregarListasExib();
 
+            CarregarListaBase();
+            CarregarListasExib();
+            CarregarSelecao();
         }
 
         private void ConsultaArmarioAvanc_Activated(object sender, EventArgs e)
         {
-            this.CarregarListaBase();
+            CarregarListaBase();
 
-            this.ConsultarContratos();
-            this.ConsultarLocatarios();
-            this.ConsultarArmarios();
-            this.ConsultarBlocos();
-            this.ConsultarSecoes();
+            ConsultarContratos();
+            ConsultarLocatarios();
+            ConsultarArmarios();
+            ConsultarBlocos();
+            ConsultarSecoes();
 
-            this.CarregarScrollBars(dgvContratos, vsbDgvContr);
-            this.CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
-            this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
-            this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
-            this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+            CarregarScrollBars(dgvContratos, vsbDgvContr);
+            CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
+            CarregarScrollBars(dgvArmarios, vsbDgvArm);
+            CarregarScrollBars(dgvBlocos, vsbDgvBloc);
+            CarregarScrollBars(dgvSecoes, vsbDgvSec);
+
+            CarregarSelecao();
+        }
+
+        private void CarregarSelecao()
+        {
+            if (dgvContratos.Rows.Count > 0)
+            {
+                dgvContratos.Rows[0].Selected = false;
+                if (contratoAtivo != null)
+                {
+                    foreach (DataGridViewRow r in dgvContratos.Rows)
+                        if (contratoAtivo.IdContrato.Equals(r.Cells[0].Value))
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                }
+            }
+
+            if (dgvLocatarios.Rows.Count > 0)
+            {
+                dgvLocatarios.Rows[0].Selected = false;
+                if (locatarioAtivo != null)
+                {
+                    foreach (DataGridViewRow r in dgvLocatarios.Rows)
+                        if (locatarioAtivo.IdLocatario.Equals(r.Cells[0].Value))
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                }
+            }
+
+            if (dgvArmarios.Rows.Count > 0)
+            {
+                dgvArmarios.Rows[0].Selected = false;
+                if (armarioAtivo != null)
+                {
+                    foreach (DataGridViewRow r in dgvArmarios.Rows)
+                        if (armarioAtivo.IdArmario.Equals(r.Cells[0].Value))
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                }
+            }
+
+            if (dgvBlocos.Rows.Count > 0)
+            {
+                dgvBlocos.Rows[0].Selected = false;
+                if (blocoAtivo != null)
+                {
+                    foreach (DataGridViewRow r in dgvBlocos.Rows)
+                        if (blocoAtivo.IdBloco.Equals(r.Cells[0].Value))
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                }
+            }
+
+            if (dgvSecoes.Rows.Count > 0)
+            {
+                dgvSecoes.Rows[0].Selected = false;
+                if (secaoAtiva != null)
+                {
+                    foreach (DataGridViewRow r in dgvSecoes.Rows)
+                        if (secaoAtiva.IdSecao.Equals(r.Cells[0].Value))
+                        {
+                            r.Selected = true;
+                            break;
+                        }
+                }
+            }
         }
 
         private void AtivarForm()
         {
             object obj = new object();
             EventArgs evnt = new EventArgs();
-            this.ConsultaArmarioAvanc_Activated(obj, evnt);
+            ConsultaArmarioAvanc_Activated(obj, evnt);
         }
 
         private void CarregarListaBase()
@@ -261,9 +336,9 @@ namespace AlocArmario.View
             CadastroContrato cc = new CadastroContrato();
             cc.ShowDialog();
             txbPesquisar.Text = "";
-            this.CarregarListaBase();
-            this.CarregarListasExib();
-            this.AtivarForm();
+            CarregarListaBase();
+            CarregarListasExib();
+            AtivarForm();
         }
 
         private void btnCadastLocatario_Click(object sender, EventArgs e)
@@ -271,9 +346,9 @@ namespace AlocArmario.View
             CadastroLocatario cl = new CadastroLocatario();
             cl.ShowDialog();
             txbPesquisar.Text = "";
-            this.CarregarListaBase();
-            this.CarregarListasExib();
-            this.AtivarForm();
+            CarregarListaBase();
+            CarregarListasExib();
+            AtivarForm();
         }
 
         private void btnCadastBloco_Click(object sender, EventArgs e)
@@ -281,9 +356,9 @@ namespace AlocArmario.View
             CadastroBloco cb = new CadastroBloco();
             cb.ShowDialog();
             txbPesquisar.Text = "";
-            this.CarregarListaBase();
-            this.CarregarListasExib();
-            this.AtivarForm();
+            CarregarListaBase();
+            CarregarListasExib();
+            AtivarForm();
         }
 
         private void btnCadastSecao_Click(object sender, EventArgs e)
@@ -291,9 +366,9 @@ namespace AlocArmario.View
             CadastroSecao cs = new CadastroSecao();
             cs.ShowDialog();
             txbPesquisar.Text = "";
-            this.CarregarListaBase();
-            this.CarregarListasExib();
-            this.AtivarForm();
+            CarregarListaBase();
+            CarregarListasExib();
+            AtivarForm();
         }
 
         private void tbcConsulta_SelectedIndexChanged(object sender, EventArgs e)
@@ -542,7 +617,7 @@ namespace AlocArmario.View
                 if (c.IdContrato.Equals(idLinha))
                 {
                     contratoAtivo = c;
-                    this.CarregarContLabels();
+                    CarregarContLabels();
                 }
             btnAlterContrato.Enabled = true;
             btnDeletContrato.Enabled = true;
@@ -561,7 +636,7 @@ namespace AlocArmario.View
                 if (l.IdLocatario.Equals(idLinha))
                 {
                     locatarioAtivo = l;
-                    this.CarregarLocLabels();
+                    CarregarLocLabels();
                 }
             btnAlterLoc.Enabled = true;
             btnDeletLoc.Enabled = true;
@@ -581,7 +656,7 @@ namespace AlocArmario.View
                 if (a.IdArmario.Equals(idLinha))
                 {
                     armarioAtivo = a;
-                    this.CarregarArmLabels();
+                    CarregarArmLabels();
                 }
             if (armarioAtivo.Danificado)
             {
@@ -610,7 +685,7 @@ namespace AlocArmario.View
                 if (b.IdBloco.Equals(idLinha))
                 {
                     blocoAtivo = b;
-                    this.CarregarBlocLabels();
+                    CarregarBlocLabels();
                 }
             btnDeletBloc.Enabled = true;
         }
@@ -627,7 +702,7 @@ namespace AlocArmario.View
                 if (s.IdSecao.Equals(idLinha))
                 {
                     secaoAtiva = s;
-                    this.CarregarSecLabels();
+                    CarregarSecLabels();
                 }
             btnAlterSec.Enabled = true;
             btnDeletSec.Enabled = true;
@@ -635,7 +710,7 @@ namespace AlocArmario.View
         //COMEÇO FILTRO DE PESQUISA
         private void txbPesquisar_TextChanged(object sender, EventArgs e)
         {
-            this.resetarFiltro();
+            resetarFiltro();
 
             bool temTexto = false;
             switch (tbcConsulta.SelectedIndex)
@@ -648,7 +723,7 @@ namespace AlocArmario.View
                         {
                             if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
                             {
-                                this.adicionarFiltro(0, r);
+                                adicionarFiltro(0, r);
                                 temTexto = true;
                                 break;
                             }
@@ -656,7 +731,7 @@ namespace AlocArmario.View
                         if (temTexto == false)
                             continue;
                     }
-                    this.carregarFiltro();
+                    carregarFiltro();
                     break;
                 case 1:
                     foreach (DataGridViewRow r in dgvLocatarios.Rows)
@@ -666,7 +741,7 @@ namespace AlocArmario.View
                         {
                             if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
                             {
-                                this.adicionarFiltro(1, r);
+                                adicionarFiltro(1, r);
                                 temTexto = true;
                                 break;
                             }
@@ -674,7 +749,7 @@ namespace AlocArmario.View
                         if (temTexto == false)
                             continue;
                     }
-                    this.carregarFiltro();
+                    carregarFiltro();
                     break;
                 case 2:
                     foreach (DataGridViewRow r in dgvArmarios.Rows)
@@ -684,7 +759,7 @@ namespace AlocArmario.View
                         {
                             if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
                             {
-                                this.adicionarFiltro(2, r);
+                                adicionarFiltro(2, r);
                                 temTexto = true;
                                 break;
                             }
@@ -692,7 +767,7 @@ namespace AlocArmario.View
                         if (temTexto == false)
                             continue;
                     }
-                    this.carregarFiltro();
+                    carregarFiltro();
                     break;
                 case 3:
                     foreach (DataGridViewRow r in dgvBlocos.Rows)
@@ -702,7 +777,7 @@ namespace AlocArmario.View
                         {
                             if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
                             {
-                                this.adicionarFiltro(3, r);
+                                adicionarFiltro(3, r);
                                 temTexto = true;
                                 break;
                             }
@@ -710,7 +785,7 @@ namespace AlocArmario.View
                         if (temTexto == false)
                             continue;
                     }
-                    this.carregarFiltro();
+                    carregarFiltro();
                     break;
                 case 4:
                     foreach (DataGridViewRow r in dgvSecoes.Rows)
@@ -720,7 +795,7 @@ namespace AlocArmario.View
                         {
                             if ((c.Value).ToString().ToUpper().Contains(txbPesquisar.Text.ToUpper()))
                             {
-                                this.adicionarFiltro(4, r);
+                                adicionarFiltro(4, r);
                                 temTexto = true;
                                 break;
                             }
@@ -728,7 +803,7 @@ namespace AlocArmario.View
                         if (temTexto == false)
                             continue;
                     }
-                    this.carregarFiltro();
+                    carregarFiltro();
                     break;
             }
         }
@@ -743,7 +818,7 @@ namespace AlocArmario.View
 
             object a = new object();
             EventArgs b = new EventArgs();
-            this.ConsultaArmarioAvanc_Activated(a, b);
+            ConsultaArmarioAvanc_Activated(a, b);
         }
 
         private void adicionarFiltro(int opcao, DataGridViewRow r)
@@ -794,32 +869,32 @@ namespace AlocArmario.View
 
             object a = new object();
             EventArgs b = new EventArgs();
-            this.ConsultaArmarioAvanc_Activated(a, b);
+            ConsultaArmarioAvanc_Activated(a, b);
         }
         //FIM FILTRO DE PESQUISA
         private void tbpContratos_Enter(object sender, EventArgs e)
         {
-            this.CarregarScrollBars(dgvContratos, vsbDgvContr);
+            CarregarScrollBars(dgvContratos, vsbDgvContr);
         }
 
         private void tbpLocatarios_Enter(object sender, EventArgs e)
         {
-            this.CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
+            CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
         }
 
         private void tbpArmarios_Enter(object sender, EventArgs e)
         {
-            this.CarregarScrollBars(dgvArmarios, vsbDgvArm);
+            CarregarScrollBars(dgvArmarios, vsbDgvArm);
         }
 
         private void tbpBlocos_Enter(object sender, EventArgs e)
         {
-            this.CarregarScrollBars(dgvBlocos, vsbDgvBloc);
+            CarregarScrollBars(dgvBlocos, vsbDgvBloc);
         }
 
         private void tbpSecoes_Enter(object sender, EventArgs e)
         {
-            this.CarregarScrollBars(dgvSecoes, vsbDgvSec);
+            CarregarScrollBars(dgvSecoes, vsbDgvSec);
         }
 
         private void dgvArmarios_SelectionChanged(object sender, EventArgs e)
@@ -833,7 +908,7 @@ namespace AlocArmario.View
                             armariosSelecionados.Add(a);
 
                 armarioAtivo = armariosSelecionados.First();
-                this.CarregarArmLabels();
+                CarregarArmLabels();
                 btnArmUtil.Enabled = true;
                 btnArmDano.Enabled = true;
             }
@@ -855,17 +930,17 @@ namespace AlocArmario.View
                 if (armariosUteis.Count == 0)
                     return;
 
-                resultado = ac.Danificado(armariosUteis); 
+                resultado = ac.Danificado(armariosUteis);
                 switch (resultado)
                 {
                     case "ok":
-                        this.AtivarForm();
-                        this.CarregarArmLabels();
+                        AtivarForm();
+                        CarregarArmLabels();
                         break;
                     default:
                         MessageBox.Show("Alguns armários não puderam ser marcados como danificados\n" + resultado, "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        this.AtivarForm();
-                        this.CarregarArmLabels();
+                        AtivarForm();
+                        CarregarArmLabels();
                         break;
                 }
                 return;
@@ -875,8 +950,8 @@ namespace AlocArmario.View
             switch (resultado)
             {
                 case "ok":
-                    this.AtivarForm();
-                    this.CarregarArmLabels();
+                    AtivarForm();
+                    CarregarArmLabels();
                     break;
                 case "erro":
                     MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nO armário possui um contrato ativo.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -909,24 +984,24 @@ namespace AlocArmario.View
                 switch (resultado)
                 {
                     case "ok":
-                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
-                        this.CarregarArmLabels();
+                        ConsultaArmarioAvanc_Activated(obj, evnt);
+                        CarregarArmLabels();
                         break;
                     default:
                         MessageBox.Show("Alguns armários não puderam ser marcados como utilizáveis\n" + resultado, "Armário Utilizável", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        this.ConsultaArmarioAvanc_Activated(obj, evnt);
-                        this.CarregarArmLabels();
+                        ConsultaArmarioAvanc_Activated(obj, evnt);
+                        CarregarArmLabels();
                         break;
                 }
                 return;
             }
 
-            resultado = ac.Utilizavel(armarioAtivo); 
+            resultado = ac.Utilizavel(armarioAtivo);
             switch (resultado)
             {
                 case "ok":
-                    this.ConsultaArmarioAvanc_Activated(obj, evnt);
-                    this.CarregarArmLabels();
+                    ConsultaArmarioAvanc_Activated(obj, evnt);
+                    CarregarArmLabels();
                     break;
                 case "erro":
                     MessageBox.Show("Não foi possível marcar o armário como danificado.\n\nO armário possui um contrato ativo.", "Armário Danificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -952,42 +1027,71 @@ namespace AlocArmario.View
 
         private void btnDeletBloc_Click(object sender, EventArgs e)
         {
+            if (blocoAtivo == null)
+                return;
+
+            bool TemContrato = false;
+            foreach (Armario a in blocoAtivo.Armario)
+                if (a.TemContrato)
+                    TemContrato = true;
+
+            if (TemContrato)
+            {
+                MessageBox.Show("Não foi possível excluir o bloco\n\nO bloco possui pelo menos um armário com um contrato ativo.", "Excluir Bloco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                string resultado = bc.Deletar(blocoAtivo);
+                switch (resultado)
+                {
+                    case "ok":
+                        blocoAtivo = null;
+                        CarregarBlocLabels();
+                        CarregarListaBase();
+                        CarregarListasExib();
+                        AtivarForm();
+                        break;
+                    case "erroBanco":
+                        MessageBox.Show("Não foi possível excluir o bloco\n\nO bloco já foi excluído.", "Excluir Bloco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        secaoAtiva = null;
+                        CarregarBlocLabels();
+                        CarregarListaBase();
+                        CarregarListasExib();
+                        AtivarForm();
+                        break;
+                }
+            }
 
         }
 
         private void btnDeletSec_Click(object sender, EventArgs e)
         {
-            bool TemContrato = false;
-            foreach (Bloco b in secaoAtiva.Bloco)
-                foreach (Armario a in b.Armario)
-                    if (a.TemContrato)
-                        TemContrato = true;
-
-            if (TemContrato)
+            if (secaoAtiva == null)
+                return;
+            
+            if (secaoAtiva.Bloco.Count > 0)
             {
-                MessageBox.Show("Não foi possível excluir a seção\n\nA seção possui pelo menos um armário com um contrato ativo.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Não foi possível excluir a seção\n\nA seção possui pelo menos um bloco cadastrado.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-            else
+
+            string resultado = sc.Deletar(secaoAtiva);
+            switch (resultado)
             {
-                string resultado = sc.Deletar(secaoAtiva);
-                switch (resultado)
-                {
-                    case "ok":
-                        secaoAtiva = null;
-                        this.CarregarSecLabels();
-                        this.CarregarListaBase();
-                        this.CarregarListasExib();
-                        this.AtivarForm();
-                        break;
-                    case "erroBanco":
-                        MessageBox.Show("Não foi possível excluir a seção\n\nA sessão já foi excluída.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        secaoAtiva = null;
-                        this.CarregarSecLabels();
-                        this.CarregarListaBase();
-                        this.CarregarListasExib();
-                        this.AtivarForm();
-                        break;
-                }
+                case "ok":
+                    secaoAtiva = null;
+                    CarregarSecLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
+                case "erroBanco":
+                    MessageBox.Show("Não foi possível excluir a seção\n\nOcorreu um erro no banco de dados.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                        
+                    CarregarSecLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
             }
         }
     }

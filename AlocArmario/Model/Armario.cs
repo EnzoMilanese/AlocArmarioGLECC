@@ -16,11 +16,11 @@ namespace AlocArmario.Model
     {
         public Armario()
         {
-            this.Contrato = new HashSet<Contrato>();
+            Contrato = new HashSet<Contrato>();
         }
     
         public int IdArmario { get; set; }
-        public int IdBloco { get; set; }
+        public Nullable<int> IdBloco { get; set; }
         public string Numero { get; set; }
         public bool TemContrato { get; set; }
         public int ContratoAtivo { get; set; }

@@ -76,7 +76,7 @@ namespace AlocArmario.View.Cadastro
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

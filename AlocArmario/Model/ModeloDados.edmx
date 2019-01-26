@@ -46,7 +46,7 @@
       <PropertyRef Name="IdArmario" />
     </Key>
     <Property Name="IdArmario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdBloco" Type="int" Nullable="false" />
+    <Property Name="IdBloco" Type="int" Nullable="true" />
     <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TemContrato" Type="bit" Nullable="false" />
     <Property Name="ContratoAtivo" Type="int" Nullable="false" />
@@ -69,7 +69,7 @@
     </Key>
     <Property Name="IdBloco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdSecao" Type="int" Nullable="false" />
+    <Property Name="IdSecao" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Secao">
     <Key>
@@ -113,7 +113,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Possui">
-    <End Role="Bloco" Type="ModeloDados.Store.Bloco" Multiplicity="1" />
+    <End Role="Bloco" Type="ModeloDados.Store.Bloco" Multiplicity="0..1" />
     <End Role="Armario" Type="ModeloDados.Store.Armario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Bloco">
@@ -125,7 +125,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SecaoBloco">
-    <End Role="Secao" Type="ModeloDados.Store.Secao" Multiplicity="1" />
+    <End Role="Secao" Type="ModeloDados.Store.Secao" Multiplicity="0..1" />
     <End Role="Bloco" Type="ModeloDados.Store.Bloco" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Secao">
@@ -184,7 +184,7 @@
           <Property Name="IdArmario" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.ArmarioContrato" FromRole="Armario" ToRole="Contrato" />
           <NavigationProperty Name="Bloco" Relationship="ModeloDados.Possui" FromRole="Armario" ToRole="Bloco" />
-          <Property Name="IdBloco" Nullable="false" Type="Int32" />
+          <Property Name="IdBloco" Type="Int32" Nullable="true" />
           <Property Name="Numero" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="TemContrato" Type="Boolean" Nullable="false" />
           <Property Name="ContratoAtivo" Type="Int32" Nullable="false" />
@@ -235,10 +235,10 @@
           <Property Name="Numero" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.Possui" FromRole="Bloco" ToRole="Armario" />
           <NavigationProperty Name="Secao" Relationship="ModeloDados.SecaoBloco" FromRole="Bloco" ToRole="Secao" />
-          <Property Name="IdSecao" Nullable="false" Type="Int32" />
+          <Property Name="IdSecao" Type="Int32" Nullable="true" />
         </EntityType>
         <Association Name="Possui">
-          <End Type="ModeloDados.Bloco" Multiplicity="1" Role="Bloco" />
+          <End Type="ModeloDados.Bloco" Multiplicity="0..1" Role="Bloco" />
           <End Type="ModeloDados.Armario" Multiplicity="*" Role="Armario" />
           <ReferentialConstraint>
             <Principal Role="Bloco">
@@ -260,7 +260,7 @@
           <Property Name="Numero" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="SecaoBloco">
-          <End Type="ModeloDados.Secao" Multiplicity="1" Role="Secao" />
+          <End Type="ModeloDados.Secao" Multiplicity="0..1" Role="Secao" />
           <End Type="ModeloDados.Bloco" Multiplicity="*" Role="Bloco" />
           <ReferentialConstraint>
             <Principal Role="Secao">

@@ -33,9 +33,9 @@ namespace AlocArmario.View.Cadastro
             lc = new LocatarioController();
             contrato = new Contrato();
 
-            this.CarregarLocatarios();
-            this.CarregarArmarios();
-            this.CarregarTiposContrato();
+            CarregarLocatarios();
+            CarregarArmarios();
+            CarregarTiposContrato();
 
             var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Contrato));
             TypeDescriptor.AddProvider(provedor, typeof(Contrato));
@@ -133,8 +133,8 @@ namespace AlocArmario.View.Cadastro
 
         private void CadastroBloco_Load(object sender, EventArgs e)
         {
-            this.CarregarArmarios();
-            this.CarregarLocatarios();
+            CarregarArmarios();
+            CarregarLocatarios();
         }
 
         private void cbxSecao_SelectionChangeCommitted(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace AlocArmario.View.Cadastro
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cbxTipoContrato_SelectedIndexChanged(object sender, EventArgs e)

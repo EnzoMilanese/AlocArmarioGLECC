@@ -16,7 +16,7 @@ namespace AlocArmario.Model
     {
         public Locatario()
         {
-            this.Contrato = new HashSet<Contrato>();
+            Contrato = new HashSet<Contrato>();
         }
     
         public int IdLocatario { get; set; }

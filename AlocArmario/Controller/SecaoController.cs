@@ -10,6 +10,7 @@ namespace AlocArmario.Controller
     class SecaoController
     {
         private ModeloDadosContainer db = new ModeloDadosContainer();
+        private BlocoController bc = new BlocoController();
 
         public List<Secao> Consultar()
         {
@@ -44,10 +45,33 @@ namespace AlocArmario.Controller
             return resultado;
         }
 
-        public List<Secao> ListarSecoes()
+        public string Alterar(Secao secao)
         {
-            var lista = db.Secao.AsNoTracking().ToList();
-            return lista;
+            var erros = Validacao.ValidaDados(secao);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    Secao secaoDb = (from s in db.Secao
+                                     where s.IdSecao == secao.IdSecao
+                                     select s).SingleOrDefault();
+                    secaoDb = secao;
+                    db.SaveChanges();
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
         }
 
         public string Deletar(Secao secao)
@@ -56,6 +80,9 @@ namespace AlocArmario.Controller
 
             try
             {
+                secao = bc.Deletar(secao);
+                db.Secao.Attach(secao);
+                db.SaveChanges();
                 db.Secao.Remove(secao);
                 db.SaveChanges();
                 resultado = "ok";

@@ -16,7 +16,7 @@ namespace AlocArmario.Model
     {
         public Secao()
         {
-            this.Bloco = new HashSet<Bloco>();
+            Bloco = new HashSet<Bloco>();
         }
     
         public int IdSecao { get; set; }

@@ -43,7 +43,7 @@ namespace AlocArmario
             if (resultado.Equals("ok"))
             {
                 DialogResult = DialogResult.OK;
-                this.Close();
+                Close();
             }
             else if (resultado.Equals("erro"))
             {

@@ -29,236 +29,236 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroContrato));
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxLocatario = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbxSecao = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxBloco = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxArmario = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbxTipoContrato = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDataValidade = new System.Windows.Forms.Label();
-            this.lblDataValor = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnCadastrar = new System.Windows.Forms.Button();
+            label5 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            cbxLocatario = new System.Windows.Forms.ComboBox();
+            label2 = new System.Windows.Forms.Label();
+            cbxSecao = new System.Windows.Forms.ComboBox();
+            label3 = new System.Windows.Forms.Label();
+            cbxBloco = new System.Windows.Forms.ComboBox();
+            label4 = new System.Windows.Forms.Label();
+            cbxArmario = new System.Windows.Forms.ComboBox();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            cbxTipoContrato = new System.Windows.Forms.ComboBox();
+            label8 = new System.Windows.Forms.Label();
+            lblDataValidade = new System.Windows.Forms.Label();
+            lblDataValor = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(247, 289);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.Location = new System.Drawing.Point(247, 289);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(75, 23);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += new System.EventHandler(btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(166, 289);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 4;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            btnCadastrar.Location = new System.Drawing.Point(166, 289);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            btnCadastrar.TabIndex = 4;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += new System.EventHandler(btnCadastrar_Click);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(153, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(182, 24);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Cadastrar Contrato";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(153, 37);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(182, 24);
+            label5.TabIndex = 1;
+            label5.Text = "Cadastrar Contrato";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 96);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Locatário:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(32, 96);
+            label1.Margin = new System.Windows.Forms.Padding(0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(67, 16);
+            label1.TabIndex = 0;
+            label1.Text = "Locatário:";
             // 
             // cbxLocatario
             // 
-            this.cbxLocatario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxLocatario.FormattingEnabled = true;
-            this.cbxLocatario.Location = new System.Drawing.Point(102, 96);
-            this.cbxLocatario.Name = "cbxLocatario";
-            this.cbxLocatario.Size = new System.Drawing.Size(345, 24);
-            this.cbxLocatario.TabIndex = 0;
+            cbxLocatario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxLocatario.FormattingEnabled = true;
+            cbxLocatario.Location = new System.Drawing.Point(102, 96);
+            cbxLocatario.Name = "cbxLocatario";
+            cbxLocatario.Size = new System.Drawing.Size(345, 24);
+            cbxLocatario.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 128);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Seção:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(48, 128);
+            label2.Margin = new System.Windows.Forms.Padding(0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(51, 16);
+            label2.TabIndex = 10;
+            label2.Text = "Seção:";
             // 
             // cbxSecao
             // 
-            this.cbxSecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxSecao.FormattingEnabled = true;
-            this.cbxSecao.Location = new System.Drawing.Point(102, 128);
-            this.cbxSecao.Name = "cbxSecao";
-            this.cbxSecao.Size = new System.Drawing.Size(103, 24);
-            this.cbxSecao.TabIndex = 1;
-            this.cbxSecao.SelectionChangeCommitted += new System.EventHandler(this.cbxSecao_SelectionChangeCommitted);
+            cbxSecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxSecao.FormattingEnabled = true;
+            cbxSecao.Location = new System.Drawing.Point(102, 128);
+            cbxSecao.Name = "cbxSecao";
+            cbxSecao.Size = new System.Drawing.Size(103, 24);
+            cbxSecao.TabIndex = 1;
+            cbxSecao.SelectionChangeCommitted += new System.EventHandler(cbxSecao_SelectionChangeCommitted);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(208, 128);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Bloco:";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(208, 128);
+            label3.Margin = new System.Windows.Forms.Padding(0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(46, 16);
+            label3.TabIndex = 8;
+            label3.Text = "Bloco:";
             // 
             // cbxBloco
             // 
-            this.cbxBloco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxBloco.FormattingEnabled = true;
-            this.cbxBloco.Location = new System.Drawing.Point(257, 128);
-            this.cbxBloco.Name = "cbxBloco";
-            this.cbxBloco.Size = new System.Drawing.Size(63, 24);
-            this.cbxBloco.TabIndex = 2;
-            this.cbxBloco.SelectionChangeCommitted += new System.EventHandler(this.cbxBloco_SelectionChangeCommitted);
+            cbxBloco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxBloco.FormattingEnabled = true;
+            cbxBloco.Location = new System.Drawing.Point(257, 128);
+            cbxBloco.Name = "cbxBloco";
+            cbxBloco.Size = new System.Drawing.Size(63, 24);
+            cbxBloco.TabIndex = 2;
+            cbxBloco.SelectionChangeCommitted += new System.EventHandler(cbxBloco_SelectionChangeCommitted);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(323, 128);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Armário:";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(323, 128);
+            label4.Margin = new System.Windows.Forms.Padding(0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(58, 16);
+            label4.TabIndex = 9;
+            label4.Text = "Armário:";
             // 
             // cbxArmario
             // 
-            this.cbxArmario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxArmario.FormattingEnabled = true;
-            this.cbxArmario.Location = new System.Drawing.Point(384, 128);
-            this.cbxArmario.Name = "cbxArmario";
-            this.cbxArmario.Size = new System.Drawing.Size(63, 24);
-            this.cbxArmario.TabIndex = 3;
-            this.cbxArmario.SelectionChangeCommitted += new System.EventHandler(this.cbxArmario_SelectionChangeCommitted);
+            cbxArmario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxArmario.FormattingEnabled = true;
+            cbxArmario.Location = new System.Drawing.Point(384, 128);
+            cbxArmario.Name = "cbxArmario";
+            cbxArmario.Size = new System.Drawing.Size(63, 24);
+            cbxArmario.TabIndex = 3;
+            cbxArmario.SelectionChangeCommitted += new System.EventHandler(cbxArmario_SelectionChangeCommitted);
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(33, 184);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Validade:";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(33, 184);
+            label6.Margin = new System.Windows.Forms.Padding(0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(66, 16);
+            label6.TabIndex = 11;
+            label6.Text = "Validade:";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(323, 184);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Valor:";
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(323, 184);
+            label7.Margin = new System.Windows.Forms.Padding(0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(43, 16);
+            label7.TabIndex = 12;
+            label7.Text = "Valor:";
             // 
             // cbxTipoContrato
             // 
-            this.cbxTipoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipoContrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTipoContrato.FormattingEnabled = true;
-            this.cbxTipoContrato.Items.AddRange(new object[] {
+            cbxTipoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbxTipoContrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cbxTipoContrato.FormattingEnabled = true;
+            cbxTipoContrato.Items.AddRange(new object[] {
             "Anual",
             "Semestral"});
-            this.cbxTipoContrato.Location = new System.Drawing.Point(102, 184);
-            this.cbxTipoContrato.Name = "cbxTipoContrato";
-            this.cbxTipoContrato.Size = new System.Drawing.Size(218, 24);
-            this.cbxTipoContrato.TabIndex = 15;
-            this.cbxTipoContrato.SelectedIndexChanged += new System.EventHandler(this.cbxTipoContrato_SelectedIndexChanged);
+            cbxTipoContrato.Location = new System.Drawing.Point(102, 184);
+            cbxTipoContrato.Name = "cbxTipoContrato";
+            cbxTipoContrato.Size = new System.Drawing.Size(218, 24);
+            cbxTipoContrato.TabIndex = 15;
+            cbxTipoContrato.SelectedIndexChanged += new System.EventHandler(cbxTipoContrato_SelectedIndexChanged);
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(27, 219);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 16);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Válido até:";
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(27, 219);
+            label8.Margin = new System.Windows.Forms.Padding(0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(72, 16);
+            label8.TabIndex = 17;
+            label8.Text = "Válido até:";
             // 
             // lblDataValidade
             // 
-            this.lblDataValidade.AutoSize = true;
-            this.lblDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataValidade.Location = new System.Drawing.Point(99, 219);
-            this.lblDataValidade.Margin = new System.Windows.Forms.Padding(0);
-            this.lblDataValidade.Name = "lblDataValidade";
-            this.lblDataValidade.Size = new System.Drawing.Size(99, 16);
-            this.lblDataValidade.TabIndex = 18;
-            this.lblDataValidade.Text = "[data validade]";
+            lblDataValidade.AutoSize = true;
+            lblDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblDataValidade.Location = new System.Drawing.Point(99, 219);
+            lblDataValidade.Margin = new System.Windows.Forms.Padding(0);
+            lblDataValidade.Name = "lblDataValidade";
+            lblDataValidade.Size = new System.Drawing.Size(99, 16);
+            lblDataValidade.TabIndex = 18;
+            lblDataValidade.Text = "[data validade]";
             // 
             // lblDataValor
             // 
-            this.lblDataValor.AutoSize = true;
-            this.lblDataValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataValor.Location = new System.Drawing.Point(366, 184);
-            this.lblDataValor.Margin = new System.Windows.Forms.Padding(0);
-            this.lblDataValor.Name = "lblDataValor";
-            this.lblDataValor.Size = new System.Drawing.Size(51, 16);
-            this.lblDataValor.TabIndex = 19;
-            this.lblDataValor.Text = "[preço]";
+            lblDataValor.AutoSize = true;
+            lblDataValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblDataValor.Location = new System.Drawing.Point(366, 184);
+            lblDataValor.Margin = new System.Windows.Forms.Padding(0);
+            lblDataValor.Name = "lblDataValor";
+            lblDataValor.Size = new System.Drawing.Size(51, 16);
+            lblDataValor.TabIndex = 19;
+            lblDataValor.Text = "[preço]";
             // 
             // CadastroContrato
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 353);
-            this.Controls.Add(this.lblDataValor);
-            this.Controls.Add(this.lblDataValidade);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cbxTipoContrato);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbxArmario);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cbxBloco);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbxSecao);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbxLocatario);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnCadastrar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CadastroContrato";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Novo Contrato";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(494, 353);
+            Controls.Add(lblDataValor);
+            Controls.Add(lblDataValidade);
+            Controls.Add(label8);
+            Controls.Add(cbxTipoContrato);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(cbxArmario);
+            Controls.Add(label4);
+            Controls.Add(cbxBloco);
+            Controls.Add(label3);
+            Controls.Add(cbxSecao);
+            Controls.Add(label2);
+            Controls.Add(cbxLocatario);
+            Controls.Add(label1);
+            Controls.Add(label5);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnCadastrar);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            Name = "CadastroContrato";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Novo Contrato";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -20,7 +20,7 @@ namespace AlocArmario.Controller
 
         private int QuantBlocos (Bloco bloco)
         {
-            var listaBlocos = this.Consultar();
+            var listaBlocos = Consultar();
             int quant = 0;
             foreach (var b in listaBlocos)
             {
@@ -62,6 +62,84 @@ namespace AlocArmario.Controller
                         armario.Danificado = false;
                         ac.Inserir(armario);
                     }
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+        }
+
+        public string Deletar(Bloco bloco)
+        {
+            string resultado;
+
+            try
+            {
+                resultado = ac.Deletar(bloco);
+                if (resultado == "erroBanco")
+                    throw new Exception("Erro ao excluir uma entidade Armário");
+                bloco.Armario = null;
+                Alterar(bloco);
+                db.Bloco.Attach(bloco);
+                db.Bloco.Remove(bloco);
+                db.SaveChanges();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
+        }
+
+        public Secao Deletar(Secao secao)
+        {
+            List<Bloco> lista = ListarBlocos(secao);
+            foreach (Bloco b in lista)
+            {
+                try
+                {
+                    Deletar(b);
+                    secao.Bloco.Remove(b);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Erro ao deletar bloco " + b.Numero);
+                }
+            }
+            return secao;
+        }
+
+        public List<Bloco> ListarBlocos(Secao secao)
+        {
+            List<Bloco> lista = (from b in db.Bloco
+                                 where b.IdSecao == secao.IdSecao
+                                 select b).ToList();
+            return lista;
+        }
+
+        public string Alterar(Bloco bloco)
+        {
+            var erros = Validacao.ValidaDados(bloco);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    Bloco blocoDb = (from b in db.Bloco
+                                     where b.IdBloco == bloco.IdBloco
+                                     select b).SingleOrDefault();
+                    blocoDb = bloco;
+                    db.SaveChanges();
                     resultado = "ok";
                 }
                 catch (Exception)
