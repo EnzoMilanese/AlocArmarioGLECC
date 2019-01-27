@@ -175,7 +175,14 @@ namespace AlocArmario.View
 
         private void CarregarListasExib()
         {
-            listaContratos = baseContratos;
+            if (!cbxTerminado.Checked)
+            {
+                listaContratos = (from c in baseContratos
+                                  where c.Terminado == false
+                                  select c).ToList();
+            }
+            else
+                listaContratos = baseContratos;
             listaLocatarios = baseLocatarios;
             listaArmarios = baseArmarios;
             listaBlocos = baseBlocos;
@@ -429,8 +436,7 @@ namespace AlocArmario.View
                 lblContProntLoc.Text = "...";
                 lblContEmailLoc.Text = "...";
                 lblContTelLoc.Text = "...";
-
-                lblContIdArm.Text = "...";
+                
                 lblContNumArm.Text = "...";
                 lblContBlocArm.Text = "...";
                 lblContSecArm.Text = "...";
@@ -439,6 +445,13 @@ namespace AlocArmario.View
             {
                 locatarioAtivo = contratoAtivo.Locatario;
                 armarioAtivo = contratoAtivo.Armario;
+
+                if (locatarioAtivo == null || armarioAtivo == null)
+                {
+                    contratoAtivo = null;
+                    CarregarContLabels();
+                    return;
+                }
 
                 lblContIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
                 lblContValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
@@ -450,8 +463,7 @@ namespace AlocArmario.View
                 lblContProntLoc.Text = locatarioAtivo.Prontuario;
                 lblContEmailLoc.Text = locatarioAtivo.Email;
                 lblContTelLoc.Text = locatarioAtivo.Telefone;
-
-                lblContIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+                
                 lblContNumArm.Text = armarioAtivo.Numero;
                 lblContBlocArm.Text = armarioAtivo.Bloco.Numero;
                 lblContSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
@@ -506,7 +518,6 @@ namespace AlocArmario.View
         {
             if (armarioAtivo == null)
             {
-                lblArmIdArm.Text = "...";
                 lblArmNumArm.Text = "...";
                 lblArmBlocArm.Text = "...";
                 lblArmSecArm.Text = "...";
@@ -527,8 +538,7 @@ namespace AlocArmario.View
                 else
                     lblArmDano.Visible = true;
 
-
-                lblArmIdArm.Text = Convert.ToString(armarioAtivo.IdArmario);
+                
                 lblArmNumArm.Text = armarioAtivo.Numero;
                 lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
                 lblArmSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
@@ -554,7 +564,6 @@ namespace AlocArmario.View
         {
             if (blocoAtivo == null)
             {
-                lblBlocIdBloc.Text = "...";
                 lblBlocNumBloc.Text = "...";
                 lblBlocSecBloc.Text = "...";
                 lblBlocQntArm.Text = "...";
@@ -565,8 +574,7 @@ namespace AlocArmario.View
                 foreach (var a in listaArmarios)
                     if (a.IdBloco == blocoAtivo.IdBloco && a.Danificado == false)
                         qntArm++;
-
-                lblBlocIdBloc.Text = Convert.ToString(blocoAtivo.IdBloco);
+                
                 lblBlocNumBloc.Text = blocoAtivo.Numero;
                 lblBlocSecBloc.Text = blocoAtivo.Secao.Nome;
                 lblBlocQntArm.Text = Convert.ToString(qntArm);
@@ -577,7 +585,6 @@ namespace AlocArmario.View
         {
             if (secaoAtiva == null)
             {
-                lblSecIdSec.Text = "...";
                 lblSecNomeSec.Text = "...";
                 lblSecDescSec.Text = "...";
                 lblSecQntBloc.Text = "...";
@@ -593,8 +600,7 @@ namespace AlocArmario.View
                 foreach (var a in listaArmarios)
                     if (a.Bloco.IdSecao == secaoAtiva.IdSecao && a.Danificado == false)
                         qntArm++;
-
-                lblSecIdSec.Text = Convert.ToString(secaoAtiva.IdSecao);
+                
                 lblSecNomeSec.Text = secaoAtiva.Nome;
                 lblSecDescSec.Text = secaoAtiva.Descricao;
                 lblSecQntBloc.Text = Convert.ToString(qntBloc);
@@ -871,26 +877,31 @@ namespace AlocArmario.View
         //FIM FILTRO DE PESQUISA
         private void tbpContratos_Enter(object sender, EventArgs e)
         {
+            cbxTerminado.Visible = true;
             CarregarScrollBars(dgvContratos, vsbDgvContr);
         }
 
         private void tbpLocatarios_Enter(object sender, EventArgs e)
         {
+            cbxTerminado.Visible = false;
             CarregarScrollBars(dgvLocatarios, vsbDgvLoc);
         }
 
         private void tbpArmarios_Enter(object sender, EventArgs e)
         {
+            cbxTerminado.Visible = false;
             CarregarScrollBars(dgvArmarios, vsbDgvArm);
         }
 
         private void tbpBlocos_Enter(object sender, EventArgs e)
         {
+            cbxTerminado.Visible = false;
             CarregarScrollBars(dgvBlocos, vsbDgvBloc);
         }
 
         private void tbpSecoes_Enter(object sender, EventArgs e)
         {
+            cbxTerminado.Visible = false;
             CarregarScrollBars(dgvSecoes, vsbDgvSec);
         }
 
@@ -1112,6 +1123,14 @@ namespace AlocArmario.View
                     AtivarForm();
                     break;
             }
+        }
+
+        private void cbxTerminado_CheckedChanged(object sender, EventArgs e)
+        {
+            CarregarListaBase();
+            CarregarListasExib();
+            CarregarContLabels();
+            AtivarForm();
         }
     }
 }

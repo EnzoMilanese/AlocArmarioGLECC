@@ -40,7 +40,6 @@
             this.lblContSecArm = new System.Windows.Forms.Label();
             this.lblContBlocArm = new System.Windows.Forms.Label();
             this.lblContNumArm = new System.Windows.Forms.Label();
-            this.lblContIdArm = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.lblContTelLoc = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
             this.lblContValidadeCont = new System.Windows.Forms.Label();
             this.lblContIdCont = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -116,11 +114,9 @@
             this.lblArmSecArm = new System.Windows.Forms.Label();
             this.lblArmBlocArm = new System.Windows.Forms.Label();
             this.lblArmNumArm = new System.Windows.Forms.Label();
-            this.lblArmIdArm = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.btnArmGerarCert = new System.Windows.Forms.Button();
             this.lblArmValorCont = new System.Windows.Forms.Label();
@@ -140,11 +136,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.lblBlocSecBloc = new System.Windows.Forms.Label();
             this.lblBlocNumBloc = new System.Windows.Forms.Label();
-            this.lblBlocIdBloc = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.btnDeletBloc = new System.Windows.Forms.Button();
             this.vsbDgvBloc = new System.Windows.Forms.VScrollBar();
             this.btnCadastBloco = new System.Windows.Forms.Button();
@@ -155,12 +149,10 @@
             this.lblSecQntArm = new System.Windows.Forms.Label();
             this.lblSecDescSec = new System.Windows.Forms.Label();
             this.lblSecNomeSec = new System.Windows.Forms.Label();
-            this.lblSecIdSec = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
             this.btnDeletSec = new System.Windows.Forms.Button();
             this.btnAlterSec = new System.Windows.Forms.Button();
             this.vsbDgvSec = new System.Windows.Forms.VScrollBar();
@@ -179,6 +171,7 @@
             this.Secao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArmDanific = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ArmarioTemContrato = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cbxTerminado = new System.Windows.Forms.CheckBox();
             this.tbcConsulta.SuspendLayout();
             this.tbpContratos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
@@ -212,7 +205,6 @@
             this.tbpContratos.Controls.Add(this.lblContSecArm);
             this.tbpContratos.Controls.Add(this.lblContBlocArm);
             this.tbpContratos.Controls.Add(this.lblContNumArm);
-            this.tbpContratos.Controls.Add(this.lblContIdArm);
             this.tbpContratos.Controls.Add(this.label27);
             this.tbpContratos.Controls.Add(this.label26);
             this.tbpContratos.Controls.Add(this.lblContTelLoc);
@@ -225,7 +217,6 @@
             this.tbpContratos.Controls.Add(this.lblContValidadeCont);
             this.tbpContratos.Controls.Add(this.lblContIdCont);
             this.tbpContratos.Controls.Add(this.label16);
-            this.tbpContratos.Controls.Add(this.label15);
             this.tbpContratos.Controls.Add(this.label14);
             this.tbpContratos.Controls.Add(this.label13);
             this.tbpContratos.Controls.Add(this.label12);
@@ -266,7 +257,7 @@
             // lblContSecArm
             // 
             this.lblContSecArm.AutoSize = true;
-            this.lblContSecArm.Location = new System.Drawing.Point(134, 370);
+            this.lblContSecArm.Location = new System.Drawing.Point(134, 344);
             this.lblContSecArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblContSecArm.Name = "lblContSecArm";
             this.lblContSecArm.Size = new System.Drawing.Size(16, 13);
@@ -276,7 +267,7 @@
             // lblContBlocArm
             // 
             this.lblContBlocArm.AutoSize = true;
-            this.lblContBlocArm.Location = new System.Drawing.Point(134, 344);
+            this.lblContBlocArm.Location = new System.Drawing.Point(7, 370);
             this.lblContBlocArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblContBlocArm.Name = "lblContBlocArm";
             this.lblContBlocArm.Size = new System.Drawing.Size(16, 13);
@@ -286,28 +277,18 @@
             // lblContNumArm
             // 
             this.lblContNumArm.AutoSize = true;
-            this.lblContNumArm.Location = new System.Drawing.Point(7, 370);
+            this.lblContNumArm.Location = new System.Drawing.Point(7, 344);
             this.lblContNumArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblContNumArm.Name = "lblContNumArm";
             this.lblContNumArm.Size = new System.Drawing.Size(16, 13);
             this.lblContNumArm.TabIndex = 36;
             this.lblContNumArm.Text = "...";
             // 
-            // lblContIdArm
-            // 
-            this.lblContIdArm.AutoSize = true;
-            this.lblContIdArm.Location = new System.Drawing.Point(7, 344);
-            this.lblContIdArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
-            this.lblContIdArm.Name = "lblContIdArm";
-            this.lblContIdArm.Size = new System.Drawing.Size(16, 13);
-            this.lblContIdArm.TabIndex = 35;
-            this.lblContIdArm.Text = "...";
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(134, 357);
+            this.label27.Location = new System.Drawing.Point(134, 331);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(47, 13);
             this.label27.TabIndex = 34;
@@ -317,7 +298,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(134, 331);
+            this.label26.Location = new System.Drawing.Point(7, 357);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(43, 13);
             this.label26.TabIndex = 33;
@@ -413,21 +394,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(7, 357);
+            this.label16.Location = new System.Drawing.Point(7, 331);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 23;
             this.label16.Text = "Número:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(7, 331);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 13);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "ID:";
             // 
             // label14
             // 
@@ -1018,11 +989,9 @@
             this.tbpArmarios.Controls.Add(this.lblArmSecArm);
             this.tbpArmarios.Controls.Add(this.lblArmBlocArm);
             this.tbpArmarios.Controls.Add(this.lblArmNumArm);
-            this.tbpArmarios.Controls.Add(this.lblArmIdArm);
             this.tbpArmarios.Controls.Add(this.label21);
             this.tbpArmarios.Controls.Add(this.label29);
             this.tbpArmarios.Controls.Add(this.label30);
-            this.tbpArmarios.Controls.Add(this.label31);
             this.tbpArmarios.Controls.Add(this.label32);
             this.tbpArmarios.Controls.Add(this.btnArmGerarCert);
             this.tbpArmarios.Controls.Add(this.lblArmValorCont);
@@ -1072,7 +1041,7 @@
             // lblArmSecArm
             // 
             this.lblArmSecArm.AutoSize = true;
-            this.lblArmSecArm.Location = new System.Drawing.Point(133, 139);
+            this.lblArmSecArm.Location = new System.Drawing.Point(134, 104);
             this.lblArmSecArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmSecArm.Name = "lblArmSecArm";
             this.lblArmSecArm.Size = new System.Drawing.Size(16, 13);
@@ -1082,7 +1051,7 @@
             // lblArmBlocArm
             // 
             this.lblArmBlocArm.AutoSize = true;
-            this.lblArmBlocArm.Location = new System.Drawing.Point(133, 104);
+            this.lblArmBlocArm.Location = new System.Drawing.Point(7, 139);
             this.lblArmBlocArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmBlocArm.Name = "lblArmBlocArm";
             this.lblArmBlocArm.Size = new System.Drawing.Size(16, 13);
@@ -1092,28 +1061,18 @@
             // lblArmNumArm
             // 
             this.lblArmNumArm.AutoSize = true;
-            this.lblArmNumArm.Location = new System.Drawing.Point(7, 139);
+            this.lblArmNumArm.Location = new System.Drawing.Point(7, 104);
             this.lblArmNumArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmNumArm.Name = "lblArmNumArm";
             this.lblArmNumArm.Size = new System.Drawing.Size(16, 13);
             this.lblArmNumArm.TabIndex = 90;
             this.lblArmNumArm.Text = "...";
             // 
-            // lblArmIdArm
-            // 
-            this.lblArmIdArm.AutoSize = true;
-            this.lblArmIdArm.Location = new System.Drawing.Point(7, 104);
-            this.lblArmIdArm.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
-            this.lblArmIdArm.Name = "lblArmIdArm";
-            this.lblArmIdArm.Size = new System.Drawing.Size(16, 13);
-            this.lblArmIdArm.TabIndex = 89;
-            this.lblArmIdArm.Text = "...";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(133, 126);
+            this.label21.Location = new System.Drawing.Point(134, 91);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(47, 13);
             this.label21.TabIndex = 88;
@@ -1123,7 +1082,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(133, 91);
+            this.label29.Location = new System.Drawing.Point(7, 126);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(43, 13);
             this.label29.TabIndex = 87;
@@ -1133,21 +1092,11 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(7, 126);
+            this.label30.Location = new System.Drawing.Point(7, 91);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(54, 13);
             this.label30.TabIndex = 86;
             this.label30.Text = "Número:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(7, 91);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(24, 13);
-            this.label31.TabIndex = 85;
-            this.label31.Text = "ID:";
             // 
             // label32
             // 
@@ -1307,11 +1256,9 @@
             this.tbpBlocos.Controls.Add(this.label18);
             this.tbpBlocos.Controls.Add(this.lblBlocSecBloc);
             this.tbpBlocos.Controls.Add(this.lblBlocNumBloc);
-            this.tbpBlocos.Controls.Add(this.lblBlocIdBloc);
             this.tbpBlocos.Controls.Add(this.label22);
             this.tbpBlocos.Controls.Add(this.label23);
             this.tbpBlocos.Controls.Add(this.label28);
-            this.tbpBlocos.Controls.Add(this.label33);
             this.tbpBlocos.Controls.Add(this.btnDeletBloc);
             this.tbpBlocos.Controls.Add(this.vsbDgvBloc);
             this.tbpBlocos.Controls.Add(this.btnCadastBloco);
@@ -1329,7 +1276,7 @@
             // lblBlocQntArm
             // 
             this.lblBlocQntArm.AutoSize = true;
-            this.lblBlocQntArm.Location = new System.Drawing.Point(7, 246);
+            this.lblBlocQntArm.Location = new System.Drawing.Point(7, 251);
             this.lblBlocQntArm.Name = "lblBlocQntArm";
             this.lblBlocQntArm.Size = new System.Drawing.Size(16, 13);
             this.lblBlocQntArm.TabIndex = 69;
@@ -1339,7 +1286,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(7, 233);
+            this.label18.Location = new System.Drawing.Point(7, 238);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(176, 13);
             this.label18.TabIndex = 68;
@@ -1348,7 +1295,7 @@
             // lblBlocSecBloc
             // 
             this.lblBlocSecBloc.AutoSize = true;
-            this.lblBlocSecBloc.Location = new System.Drawing.Point(7, 208);
+            this.lblBlocSecBloc.Location = new System.Drawing.Point(7, 194);
             this.lblBlocSecBloc.Name = "lblBlocSecBloc";
             this.lblBlocSecBloc.Size = new System.Drawing.Size(16, 13);
             this.lblBlocSecBloc.TabIndex = 67;
@@ -1357,20 +1304,11 @@
             // lblBlocNumBloc
             // 
             this.lblBlocNumBloc.AutoSize = true;
-            this.lblBlocNumBloc.Location = new System.Drawing.Point(7, 167);
+            this.lblBlocNumBloc.Location = new System.Drawing.Point(7, 142);
             this.lblBlocNumBloc.Name = "lblBlocNumBloc";
             this.lblBlocNumBloc.Size = new System.Drawing.Size(16, 13);
             this.lblBlocNumBloc.TabIndex = 66;
             this.lblBlocNumBloc.Text = "...";
-            // 
-            // lblBlocIdBloc
-            // 
-            this.lblBlocIdBloc.AutoSize = true;
-            this.lblBlocIdBloc.Location = new System.Drawing.Point(7, 129);
-            this.lblBlocIdBloc.Name = "lblBlocIdBloc";
-            this.lblBlocIdBloc.Size = new System.Drawing.Size(16, 13);
-            this.lblBlocIdBloc.TabIndex = 65;
-            this.lblBlocIdBloc.Text = "...";
             // 
             // label22
             // 
@@ -1386,7 +1324,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(7, 195);
+            this.label23.Location = new System.Drawing.Point(7, 181);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(47, 13);
             this.label23.TabIndex = 63;
@@ -1396,21 +1334,11 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(7, 154);
+            this.label28.Location = new System.Drawing.Point(7, 129);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(54, 13);
             this.label28.TabIndex = 61;
             this.label28.Text = "Número:";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(7, 116);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(24, 13);
-            this.label33.TabIndex = 60;
-            this.label33.Text = "ID:";
             // 
             // btnDeletBloc
             // 
@@ -1470,12 +1398,10 @@
             this.tbpSecoes.Controls.Add(this.lblSecQntArm);
             this.tbpSecoes.Controls.Add(this.lblSecDescSec);
             this.tbpSecoes.Controls.Add(this.lblSecNomeSec);
-            this.tbpSecoes.Controls.Add(this.lblSecIdSec);
             this.tbpSecoes.Controls.Add(this.label34);
             this.tbpSecoes.Controls.Add(this.label51);
             this.tbpSecoes.Controls.Add(this.label52);
             this.tbpSecoes.Controls.Add(this.label53);
-            this.tbpSecoes.Controls.Add(this.label54);
             this.tbpSecoes.Controls.Add(this.btnDeletSec);
             this.tbpSecoes.Controls.Add(this.btnAlterSec);
             this.tbpSecoes.Controls.Add(this.vsbDgvSec);
@@ -1494,7 +1420,7 @@
             // lblSecQntBloc
             // 
             this.lblSecQntBloc.AutoSize = true;
-            this.lblSecQntBloc.Location = new System.Drawing.Point(7, 251);
+            this.lblSecQntBloc.Location = new System.Drawing.Point(7, 232);
             this.lblSecQntBloc.Name = "lblSecQntBloc";
             this.lblSecQntBloc.Size = new System.Drawing.Size(16, 13);
             this.lblSecQntBloc.TabIndex = 79;
@@ -1504,7 +1430,7 @@
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(6, 238);
+            this.label56.Location = new System.Drawing.Point(6, 219);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(135, 13);
             this.label56.TabIndex = 78;
@@ -1513,7 +1439,7 @@
             // lblSecQntArm
             // 
             this.lblSecQntArm.AutoSize = true;
-            this.lblSecQntArm.Location = new System.Drawing.Point(6, 290);
+            this.lblSecQntArm.Location = new System.Drawing.Point(6, 271);
             this.lblSecQntArm.Name = "lblSecQntArm";
             this.lblSecQntArm.Size = new System.Drawing.Size(16, 13);
             this.lblSecQntArm.TabIndex = 77;
@@ -1522,7 +1448,7 @@
             // lblSecDescSec
             // 
             this.lblSecDescSec.AutoSize = true;
-            this.lblSecDescSec.Location = new System.Drawing.Point(7, 210);
+            this.lblSecDescSec.Location = new System.Drawing.Point(7, 191);
             this.lblSecDescSec.Name = "lblSecDescSec";
             this.lblSecDescSec.Size = new System.Drawing.Size(16, 13);
             this.lblSecDescSec.TabIndex = 76;
@@ -1531,20 +1457,11 @@
             // lblSecNomeSec
             // 
             this.lblSecNomeSec.AutoSize = true;
-            this.lblSecNomeSec.Location = new System.Drawing.Point(7, 169);
+            this.lblSecNomeSec.Location = new System.Drawing.Point(7, 150);
             this.lblSecNomeSec.Name = "lblSecNomeSec";
             this.lblSecNomeSec.Size = new System.Drawing.Size(16, 13);
             this.lblSecNomeSec.TabIndex = 75;
             this.lblSecNomeSec.Text = "...";
-            // 
-            // lblSecIdSec
-            // 
-            this.lblSecIdSec.AutoSize = true;
-            this.lblSecIdSec.Location = new System.Drawing.Point(7, 131);
-            this.lblSecIdSec.Name = "lblSecIdSec";
-            this.lblSecIdSec.Size = new System.Drawing.Size(16, 13);
-            this.lblSecIdSec.TabIndex = 74;
-            this.lblSecIdSec.Text = "...";
             // 
             // label34
             // 
@@ -1560,7 +1477,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(7, 197);
+            this.label51.Location = new System.Drawing.Point(7, 178);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(68, 13);
             this.label51.TabIndex = 72;
@@ -1570,7 +1487,7 @@
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(5, 277);
+            this.label52.Location = new System.Drawing.Point(5, 258);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(145, 13);
             this.label52.TabIndex = 71;
@@ -1580,21 +1497,11 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(7, 156);
+            this.label53.Location = new System.Drawing.Point(7, 137);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(43, 13);
             this.label53.TabIndex = 70;
             this.label53.Text = "Nome:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(7, 118);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(24, 13);
-            this.label54.TabIndex = 69;
-            this.label54.Text = "ID:";
             // 
             // btnDeletSec
             // 
@@ -1755,11 +1662,23 @@
             this.ArmarioTemContrato.Name = "ArmarioTemContrato";
             this.ArmarioTemContrato.Width = 80;
             // 
+            // cbxTerminado
+            // 
+            this.cbxTerminado.AutoSize = true;
+            this.cbxTerminado.Location = new System.Drawing.Point(286, 37);
+            this.cbxTerminado.Name = "cbxTerminado";
+            this.cbxTerminado.Size = new System.Drawing.Size(109, 17);
+            this.cbxTerminado.TabIndex = 5;
+            this.cbxTerminado.Text = "Exibir Terminados";
+            this.cbxTerminado.UseVisualStyleBackColor = true;
+            this.cbxTerminado.CheckedChanged += new System.EventHandler(this.cbxTerminado_CheckedChanged);
+            // 
             // ConsultaArmarioAvanc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 463);
+            this.Controls.Add(this.cbxTerminado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbPesquisar);
@@ -1827,7 +1746,6 @@
         private System.Windows.Forms.Label lblContValidadeCont;
         private System.Windows.Forms.Label lblContIdCont;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1846,7 +1764,6 @@
         private System.Windows.Forms.Label lblContSecArm;
         private System.Windows.Forms.Label lblContBlocArm;
         private System.Windows.Forms.Label lblContNumArm;
-        private System.Windows.Forms.Label lblContIdArm;
         private System.Windows.Forms.Button btnLocGerarCert;
         private System.Windows.Forms.Label lblLocTelLoc;
         private System.Windows.Forms.Label lblLocEmailLoc;
@@ -1873,11 +1790,9 @@
         private System.Windows.Forms.Label lblArmSecArm;
         private System.Windows.Forms.Label lblArmBlocArm;
         private System.Windows.Forms.Label lblArmNumArm;
-        private System.Windows.Forms.Label lblArmIdArm;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button btnArmGerarCert;
         private System.Windows.Forms.Label lblArmValorCont;
@@ -1892,23 +1807,19 @@
         private System.Windows.Forms.Button btnArmDano;
         private System.Windows.Forms.Label lblBlocSecBloc;
         private System.Windows.Forms.Label lblBlocNumBloc;
-        private System.Windows.Forms.Label lblBlocIdBloc;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Button btnDeletBloc;
         private System.Windows.Forms.Button btnDeletSec;
         private System.Windows.Forms.Button btnAlterSec;
         private System.Windows.Forms.Label lblSecQntArm;
         private System.Windows.Forms.Label lblSecDescSec;
         private System.Windows.Forms.Label lblSecNomeSec;
-        private System.Windows.Forms.Label lblSecIdSec;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label lblSecQntBloc;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label lblBlocQntArm;
@@ -1937,5 +1848,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SecaoNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoSecao;
+        private System.Windows.Forms.CheckBox cbxTerminado;
     }
 }
