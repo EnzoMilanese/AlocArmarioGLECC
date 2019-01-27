@@ -69,5 +69,67 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        public string Terminar(Contrato contrato)
+        {
+            Armario armarioContrato;
+            Locatario locatarioContrato;
+
+            armarioContrato = contrato.Armario;
+            locatarioContrato = contrato.Locatario;
+
+            string resultado = "";
+            try
+            {
+                armarioContrato.ContratoAtivo = 0;
+                armarioContrato.TemContrato = false;
+                ac.Alterar(armarioContrato);
+                db.SaveChanges();
+
+                locatarioContrato.ContratoAtivo = 0;
+                locatarioContrato.TemContrato = false;
+                lc.Alterar(locatarioContrato);
+                db.SaveChanges();
+
+                contrato.Terminado = true;
+                Alterar(contrato);
+                db.SaveChanges();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erroBanco";
+            }
+            return resultado;
+        }
+
+        private string Alterar(Contrato contrato)
+        {
+            var erros = Validacao.ValidaDados(contrato);
+            string resultado = "";
+
+            if (erros.Count() == 0)
+            {
+                try
+                {
+                    Contrato contratoDb = (from c in db.Contrato
+                                           where c.IdContrato == contrato.IdContrato
+                                           select c).SingleOrDefault();
+                    contratoDb = contrato;
+                    db.SaveChanges();
+                    resultado = "ok";
+                }
+                catch (Exception)
+                {
+                    resultado = "erro";
+                }
+            }
+            else
+            {
+                foreach (var e in erros)
+                    resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+        }
     }
 }

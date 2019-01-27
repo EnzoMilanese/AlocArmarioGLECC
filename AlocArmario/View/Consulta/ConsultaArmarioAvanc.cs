@@ -1025,7 +1025,24 @@ namespace AlocArmario.View
 
         private void btnDeletContrato_Click(object sender, EventArgs e)
         {
-
+            string resultado = cc.Terminar(contratoAtivo);
+            switch (resultado)
+            {
+                case "ok":
+                    contratoAtivo = null;
+                    CarregarContLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
+                case "erroBanco":
+                    MessageBox.Show("Não foi possível terminar o contrato\n\nOcorreu um erro.", "Terminar Contrato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CarregarContLabels();
+                    CarregarListaBase();
+                    CarregarListasExib();
+                    AtivarForm();
+                    break;
+            }
         }
 
         private void btnDeletLoc_Click(object sender, EventArgs e)
