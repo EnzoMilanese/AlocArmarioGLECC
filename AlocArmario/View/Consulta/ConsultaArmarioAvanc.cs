@@ -183,6 +183,7 @@ namespace AlocArmario.View
             }
             else
                 listaContratos = baseContratos;
+
             listaLocatarios = baseLocatarios;
             listaArmarios = baseArmarios;
             listaBlocos = baseBlocos;
@@ -202,6 +203,8 @@ namespace AlocArmario.View
                 dgvContratos.Rows[linha].Cells[3].Value = c.TipoContrato;
                 dgvContratos.Rows[linha].Cells[4].Value = c.Armario.Numero;
                 dgvContratos.Rows[linha].Cells[5].Value = c.Locatario.Nome;
+                if (c.Terminado)
+                    dgvContratos.Rows[linha].DefaultCellStyle.BackColor = Color.LightCoral;
                 linha++;
             }
         }
@@ -436,7 +439,7 @@ namespace AlocArmario.View
                 lblContProntLoc.Text = "...";
                 lblContEmailLoc.Text = "...";
                 lblContTelLoc.Text = "...";
-                
+
                 lblContNumArm.Text = "...";
                 lblContBlocArm.Text = "...";
                 lblContSecArm.Text = "...";
@@ -463,7 +466,7 @@ namespace AlocArmario.View
                 lblContProntLoc.Text = locatarioAtivo.Prontuario;
                 lblContEmailLoc.Text = locatarioAtivo.Email;
                 lblContTelLoc.Text = locatarioAtivo.Telefone;
-                
+
                 lblContNumArm.Text = armarioAtivo.Numero;
                 lblContBlocArm.Text = armarioAtivo.Bloco.Numero;
                 lblContSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
@@ -538,7 +541,7 @@ namespace AlocArmario.View
                 else
                     lblArmDano.Visible = true;
 
-                
+
                 lblArmNumArm.Text = armarioAtivo.Numero;
                 lblArmBlocArm.Text = armarioAtivo.Bloco.Numero;
                 lblArmSecArm.Text = armarioAtivo.Bloco.Secao.Nome;
@@ -574,7 +577,7 @@ namespace AlocArmario.View
                 foreach (var a in listaArmarios)
                     if (a.IdBloco == blocoAtivo.IdBloco && a.Danificado == false)
                         qntArm++;
-                
+
                 lblBlocNumBloc.Text = blocoAtivo.Numero;
                 lblBlocSecBloc.Text = blocoAtivo.Secao.Nome;
                 lblBlocQntArm.Text = Convert.ToString(qntArm);
@@ -600,7 +603,7 @@ namespace AlocArmario.View
                 foreach (var a in listaArmarios)
                     if (a.Bloco.IdSecao == secaoAtiva.IdSecao && a.Danificado == false)
                         qntArm++;
-                
+
                 lblSecNomeSec.Text = secaoAtiva.Nome;
                 lblSecDescSec.Text = secaoAtiva.Descricao;
                 lblSecQntBloc.Text = Convert.ToString(qntBloc);
@@ -1115,7 +1118,7 @@ namespace AlocArmario.View
         {
             if (secaoAtiva == null)
                 return;
-            
+
             if (secaoAtiva.Bloco.Count > 0)
             {
                 MessageBox.Show("Não foi possível excluir a seção\n\nA seção possui pelo menos um bloco cadastrado.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1133,7 +1136,7 @@ namespace AlocArmario.View
                     AtivarForm();
                     break;
                 case "erroBanco":
-                    MessageBox.Show("Não foi possível excluir a seção\n\nOcorreu um erro.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+                    MessageBox.Show("Não foi possível excluir a seção\n\nOcorreu um erro.", "Excluir Seção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     CarregarSecLabels();
                     CarregarListaBase();
                     CarregarListasExib();
