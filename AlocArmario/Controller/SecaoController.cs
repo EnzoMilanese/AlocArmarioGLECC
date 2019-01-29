@@ -1,6 +1,7 @@
 ﻿using AlocArmario.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,12 +55,25 @@ namespace AlocArmario.Controller
             {
                 try
                 {
-                    Secao secaoDb = (from s in db.Secao
-                                     where s.IdSecao == secao.IdSecao
-                                     select s).SingleOrDefault();
-                    secaoDb = secao;
-                    db.SaveChanges();
-                    resultado = "ok";
+                    var entry = db.Entry(secao);
+
+                    if (entry.State == EntityState.Detached)
+                    {
+                        var set = db.Set<Secao>();
+                        Secao attachedEntity = set.Local.SingleOrDefault(e => e.IdSecao == secao.IdSecao);  // You need to have access to key
+
+                        if (attachedEntity != null)
+                        {
+                            var attachedEntry = db.Entry(attachedEntity);
+                            attachedEntry.CurrentValues.SetValues(secao);
+                        }
+                        else
+                        {
+                            entry.State = EntityState.Modified; // This should attach entity
+                        }
+                        db.SaveChanges();
+                        resultado = "ok";
+                    }
                 }
                 catch (Exception)
                 {

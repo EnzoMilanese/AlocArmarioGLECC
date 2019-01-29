@@ -1,6 +1,7 @@
 ﻿using AlocArmario.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,12 +68,25 @@ namespace AlocArmario.Controller
             {
                 try
                 {
-                    Armario armarioDb = (from a in db.Armario
-                                         where a.IdArmario == armario.IdArmario
-                                         select a).SingleOrDefault();
-                    armarioDb = armario;
-                    db.SaveChanges();
-                    resultado = "ok";
+                    var entry = db.Entry(armario);
+
+                    if (entry.State == EntityState.Detached)
+                    {
+                        var set = db.Set<Armario>();
+                        Armario attachedEntity = set.Local.SingleOrDefault(e => e.IdArmario == armario.IdArmario);
+
+                        if (attachedEntity != null)
+                        {
+                            var attachedEntry = db.Entry(attachedEntity);
+                            attachedEntry.CurrentValues.SetValues(armario);
+                        }
+                        else
+                        {
+                            entry.State = EntityState.Modified;
+                        }
+                        db.SaveChanges();
+                        resultado = "ok";
+                    }
                 }
                 catch (Exception)
                 {
@@ -96,8 +110,7 @@ namespace AlocArmario.Controller
             {
                 try
                 {
-                    db.Armario.Attach(a);
-                    db.Armario.Remove(a);
+                    db.Entry(a).State = EntityState.Deleted;
                     db.SaveChanges();
                     resultado = "ok";
                 }

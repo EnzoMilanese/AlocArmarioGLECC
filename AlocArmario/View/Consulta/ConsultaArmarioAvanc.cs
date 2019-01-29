@@ -625,7 +625,7 @@ namespace AlocArmario.View
                     contratoAtivo = c;
                     CarregarContLabels();
                 }
-            btnAlterContrato.Enabled = true;
+            btnAlterContrato.Enabled = false;
             btnDeletContrato.Enabled = true;
             btnContGerarCert.Enabled = true;
         }
@@ -644,7 +644,7 @@ namespace AlocArmario.View
                     locatarioAtivo = l;
                     CarregarLocLabels();
                 }
-            btnAlterLoc.Enabled = true;
+            btnAlterLoc.Enabled = false;
             btnDeletLoc.Enabled = true;
             btnLocGerarCert.Enabled = true;
         }
@@ -657,9 +657,9 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int)dgvArmarios[0, e.RowIndex].Value;
+            string numArmLinha = (string)dgvArmarios[0, e.RowIndex].Value;
             foreach (var a in listaArmarios)
-                if (a.IdArmario.Equals(idLinha))
+                if (a.Numero.Equals(numArmLinha))
                 {
                     armarioAtivo = a;
                     CarregarArmLabels();
@@ -686,9 +686,9 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int)dgvBlocos[0, e.RowIndex].Value;
+            string numBlocLinha = (string)dgvBlocos[0, e.RowIndex].Value;
             foreach (var b in listaBlocos)
-                if (b.IdBloco.Equals(idLinha))
+                if (b.Numero.Equals(numBlocLinha))
                 {
                     blocoAtivo = b;
                     CarregarBlocLabels();
@@ -703,14 +703,14 @@ namespace AlocArmario.View
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
-            int idLinha = (int)dgvSecoes[0, e.RowIndex].Value;
+            int numSecLinha = (int)dgvSecoes[0, e.RowIndex].Value;
             foreach (var s in listaSecoes)
-                if (s.IdSecao.Equals(idLinha))
+                if (s.Numero.Equals(numSecLinha))
                 {
                     secaoAtiva = s;
                     CarregarSecLabels();
                 }
-            btnAlterSec.Enabled = true;
+            btnAlterSec.Enabled = false;
             btnDeletSec.Enabled = true;
         }
         //COMEÇO FILTRO DE PESQUISA
@@ -918,7 +918,8 @@ namespace AlocArmario.View
                         if (a.IdArmario.Equals(r.Cells[0].Value))
                             armariosSelecionados.Add(a);
 
-                armarioAtivo = armariosSelecionados.First();
+                if (armariosSelecionados.Count > 0)
+                    armarioAtivo = armariosSelecionados.First();
                 CarregarArmLabels();
                 btnArmUtil.Enabled = true;
                 btnArmDano.Enabled = true;
