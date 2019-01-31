@@ -90,7 +90,6 @@ namespace AlocArmario.View.ArmarioView
         {
             if (secaoAtiva.Bloco.Count <= 0)
             {
-                cbxBloco.Text = "Seção sem bloco";
                 cbxBloco.Enabled = false;
                 paneSemArm.Visible = true;
                 return;
@@ -106,7 +105,12 @@ namespace AlocArmario.View.ArmarioView
         {
             blocoAtivo = listaBlocos.Where(b => b.IdBloco == (int)cbxBloco.SelectedValue).SingleOrDefault();
 
-            listaArmsAtivos = blocoAtivo.Armario.ToList();
+            CarregarArmarios();
+        }
+
+        private void CarregarArmarios()
+        {
+            listaArmsAtivos = listaArmarios.Where(a => a.IdBloco == blocoAtivo.IdBloco).ToList();
             CarregarBtnArmarios();
         }
 
@@ -155,6 +159,8 @@ namespace AlocArmario.View.ArmarioView
                 btnGerarCertfic.Visible = false;
                 btnInutil.Visible = false;
                 btnUtil.Visible = true;
+
+                return;
             }
 
             if (armarioAtivo.TemContrato)
@@ -228,6 +234,37 @@ namespace AlocArmario.View.ArmarioView
         {
             CadastroLocatario cl = new CadastroLocatario();
             cl.ShowDialog();
+        }
+
+        private void btnInutil_Click(object sender, EventArgs e)
+        {
+            ac.Danificado(armarioAtivo);
+            CarregarListas();
+            CarregarArmarios();
+            CarregarLabels(armarioAtivo.Numero);
+        }
+
+        private void btnUtil_Click(object sender, EventArgs e)
+        {
+            ac.Utilizavel(armarioAtivo);
+            CarregarListas();
+            CarregarArmarios();
+            CarregarLabels(armarioAtivo.Numero);
+        }
+
+        private void btnAlugar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGerarCertfic_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

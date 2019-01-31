@@ -64,6 +64,7 @@
             this.btnArm13 = new System.Windows.Forms.Button();
             this.btnArm15 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblArmIdent = new System.Windows.Forms.Label();
             this.paneSelecArm = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -90,14 +91,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCadastLoc = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.paneSemArm = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.cbxBloco = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.cbxSecao = new System.Windows.Forms.ComboBox();
-            this.paneSemArm = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lblArmIdent = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.paneSelecArm.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -111,13 +111,14 @@
             // btnAlugar
             // 
             this.btnAlugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlugar.Location = new System.Drawing.Point(54, 311);
+            this.btnAlugar.Location = new System.Drawing.Point(54, 310);
             this.btnAlugar.Name = "btnAlugar";
             this.btnAlugar.Size = new System.Drawing.Size(211, 41);
             this.btnAlugar.TabIndex = 1;
             this.btnAlugar.Text = "Alugar";
             this.btnAlugar.UseVisualStyleBackColor = true;
             this.btnAlugar.Visible = false;
+            this.btnAlugar.Click += new System.EventHandler(this.btnAlugar_Click);
             // 
             // btnTerminar
             // 
@@ -129,6 +130,7 @@
             this.btnTerminar.Text = "Terminar Contrato";
             this.btnTerminar.UseVisualStyleBackColor = true;
             this.btnTerminar.Visible = false;
+            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // btnGerarCertfic
             // 
@@ -140,6 +142,7 @@
             this.btnGerarCertfic.Text = "Gerar Certficado";
             this.btnGerarCertfic.UseVisualStyleBackColor = true;
             this.btnGerarCertfic.Visible = false;
+            this.btnGerarCertfic.Click += new System.EventHandler(this.btnGerarCertfic_Click);
             // 
             // label1
             // 
@@ -487,7 +490,6 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblArmIdent);
-            this.panel1.Controls.Add(this.paneSelecArm);
             this.panel1.Controls.Add(this.btnTerminar);
             this.panel1.Controls.Add(this.btnUtil);
             this.panel1.Controls.Add(this.btnInutil);
@@ -502,13 +504,24 @@
             this.panel1.Size = new System.Drawing.Size(329, 416);
             this.panel1.TabIndex = 39;
             // 
+            // lblArmIdent
+            // 
+            this.lblArmIdent.AutoSize = true;
+            this.lblArmIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmIdent.Location = new System.Drawing.Point(2, 2);
+            this.lblArmIdent.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.lblArmIdent.Name = "lblArmIdent";
+            this.lblArmIdent.Size = new System.Drawing.Size(24, 20);
+            this.lblArmIdent.TabIndex = 46;
+            this.lblArmIdent.Text = "...";
+            // 
             // paneSelecArm
             // 
             this.paneSelecArm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paneSelecArm.Controls.Add(this.label16);
             this.paneSelecArm.Controls.Add(this.label14);
             this.paneSelecArm.Controls.Add(this.label10);
-            this.paneSelecArm.Location = new System.Drawing.Point(-1, 282);
+            this.paneSelecArm.Location = new System.Drawing.Point(10, 254);
             this.paneSelecArm.Name = "paneSelecArm";
             this.paneSelecArm.Size = new System.Drawing.Size(329, 134);
             this.paneSelecArm.TabIndex = 54;
@@ -556,6 +569,7 @@
             this.btnUtil.Text = "Armário Consertado";
             this.btnUtil.UseVisualStyleBackColor = true;
             this.btnUtil.Visible = false;
+            this.btnUtil.Click += new System.EventHandler(this.btnUtil_Click);
             // 
             // btnInutil
             // 
@@ -566,6 +580,7 @@
             this.btnInutil.TabIndex = 54;
             this.btnInutil.Text = "Armário Inutilizável";
             this.btnInutil.UseVisualStyleBackColor = true;
+            this.btnInutil.Click += new System.EventHandler(this.btnInutil_Click);
             // 
             // panel5
             // 
@@ -813,6 +828,39 @@
             this.panel2.Size = new System.Drawing.Size(320, 416);
             this.panel2.TabIndex = 40;
             // 
+            // paneSemArm
+            // 
+            this.paneSemArm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paneSemArm.Controls.Add(this.label18);
+            this.paneSemArm.Controls.Add(this.paneSelecArm);
+            this.paneSemArm.Controls.Add(this.label22);
+            this.paneSemArm.Location = new System.Drawing.Point(-1, 38);
+            this.paneSemArm.Name = "paneSemArm";
+            this.paneSemArm.Size = new System.Drawing.Size(320, 377);
+            this.paneSemArm.TabIndex = 55;
+            this.paneSemArm.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(58, 141);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(205, 50);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Não há armários à\r\nserem exibidos";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(40, 89);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(0, 25);
+            this.label22.TabIndex = 1;
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cbxBloco
             // 
             this.cbxBloco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -822,6 +870,7 @@
             this.cbxBloco.Name = "cbxBloco";
             this.cbxBloco.Size = new System.Drawing.Size(71, 24);
             this.cbxBloco.TabIndex = 41;
+            this.cbxBloco.SelectedIndexChanged += new System.EventHandler(this.cbxBloco_SelectedIndexChanged);
             // 
             // label20
             // 
@@ -853,49 +902,6 @@
             this.cbxSecao.Size = new System.Drawing.Size(129, 24);
             this.cbxSecao.TabIndex = 39;
             this.cbxSecao.SelectedIndexChanged += new System.EventHandler(this.cbxSecao_SelectedIndexChanged);
-            // 
-            // paneSemArm
-            // 
-            this.paneSemArm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paneSemArm.Controls.Add(this.label18);
-            this.paneSemArm.Controls.Add(this.label22);
-            this.paneSemArm.Location = new System.Drawing.Point(-1, 38);
-            this.paneSemArm.Name = "paneSemArm";
-            this.paneSemArm.Size = new System.Drawing.Size(320, 377);
-            this.paneSemArm.TabIndex = 55;
-            this.paneSemArm.Visible = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(58, 141);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(205, 50);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Não há armários à\r\nserem exibidos";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(40, 89);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(0, 25);
-            this.label22.TabIndex = 1;
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblArmIdent
-            // 
-            this.lblArmIdent.AutoSize = true;
-            this.lblArmIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArmIdent.Location = new System.Drawing.Point(2, 2);
-            this.lblArmIdent.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
-            this.lblArmIdent.Name = "lblArmIdent";
-            this.lblArmIdent.Size = new System.Drawing.Size(24, 20);
-            this.lblArmIdent.TabIndex = 46;
-            this.lblArmIdent.Text = "...";
             // 
             // ConsultaArmarioSimp
             // 

@@ -71,9 +71,10 @@ namespace AlocArmario.Controller
                         {
                             entry.State = EntityState.Modified; // This should attach entity
                         }
-                        db.SaveChanges();
-                        resultado = "ok";
                     }
+                    db.SaveChanges();
+                    db.Entry(secao).Reload();
+                    resultado = "ok";
                 }
                 catch (Exception)
                 {

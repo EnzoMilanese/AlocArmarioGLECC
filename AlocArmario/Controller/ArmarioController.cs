@@ -84,9 +84,10 @@ namespace AlocArmario.Controller
                         {
                             entry.State = EntityState.Modified;
                         }
-                        db.SaveChanges();
-                        resultado = "ok";
                     }
+                    db.SaveChanges();
+                    db.Entry(armario).Reload();
+                    resultado = "ok";
                 }
                 catch (Exception)
                 {
