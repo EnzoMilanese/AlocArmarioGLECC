@@ -782,6 +782,7 @@
             this.btnCadastLoc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCadastLoc.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnCadastLoc.UseVisualStyleBackColor = true;
+            this.btnCadastLoc.Click += new System.EventHandler(this.btnCadastLoc_Click);
             // 
             // panel2
             // 
@@ -821,7 +822,6 @@
             this.cbxBloco.Name = "cbxBloco";
             this.cbxBloco.Size = new System.Drawing.Size(71, 24);
             this.cbxBloco.TabIndex = 41;
-            this.cbxBloco.SelectedIndexChanged += new System.EventHandler(this.cbxBloco_SelectedIndexChanged);
             // 
             // label20
             // 

@@ -1,5 +1,6 @@
 ﻿using AlocArmario.Controller;
 using AlocArmario.Model;
+using AlocArmario.View.LocatarioView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -221,6 +222,12 @@ namespace AlocArmario.View.ArmarioView
         private void cbxBloco_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarBloco();
-        }   
+        }
+
+        private void btnCadastLoc_Click(object sender, EventArgs e)
+        {
+            CadastroLocatario cl = new CadastroLocatario();
+            cl.ShowDialog();
+        }
     }
 }
