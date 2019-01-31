@@ -24,9 +24,12 @@ namespace AlocArmario
         public Login()
         {
             InitializeComponent();
-            rdbAvancado.Checked = true;
+            rdbSimples.Checked = true;
             lc = new LoginController();
             usuario = new Usuario();
+
+            txbPront.Text = "0";
+            txbSenha.Text = "0";
 
             var provedor = new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Usuario));
             TypeDescriptor.AddProvider(provedor, typeof(Usuario));

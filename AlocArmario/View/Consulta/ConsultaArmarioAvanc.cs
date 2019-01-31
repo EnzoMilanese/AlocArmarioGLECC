@@ -1,4 +1,5 @@
 ﻿using AlocArmario.Controller;
+using AlocArmario.Controller;
 using AlocArmario.Model;
 using AlocArmario.View.Cadastro;
 using AlocArmario.View.LocatarioView;
@@ -21,26 +22,31 @@ namespace AlocArmario.View
         private ArmarioController ac;
         private BlocoController bc;
         private SecaoController sc;
+
         private List<Contrato> baseContratos = new List<Contrato>();
         private List<Locatario> baseLocatarios = new List<Locatario>();
         private List<Armario> baseArmarios = new List<Armario>();
         private List<Bloco> baseBlocos = new List<Bloco>();
         private List<Secao> baseSecoes = new List<Secao>();
+
         private List<Contrato> listaContratos = new List<Contrato>();
         private List<Locatario> listaLocatarios = new List<Locatario>();
         private List<Armario> listaArmarios = new List<Armario>();
         private List<Bloco> listaBlocos = new List<Bloco>();
         private List<Secao> listaSecoes = new List<Secao>();
+
         private List<Contrato> listaContratosFiltrada = new List<Contrato>();
         private List<Locatario> listaLocatariosFiltrada = new List<Locatario>();
         private List<Armario> listaArmariosFiltrada = new List<Armario>();
         private List<Bloco> listaBlocosFiltrada = new List<Bloco>();
         private List<Secao> listaSecoesFiltrada = new List<Secao>();
+
         private Contrato contratoAtivo = new Contrato();
         private Locatario locatarioAtivo = new Locatario();
         private Armario armarioAtivo = new Armario();
         private Bloco blocoAtivo = new Bloco();
         private Secao secaoAtiva = new Secao();
+
         private List<Armario> armariosSelecionados = new List<Armario>();
 
 

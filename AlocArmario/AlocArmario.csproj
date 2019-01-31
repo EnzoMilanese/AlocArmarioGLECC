@@ -177,6 +177,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDados.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="AlocArmario.Model.Secao.datasource" />
     <None Include="Model\ModeloDados.edmx.diagram">
       <DependentUpon>ModeloDados.edmx</DependentUpon>
     </None>
