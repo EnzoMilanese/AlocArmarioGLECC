@@ -23,7 +23,6 @@ namespace AlocArmario.Model
         public Nullable<int> IdBloco { get; set; }
         public string Numero { get; set; }
         public bool TemContrato { get; set; }
-        public int ContratoAtivo { get; set; }
         public bool Danificado { get; set; }
     
         public virtual ICollection<Contrato> Contrato { get; set; }

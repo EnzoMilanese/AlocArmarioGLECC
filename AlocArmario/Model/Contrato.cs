@@ -16,7 +16,7 @@ namespace AlocArmario.Model
     {
         public int IdContrato { get; set; }
         public System.DateTime Validade { get; set; }
-        public string Valor { get; set; }
+        public decimal Valor { get; set; }
         public int IdArmario { get; set; }
         public int IdLocatario { get; set; }
         public string TipoContrato { get; set; }

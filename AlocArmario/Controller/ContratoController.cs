@@ -1,6 +1,7 @@
 ﻿using AlocArmario.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,15 +48,17 @@ namespace AlocArmario.Controller
                 try
                 {
                     db.Contrato.Add(contrato);
-                    armario.ContratoAtivo = contrato.IdArmario;
                     resultado = ac.Alterar(armario);
                     if (resultado == "erro")
                         return resultado;
                     resultado = lc.Alterar(locatario);
-                    locatario.ContratoAtivo = contrato.IdArmario;
                     if (resultado == "erro")
-                        return resultado; 
+                        return resultado;
                     db.SaveChanges();
+                    db.Entry(contrato).Reload();
+                    lc.AtualizarEntrada(locatario);
+                    ac.AtualizarEntrada(armario);
+                    resultado = "ok";
                 }
                 catch (Exception)
                 {
@@ -74,25 +77,28 @@ namespace AlocArmario.Controller
         {
             Armario armarioContrato;
             Locatario locatarioContrato;
+            Contrato contratoDb;
 
-            armarioContrato = contrato.Armario;
-            locatarioContrato = contrato.Locatario;
+            armarios = ac.Consultar();
+            locatarios = lc.Consultar();
+
+            armarioContrato = armarios.Where(a => a.IdArmario == contrato.IdArmario).SingleOrDefault();
+            locatarioContrato = locatarios.Where(l => l.IdLocatario == contrato.IdLocatario).SingleOrDefault();
+            contratoDb = db.Contrato.Where(c => c.IdContrato == contrato.IdContrato).SingleOrDefault();
 
             string resultado = "";
             try
             {
-                armarioContrato.ContratoAtivo = 0;
                 armarioContrato.TemContrato = false;
                 ac.Alterar(armarioContrato);
                 db.SaveChanges();
 
-                locatarioContrato.ContratoAtivo = 0;
                 locatarioContrato.TemContrato = false;
                 lc.Alterar(locatarioContrato);
                 db.SaveChanges();
 
                 contrato.Terminado = true;
-                Alterar(contrato);
+                Alterar(contratoDb);
                 db.SaveChanges();
                 resultado = "ok";
             }
@@ -103,7 +109,7 @@ namespace AlocArmario.Controller
             return resultado;
         }
 
-        private string Alterar(Contrato contrato)
+        public string Alterar(Contrato contrato)
         {
             var erros = Validacao.ValidaDados(contrato);
             string resultado = "";
@@ -112,11 +118,25 @@ namespace AlocArmario.Controller
             {
                 try
                 {
-                    Contrato contratoDb = (from c in db.Contrato
-                                           where c.IdContrato == contrato.IdContrato
-                                           select c).SingleOrDefault();
-                    contratoDb = contrato;
+                    var entry = db.Entry(contrato);
+
+                    if (entry.State == EntityState.Detached)
+                    {
+                        var set = db.Set<Contrato>();
+                        Contrato attachedEntity = set.Local.SingleOrDefault(e => e.IdContrato == contrato.IdContrato);
+
+                        if (attachedEntity != null)
+                        {
+                            var attachedEntry = db.Entry(attachedEntity);
+                            attachedEntry.CurrentValues.SetValues(contrato);
+                        }
+                        else
+                        {
+                            entry.State = EntityState.Modified;
+                        }
+                    }
                     db.SaveChanges();
+                    db.Entry(contrato).Reload();
                     resultado = "ok";
                 }
                 catch (Exception)
@@ -128,6 +148,21 @@ namespace AlocArmario.Controller
             {
                 foreach (var e in erros)
                     resultado = (resultado + "\n" + e);
+            }
+            return resultado;
+        }
+
+        public string AtualizarEntrada(object entrada)
+        {
+            string resultado = "";
+            try
+            {
+                db.Entry(entrada).Reload();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erro";
             }
             return resultado;
         }

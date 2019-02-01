@@ -25,7 +25,6 @@ namespace AlocArmario.Model
         public string Email { get; set; }
         public string Telefone { get; set; }
         public bool TemContrato { get; set; }
-        public int ContratoAtivo { get; set; }
     
         public virtual ICollection<Contrato> Contrato { get; set; }
     }

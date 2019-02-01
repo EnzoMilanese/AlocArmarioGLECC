@@ -39,6 +39,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -111,6 +112,12 @@
     <Compile Include="View\Cadastro\CadastroContrato.Designer.cs">
       <DependentUpon>CadastroContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Cadastro\CadastroContratoSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\CadastroContratoSimples.Designer.cs">
+      <DependentUpon>CadastroContratoSimples.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cadastro\CadastroSecao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroContrato.resx">
       <DependentUpon>CadastroContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\CadastroContratoSimples.resx">
+      <DependentUpon>CadastroContratoSimples.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroSecao.resx">
       <DependentUpon>CadastroSecao.cs</DependentUpon>

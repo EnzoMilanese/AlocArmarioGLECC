@@ -39,7 +39,6 @@
     <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
     <Property Name="TemContrato" Type="bit" Nullable="false" />
-    <Property Name="ContratoAtivo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Armario">
     <Key>
@@ -49,7 +48,6 @@
     <Property Name="IdBloco" Type="int" Nullable="true" />
     <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TemContrato" Type="bit" Nullable="false" />
-    <Property Name="ContratoAtivo" Type="int" Nullable="false" />
     <Property Name="Danificado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Contrato">
@@ -58,7 +56,7 @@
     </Key>
     <Property Name="IdContrato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Validade" Type="datetime" Nullable="false" />
-    <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" />
     <Property Name="IdArmario" Type="int" Nullable="false" />
     <Property Name="IdLocatario" Type="int" Nullable="false" />
     <Property Name="TipoContrato" Type="nvarchar(max)" Nullable="false" />
@@ -176,7 +174,6 @@
           <Property Name="Telefone" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Contrato" Relationship="ModeloDados.Aluga" FromRole="Locatario" ToRole="Contrato" />
           <Property Name="TemContrato" Type="Boolean" Nullable="false" />
-          <Property Name="ContratoAtivo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Armario">
           <Key>
@@ -188,7 +185,6 @@
           <Property Name="IdBloco" Type="Int32" Nullable="true" />
           <Property Name="Numero" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="TemContrato" Type="Boolean" Nullable="false" />
-          <Property Name="ContratoAtivo" Type="Int32" Nullable="false" />
           <Property Name="Danificado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
@@ -197,7 +193,7 @@
           </Key>
           <Property Name="IdContrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Validade" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Valor" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="Armario" Relationship="ModeloDados.ArmarioContrato" FromRole="Contrato" ToRole="Armario" />
           <Property Name="IdArmario" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Locatario" Relationship="ModeloDados.Aluga" FromRole="Contrato" ToRole="Locatario" />
@@ -296,7 +292,6 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Telefone" ColumnName="Telefone" />
           <ScalarProperty Name="TemContrato" ColumnName="TemContrato" />
-          <ScalarProperty Name="ContratoAtivo" ColumnName="ContratoAtivo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -307,7 +302,6 @@
           <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="TemContrato" ColumnName="TemContrato" />
-          <ScalarProperty Name="ContratoAtivo" ColumnName="ContratoAtivo" />
           <ScalarProperty Name="Danificado" ColumnName="Danificado" />
         </MappingFragment>
       </EntityTypeMapping>

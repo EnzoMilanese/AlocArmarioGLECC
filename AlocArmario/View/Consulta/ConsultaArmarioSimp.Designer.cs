@@ -72,8 +72,6 @@
             this.btnUtil = new System.Windows.Forms.Button();
             this.btnInutil = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblContValor = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblContTipo = new System.Windows.Forms.Label();
@@ -101,7 +99,6 @@
             this.panel1.SuspendLayout();
             this.paneSelecArm.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -111,7 +108,7 @@
             // btnAlugar
             // 
             this.btnAlugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlugar.Location = new System.Drawing.Point(54, 310);
+            this.btnAlugar.Location = new System.Drawing.Point(111, 423);
             this.btnAlugar.Name = "btnAlugar";
             this.btnAlugar.Size = new System.Drawing.Size(211, 41);
             this.btnAlugar.TabIndex = 1;
@@ -123,7 +120,7 @@
             // btnTerminar
             // 
             this.btnTerminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTerminar.Location = new System.Drawing.Point(87, 358);
+            this.btnTerminar.Location = new System.Drawing.Point(144, 471);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(151, 30);
             this.btnTerminar.TabIndex = 2;
@@ -135,7 +132,7 @@
             // btnGerarCertfic
             // 
             this.btnGerarCertfic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerarCertfic.Location = new System.Drawing.Point(54, 311);
+            this.btnGerarCertfic.Location = new System.Drawing.Point(111, 424);
             this.btnGerarCertfic.Name = "btnGerarCertfic";
             this.btnGerarCertfic.Size = new System.Drawing.Size(211, 41);
             this.btnGerarCertfic.TabIndex = 3;
@@ -168,7 +165,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(83, 25);
+            this.label3.Location = new System.Drawing.Point(6, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 6;
@@ -178,7 +175,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(83, 70);
+            this.label4.Location = new System.Drawing.Point(6, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 7;
@@ -188,7 +185,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 25);
+            this.label7.Location = new System.Drawing.Point(7, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 10;
@@ -198,7 +195,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(229, 25);
+            this.label9.Location = new System.Drawing.Point(311, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 13);
             this.label9.TabIndex = 12;
@@ -207,67 +204,67 @@
             // lblLocNome
             // 
             this.lblLocNome.AutoSize = true;
-            this.lblLocNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocNome.Location = new System.Drawing.Point(6, 38);
             this.lblLocNome.Name = "lblLocNome";
-            this.lblLocNome.Size = new System.Drawing.Size(16, 13);
+            this.lblLocNome.Size = new System.Drawing.Size(20, 18);
             this.lblLocNome.TabIndex = 13;
             this.lblLocNome.Text = "...";
             // 
             // lblLocPront
             // 
             this.lblLocPront.AutoSize = true;
-            this.lblLocPront.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocPront.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocPront.Location = new System.Drawing.Point(6, 83);
             this.lblLocPront.Name = "lblLocPront";
-            this.lblLocPront.Size = new System.Drawing.Size(16, 13);
+            this.lblLocPront.Size = new System.Drawing.Size(20, 18);
             this.lblLocPront.TabIndex = 14;
             this.lblLocPront.Text = "...";
             // 
             // lblLocTel
             // 
             this.lblLocTel.AutoSize = true;
-            this.lblLocTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocTel.Location = new System.Drawing.Point(83, 38);
+            this.lblLocTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocTel.Location = new System.Drawing.Point(6, 125);
             this.lblLocTel.Name = "lblLocTel";
-            this.lblLocTel.Size = new System.Drawing.Size(16, 13);
+            this.lblLocTel.Size = new System.Drawing.Size(20, 18);
             this.lblLocTel.TabIndex = 15;
             this.lblLocTel.Text = "...";
             // 
             // lblLocEmail
             // 
             this.lblLocEmail.AutoSize = true;
-            this.lblLocEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocEmail.Location = new System.Drawing.Point(83, 83);
+            this.lblLocEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocEmail.Location = new System.Drawing.Point(6, 170);
             this.lblLocEmail.Name = "lblLocEmail";
-            this.lblLocEmail.Size = new System.Drawing.Size(16, 13);
+            this.lblLocEmail.Size = new System.Drawing.Size(20, 18);
             this.lblLocEmail.TabIndex = 16;
             this.lblLocEmail.Text = "...";
             // 
             // lblContArm
             // 
             this.lblContArm.AutoSize = true;
-            this.lblContArm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContArm.Location = new System.Drawing.Point(12, 37);
+            this.lblContArm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContArm.Location = new System.Drawing.Point(7, 35);
             this.lblContArm.Name = "lblContArm";
-            this.lblContArm.Size = new System.Drawing.Size(16, 13);
+            this.lblContArm.Size = new System.Drawing.Size(20, 18);
             this.lblContArm.TabIndex = 17;
             this.lblContArm.Text = "...";
             // 
             // lblContValid
             // 
             this.lblContValid.AutoSize = true;
-            this.lblContValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContValid.Location = new System.Drawing.Point(229, 38);
+            this.lblContValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContValid.Location = new System.Drawing.Point(311, 38);
             this.lblContValid.Name = "lblContValid";
-            this.lblContValid.Size = new System.Drawing.Size(16, 13);
+            this.lblContValid.Size = new System.Drawing.Size(20, 18);
             this.lblContValid.TabIndex = 21;
             this.lblContValid.Text = "...";
             // 
             // lblStatus
             // 
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(85, 19);
+            this.lblStatus.Location = new System.Drawing.Point(142, 23);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(153, 31);
             this.lblStatus.TabIndex = 22;
@@ -297,10 +294,10 @@
             // btnArm1
             // 
             this.btnArm1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm1.Location = new System.Drawing.Point(10, 46);
+            this.btnArm1.Location = new System.Drawing.Point(18, 51);
             this.btnArm1.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm1.Name = "btnArm1";
-            this.btnArm1.Size = new System.Drawing.Size(60, 75);
+            this.btnArm1.Size = new System.Drawing.Size(65, 104);
             this.btnArm1.TabIndex = 25;
             this.btnArm1.Text = "...";
             this.btnArm1.UseVisualStyleBackColor = true;
@@ -309,10 +306,10 @@
             // btnArm4
             // 
             this.btnArm4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm4.Location = new System.Drawing.Point(250, 46);
+            this.btnArm4.Location = new System.Drawing.Point(258, 51);
             this.btnArm4.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm4.Name = "btnArm4";
-            this.btnArm4.Size = new System.Drawing.Size(60, 75);
+            this.btnArm4.Size = new System.Drawing.Size(65, 104);
             this.btnArm4.TabIndex = 26;
             this.btnArm4.Text = "...";
             this.btnArm4.UseVisualStyleBackColor = true;
@@ -321,10 +318,10 @@
             // btnArm2
             // 
             this.btnArm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm2.Location = new System.Drawing.Point(90, 46);
+            this.btnArm2.Location = new System.Drawing.Point(98, 51);
             this.btnArm2.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm2.Name = "btnArm2";
-            this.btnArm2.Size = new System.Drawing.Size(60, 75);
+            this.btnArm2.Size = new System.Drawing.Size(65, 104);
             this.btnArm2.TabIndex = 26;
             this.btnArm2.Text = "...";
             this.btnArm2.UseVisualStyleBackColor = true;
@@ -333,10 +330,10 @@
             // btnArm3
             // 
             this.btnArm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm3.Location = new System.Drawing.Point(170, 46);
+            this.btnArm3.Location = new System.Drawing.Point(178, 51);
             this.btnArm3.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm3.Name = "btnArm3";
-            this.btnArm3.Size = new System.Drawing.Size(60, 75);
+            this.btnArm3.Size = new System.Drawing.Size(65, 104);
             this.btnArm3.TabIndex = 27;
             this.btnArm3.Text = "...";
             this.btnArm3.UseVisualStyleBackColor = true;
@@ -345,10 +342,10 @@
             // btnArm5
             // 
             this.btnArm5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm5.Location = new System.Drawing.Point(10, 141);
+            this.btnArm5.Location = new System.Drawing.Point(18, 165);
             this.btnArm5.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm5.Name = "btnArm5";
-            this.btnArm5.Size = new System.Drawing.Size(60, 75);
+            this.btnArm5.Size = new System.Drawing.Size(65, 104);
             this.btnArm5.TabIndex = 28;
             this.btnArm5.Text = "...";
             this.btnArm5.UseVisualStyleBackColor = true;
@@ -357,10 +354,10 @@
             // btnArm6
             // 
             this.btnArm6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm6.Location = new System.Drawing.Point(90, 141);
+            this.btnArm6.Location = new System.Drawing.Point(98, 165);
             this.btnArm6.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm6.Name = "btnArm6";
-            this.btnArm6.Size = new System.Drawing.Size(60, 75);
+            this.btnArm6.Size = new System.Drawing.Size(65, 104);
             this.btnArm6.TabIndex = 29;
             this.btnArm6.Text = "...";
             this.btnArm6.UseVisualStyleBackColor = true;
@@ -369,10 +366,10 @@
             // btnArm7
             // 
             this.btnArm7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm7.Location = new System.Drawing.Point(170, 141);
+            this.btnArm7.Location = new System.Drawing.Point(178, 165);
             this.btnArm7.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm7.Name = "btnArm7";
-            this.btnArm7.Size = new System.Drawing.Size(60, 75);
+            this.btnArm7.Size = new System.Drawing.Size(65, 104);
             this.btnArm7.TabIndex = 30;
             this.btnArm7.Text = "...";
             this.btnArm7.UseVisualStyleBackColor = true;
@@ -381,10 +378,10 @@
             // btnArm8
             // 
             this.btnArm8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm8.Location = new System.Drawing.Point(250, 141);
+            this.btnArm8.Location = new System.Drawing.Point(258, 165);
             this.btnArm8.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm8.Name = "btnArm8";
-            this.btnArm8.Size = new System.Drawing.Size(60, 75);
+            this.btnArm8.Size = new System.Drawing.Size(65, 104);
             this.btnArm8.TabIndex = 31;
             this.btnArm8.Text = "...";
             this.btnArm8.UseVisualStyleBackColor = true;
@@ -393,10 +390,10 @@
             // btnArm11
             // 
             this.btnArm11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm11.Location = new System.Drawing.Point(170, 236);
+            this.btnArm11.Location = new System.Drawing.Point(178, 286);
             this.btnArm11.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm11.Name = "btnArm11";
-            this.btnArm11.Size = new System.Drawing.Size(60, 75);
+            this.btnArm11.Size = new System.Drawing.Size(65, 104);
             this.btnArm11.TabIndex = 32;
             this.btnArm11.Text = "...";
             this.btnArm11.UseVisualStyleBackColor = true;
@@ -405,10 +402,10 @@
             // btnArm9
             // 
             this.btnArm9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm9.Location = new System.Drawing.Point(10, 236);
+            this.btnArm9.Location = new System.Drawing.Point(18, 286);
             this.btnArm9.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm9.Name = "btnArm9";
-            this.btnArm9.Size = new System.Drawing.Size(60, 75);
+            this.btnArm9.Size = new System.Drawing.Size(65, 104);
             this.btnArm9.TabIndex = 32;
             this.btnArm9.Text = "...";
             this.btnArm9.UseVisualStyleBackColor = true;
@@ -417,10 +414,10 @@
             // btnArm10
             // 
             this.btnArm10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm10.Location = new System.Drawing.Point(90, 236);
+            this.btnArm10.Location = new System.Drawing.Point(98, 286);
             this.btnArm10.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm10.Name = "btnArm10";
-            this.btnArm10.Size = new System.Drawing.Size(60, 75);
+            this.btnArm10.Size = new System.Drawing.Size(65, 104);
             this.btnArm10.TabIndex = 33;
             this.btnArm10.Text = "...";
             this.btnArm10.UseVisualStyleBackColor = true;
@@ -429,10 +426,10 @@
             // btnArm12
             // 
             this.btnArm12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm12.Location = new System.Drawing.Point(250, 236);
+            this.btnArm12.Location = new System.Drawing.Point(258, 286);
             this.btnArm12.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm12.Name = "btnArm12";
-            this.btnArm12.Size = new System.Drawing.Size(60, 75);
+            this.btnArm12.Size = new System.Drawing.Size(65, 104);
             this.btnArm12.TabIndex = 34;
             this.btnArm12.Text = "...";
             this.btnArm12.UseVisualStyleBackColor = true;
@@ -441,10 +438,10 @@
             // btnArm16
             // 
             this.btnArm16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm16.Location = new System.Drawing.Point(250, 331);
+            this.btnArm16.Location = new System.Drawing.Point(258, 407);
             this.btnArm16.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm16.Name = "btnArm16";
-            this.btnArm16.Size = new System.Drawing.Size(60, 75);
+            this.btnArm16.Size = new System.Drawing.Size(65, 104);
             this.btnArm16.TabIndex = 38;
             this.btnArm16.Text = "...";
             this.btnArm16.UseVisualStyleBackColor = true;
@@ -453,10 +450,10 @@
             // btnArm14
             // 
             this.btnArm14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm14.Location = new System.Drawing.Point(90, 331);
+            this.btnArm14.Location = new System.Drawing.Point(98, 407);
             this.btnArm14.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm14.Name = "btnArm14";
-            this.btnArm14.Size = new System.Drawing.Size(60, 75);
+            this.btnArm14.Size = new System.Drawing.Size(65, 104);
             this.btnArm14.TabIndex = 37;
             this.btnArm14.Text = "...";
             this.btnArm14.UseVisualStyleBackColor = true;
@@ -465,10 +462,10 @@
             // btnArm13
             // 
             this.btnArm13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm13.Location = new System.Drawing.Point(10, 331);
+            this.btnArm13.Location = new System.Drawing.Point(18, 407);
             this.btnArm13.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm13.Name = "btnArm13";
-            this.btnArm13.Size = new System.Drawing.Size(60, 75);
+            this.btnArm13.Size = new System.Drawing.Size(65, 104);
             this.btnArm13.TabIndex = 35;
             this.btnArm13.Text = "...";
             this.btnArm13.UseVisualStyleBackColor = true;
@@ -477,10 +474,10 @@
             // btnArm15
             // 
             this.btnArm15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArm15.Location = new System.Drawing.Point(170, 331);
+            this.btnArm15.Location = new System.Drawing.Point(178, 407);
             this.btnArm15.Margin = new System.Windows.Forms.Padding(10);
             this.btnArm15.Name = "btnArm15";
-            this.btnArm15.Size = new System.Drawing.Size(60, 75);
+            this.btnArm15.Size = new System.Drawing.Size(65, 104);
             this.btnArm15.TabIndex = 36;
             this.btnArm15.Text = "...";
             this.btnArm15.UseVisualStyleBackColor = true;
@@ -490,6 +487,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblArmIdent);
+            this.panel1.Controls.Add(this.paneSelecArm);
             this.panel1.Controls.Add(this.btnTerminar);
             this.panel1.Controls.Add(this.btnUtil);
             this.panel1.Controls.Add(this.btnInutil);
@@ -501,7 +499,7 @@
             this.panel1.Controls.Add(this.btnGerarCertfic);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(329, 416);
+            this.panel1.Size = new System.Drawing.Size(417, 528);
             this.panel1.TabIndex = 39;
             // 
             // lblArmIdent
@@ -511,9 +509,8 @@
             this.lblArmIdent.Location = new System.Drawing.Point(2, 2);
             this.lblArmIdent.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmIdent.Name = "lblArmIdent";
-            this.lblArmIdent.Size = new System.Drawing.Size(24, 20);
+            this.lblArmIdent.Size = new System.Drawing.Size(0, 20);
             this.lblArmIdent.TabIndex = 46;
-            this.lblArmIdent.Text = "...";
             // 
             // paneSelecArm
             // 
@@ -521,17 +518,16 @@
             this.paneSelecArm.Controls.Add(this.label16);
             this.paneSelecArm.Controls.Add(this.label14);
             this.paneSelecArm.Controls.Add(this.label10);
-            this.paneSelecArm.Location = new System.Drawing.Point(10, 254);
+            this.paneSelecArm.Location = new System.Drawing.Point(-1, 404);
             this.paneSelecArm.Name = "paneSelecArm";
-            this.paneSelecArm.Size = new System.Drawing.Size(329, 134);
+            this.paneSelecArm.Size = new System.Drawing.Size(417, 123);
             this.paneSelecArm.TabIndex = 54;
-            this.paneSelecArm.Visible = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(40, 32);
+            this.label16.Location = new System.Drawing.Point(94, 32);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(240, 25);
             this.label16.TabIndex = 0;
@@ -542,7 +538,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Minecrafter", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(109, 39);
+            this.label14.Location = new System.Drawing.Point(163, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 70);
             this.label14.TabIndex = 2;
@@ -562,7 +558,7 @@
             // btnUtil
             // 
             this.btnUtil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUtil.Location = new System.Drawing.Point(87, 358);
+            this.btnUtil.Location = new System.Drawing.Point(144, 471);
             this.btnUtil.Name = "btnUtil";
             this.btnUtil.Size = new System.Drawing.Size(151, 30);
             this.btnUtil.TabIndex = 55;
@@ -574,7 +570,7 @@
             // btnInutil
             // 
             this.btnInutil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInutil.Location = new System.Drawing.Point(87, 358);
+            this.btnInutil.Location = new System.Drawing.Point(144, 471);
             this.btnInutil.Name = "btnInutil";
             this.btnInutil.Size = new System.Drawing.Size(151, 30);
             this.btnInutil.TabIndex = 54;
@@ -585,7 +581,6 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.lblContValor);
             this.panel5.Controls.Add(this.lblContValid);
@@ -597,38 +592,18 @@
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.lblContLoc);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(-1, 177);
+            this.panel5.Location = new System.Drawing.Point(-1, 277);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(329, 106);
+            this.panel5.Size = new System.Drawing.Size(417, 128);
             this.panel5.TabIndex = 53;
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(1, 104);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(329, 133);
-            this.panel7.TabIndex = 55;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(240, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Selecione um armário";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblContValor
             // 
             this.lblContValor.AutoSize = true;
-            this.lblContValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContValor.Location = new System.Drawing.Point(123, 74);
+            this.lblContValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContValor.Location = new System.Drawing.Point(156, 82);
             this.lblContValor.Name = "lblContValor";
-            this.lblContValor.Size = new System.Drawing.Size(16, 13);
+            this.lblContValor.Size = new System.Drawing.Size(20, 18);
             this.lblContValor.TabIndex = 52;
             this.lblContValor.Text = "...";
             // 
@@ -636,7 +611,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(123, 61);
+            this.label13.Location = new System.Drawing.Point(156, 69);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 51;
@@ -645,10 +620,10 @@
             // lblContTipo
             // 
             this.lblContTipo.AutoSize = true;
-            this.lblContTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContTipo.Location = new System.Drawing.Point(12, 73);
+            this.lblContTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContTipo.Location = new System.Drawing.Point(7, 79);
             this.lblContTipo.Name = "lblContTipo";
-            this.lblContTipo.Size = new System.Drawing.Size(16, 13);
+            this.lblContTipo.Size = new System.Drawing.Size(20, 18);
             this.lblContTipo.TabIndex = 50;
             this.lblContTipo.Text = "...";
             // 
@@ -656,7 +631,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(8, 61);
+            this.label15.Location = new System.Drawing.Point(7, 66);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(36, 13);
             this.label15.TabIndex = 49;
@@ -665,10 +640,10 @@
             // lblContLoc
             // 
             this.lblContLoc.AutoSize = true;
-            this.lblContLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContLoc.Location = new System.Drawing.Point(123, 38);
+            this.lblContLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContLoc.Location = new System.Drawing.Point(156, 38);
             this.lblContLoc.Name = "lblContLoc";
-            this.lblContLoc.Size = new System.Drawing.Size(16, 13);
+            this.lblContLoc.Size = new System.Drawing.Size(20, 18);
             this.lblContLoc.TabIndex = 24;
             this.lblContLoc.Text = "...";
             // 
@@ -676,7 +651,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(123, 25);
+            this.label5.Location = new System.Drawing.Point(156, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 48;
@@ -694,7 +669,7 @@
             this.panel4.Controls.Add(this.lblArmNum);
             this.panel4.Location = new System.Drawing.Point(-1, 67);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 111);
+            this.panel4.Size = new System.Drawing.Size(188, 211);
             this.panel4.TabIndex = 47;
             // 
             // label17
@@ -720,10 +695,11 @@
             // lblArmSec
             // 
             this.lblArmSec.AutoSize = true;
-            this.lblArmSec.Location = new System.Drawing.Point(80, 37);
+            this.lblArmSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmSec.Location = new System.Drawing.Point(6, 144);
             this.lblArmSec.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmSec.Name = "lblArmSec";
-            this.lblArmSec.Size = new System.Drawing.Size(16, 13);
+            this.lblArmSec.Size = new System.Drawing.Size(20, 18);
             this.lblArmSec.TabIndex = 45;
             this.lblArmSec.Text = "...";
             // 
@@ -731,7 +707,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(6, 70);
+            this.label26.Location = new System.Drawing.Point(6, 76);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(43, 13);
             this.label26.TabIndex = 41;
@@ -740,10 +716,11 @@
             // lblArmBloc
             // 
             this.lblArmBloc.AutoSize = true;
-            this.lblArmBloc.Location = new System.Drawing.Point(6, 83);
+            this.lblArmBloc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmBloc.Location = new System.Drawing.Point(6, 89);
             this.lblArmBloc.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmBloc.Name = "lblArmBloc";
-            this.lblArmBloc.Size = new System.Drawing.Size(16, 13);
+            this.lblArmBloc.Size = new System.Drawing.Size(20, 18);
             this.lblArmBloc.TabIndex = 44;
             this.lblArmBloc.Text = "...";
             // 
@@ -751,7 +728,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(80, 25);
+            this.label27.Location = new System.Drawing.Point(6, 132);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(47, 13);
             this.label27.TabIndex = 42;
@@ -760,10 +737,11 @@
             // lblArmNum
             // 
             this.lblArmNum.AutoSize = true;
+            this.lblArmNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArmNum.Location = new System.Drawing.Point(6, 37);
             this.lblArmNum.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblArmNum.Name = "lblArmNum";
-            this.lblArmNum.Size = new System.Drawing.Size(16, 13);
+            this.lblArmNum.Size = new System.Drawing.Size(20, 18);
             this.lblArmNum.TabIndex = 43;
             this.lblArmNum.Text = "...";
             // 
@@ -780,9 +758,9 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(146, 67);
+            this.panel3.Location = new System.Drawing.Point(186, 67);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(183, 111);
+            this.panel3.Size = new System.Drawing.Size(230, 211);
             this.panel3.TabIndex = 46;
             // 
             // btnCadastLoc
@@ -823,20 +801,19 @@
             this.panel2.Controls.Add(this.btnArm9);
             this.panel2.Controls.Add(this.btnArm8);
             this.panel2.Controls.Add(this.btnArm11);
-            this.panel2.Location = new System.Drawing.Point(340, 12);
+            this.panel2.Location = new System.Drawing.Point(427, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 416);
+            this.panel2.Size = new System.Drawing.Size(346, 528);
             this.panel2.TabIndex = 40;
             // 
             // paneSemArm
             // 
             this.paneSemArm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paneSemArm.Controls.Add(this.label18);
-            this.paneSemArm.Controls.Add(this.paneSelecArm);
             this.paneSemArm.Controls.Add(this.label22);
-            this.paneSemArm.Location = new System.Drawing.Point(-1, 38);
+            this.paneSemArm.Location = new System.Drawing.Point(-1, 40);
             this.paneSemArm.Name = "paneSemArm";
-            this.paneSemArm.Size = new System.Drawing.Size(320, 377);
+            this.paneSemArm.Size = new System.Drawing.Size(346, 487);
             this.paneSemArm.TabIndex = 55;
             this.paneSemArm.Visible = false;
             // 
@@ -844,7 +821,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(58, 141);
+            this.label18.Location = new System.Drawing.Point(74, 172);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(205, 50);
             this.label18.TabIndex = 0;
@@ -907,7 +884,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 441);
+            this.ClientSize = new System.Drawing.Size(785, 552);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -921,8 +898,6 @@
             this.paneSelecArm.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -997,8 +972,6 @@
         private System.Windows.Forms.Button btnCadastLoc;
         private System.Windows.Forms.Panel paneSelecArm;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel paneSemArm;

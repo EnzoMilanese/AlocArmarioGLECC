@@ -1,5 +1,6 @@
 ﻿using AlocArmario.Controller;
 using AlocArmario.Model;
+using AlocArmario.View.Cadastro;
 using AlocArmario.View.LocatarioView;
 using System;
 using System.Collections.Generic;
@@ -39,13 +40,7 @@ namespace AlocArmario.View.ArmarioView
         public ConsultaArmarioSimp()
         {
             InitializeComponent();
-
-            cc = new ContratoController();
-            lc = new LocatarioController();
-            ac = new ArmarioController();
-            bc = new BlocoController();
-            sc = new SecaoController();
-
+            
             contratoAtivo = new Contrato();
             locatarioAtivo = new Locatario();
             armarioAtivo = new Armario();
@@ -74,6 +69,12 @@ namespace AlocArmario.View.ArmarioView
 
         private void CarregarListas()
         {
+            cc = new ContratoController();
+            lc = new LocatarioController();
+            ac = new ArmarioController();
+            bc = new BlocoController();
+            sc = new SecaoController();
+
             listaContratos = cc.Consultar();
             listaLocatarios = lc.Consultar();
             listaArmarios = ac.Consultar();
@@ -167,9 +168,9 @@ namespace AlocArmario.View.ArmarioView
             {
                 lblStatus.Text = "Alugado";
                 lblStatus.ForeColor = Color.DarkBlue;
-
-                contratoAtivo = listaContratos.Where(c => c.IdArmario == armarioAtivo.IdArmario).SingleOrDefault();
-                locatarioAtivo = listaLocatarios.Where(l => l.ContratoAtivo == contratoAtivo.IdContrato).SingleOrDefault();
+                
+                contratoAtivo = armarioAtivo.Contrato.First();
+                locatarioAtivo = contratoAtivo.Locatario;
 
                 lblLocNome.Text = locatarioAtivo.Nome;
                 lblLocPront.Text = locatarioAtivo.Prontuario;
@@ -180,7 +181,7 @@ namespace AlocArmario.View.ArmarioView
                 lblContLoc.Text = locatarioAtivo.Nome;
                 lblContTipo.Text = contratoAtivo.TipoContrato;
                 lblContValid.Text = contratoAtivo.Validade.ToString("dd/MM/yyyy");
-                lblContValor.Text = contratoAtivo.Valor;
+                lblContValor.Text = ("R$" + contratoAtivo.Valor.ToString()).Replace('.', ',');
 
                 btnTerminar.Visible = true;
                 btnAlugar.Visible = false;
@@ -216,6 +217,7 @@ namespace AlocArmario.View.ArmarioView
         private void botãoArmario(object sender, EventArgs e)
         {
             Button botão = (Button)sender;
+            paneSelecArm.Visible = false;
             CarregarLabels(botão.Text);
         }
 
@@ -254,12 +256,21 @@ namespace AlocArmario.View.ArmarioView
 
         private void btnAlugar_Click(object sender, EventArgs e)
         {
-
+            CadastroContratoSimples ccs = new CadastroContratoSimples(armarioAtivo);
+            ccs.ShowDialog();
+            CarregarListas();
+            CarregarArmarios();
+            CarregarLabels(armarioAtivo.Numero);
         }
 
         private void btnTerminar_Click(object sender, EventArgs e)
         {
-
+            string resultado = cc.Terminar(contratoAtivo);
+            if (resultado.Equals("erro"))
+                MessageBox.Show("Não foi possível terminar o contrato", "Terminar Contrato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            CarregarListas();
+            CarregarArmarios();
+            CarregarLabels(armarioAtivo.Numero);
         }
 
         private void btnGerarCertfic_Click(object sender, EventArgs e)

@@ -210,5 +210,20 @@ namespace AlocArmario.Controller
             }
             return resultado;
         }
+
+        public string AtualizarEntrada(object entrada)
+        {
+            string resultado = "";
+            try
+            {
+                db.Entry(entrada).Reload();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erro";
+            }
+            return resultado;
+        }
     }
 }

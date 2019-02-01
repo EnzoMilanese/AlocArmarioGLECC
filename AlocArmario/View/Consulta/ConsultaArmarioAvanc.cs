@@ -1,5 +1,4 @@
 ﻿using AlocArmario.Controller;
-using AlocArmario.Controller;
 using AlocArmario.Model;
 using AlocArmario.View.Cadastro;
 using AlocArmario.View.LocatarioView;
@@ -465,7 +464,7 @@ namespace AlocArmario.View
                 lblContIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
                 lblContValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
                 lblContTipoCont.Text = contratoAtivo.TipoContrato;
-                lblContValorCont.Text = contratoAtivo.Valor;
+                lblContValorCont.Text = ("R$" + contratoAtivo.Valor.ToString()).Replace('.', ',');
 
                 lblContIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
                 lblContNomeLoc.Text = locatarioAtivo.Nome;
@@ -497,7 +496,7 @@ namespace AlocArmario.View
             else
             {
                 foreach (var c in listaContratos)
-                    if (c.IdContrato == locatarioAtivo.ContratoAtivo)
+                    if (c.IdContrato == locatarioAtivo.Contrato.First().IdContrato)
                         contratoAtivo = c;
 
                 lblLocIdLoc.Text = Convert.ToString(locatarioAtivo.IdLocatario);
@@ -511,7 +510,7 @@ namespace AlocArmario.View
                     lblLocIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
                     lblLocValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
                     lblLocTipoCont.Text = contratoAtivo.TipoContrato;
-                    lblLocValorCont.Text = contratoAtivo.Valor;
+                    lblLocValorCont.Text = ("R$" + contratoAtivo.Valor.ToString()).Replace('.', ',');
                 }
                 else
                 {
@@ -539,7 +538,7 @@ namespace AlocArmario.View
             else
             {
                 foreach (var c in listaContratos)
-                    if (c.IdContrato == armarioAtivo.ContratoAtivo)
+                    if (c.IdContrato == armarioAtivo.Contrato.First().IdContrato)
                         contratoAtivo = c;
 
                 if (armarioAtivo.Danificado)
@@ -557,7 +556,7 @@ namespace AlocArmario.View
                     lblArmIdCont.Text = Convert.ToString(contratoAtivo.IdContrato);
                     lblArmValidadeCont.Text = Convert.ToString(contratoAtivo.Validade);
                     lblArmTipoCont.Text = contratoAtivo.TipoContrato;
-                    lblArmValorCont.Text = contratoAtivo.Valor;
+                    lblArmValorCont.Text = ("R$" + contratoAtivo.Valor.ToString()).Replace('.', ',');
                 }
                 else
                 {

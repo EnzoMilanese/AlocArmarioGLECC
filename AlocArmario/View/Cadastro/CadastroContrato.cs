@@ -43,7 +43,7 @@ namespace AlocArmario.View.Cadastro
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            contrato.Valor = lblDataValor.Text;
+            contrato.Valor = 0;
             contrato.TipoContrato = cbxTipoContrato.Text;
             DateTime data;
             if (DateTime.TryParse(lblDataValidade.Text, out data))

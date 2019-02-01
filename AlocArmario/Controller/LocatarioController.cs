@@ -1,6 +1,7 @@
 ﻿using AlocArmario.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,11 +62,25 @@ namespace AlocArmario.Controller
             {
                 try
                 {
-                    Locatario locatarioDb = (from l in db.Locatario
-                                             where l.IdLocatario == locatario.IdLocatario
-                                             select l).SingleOrDefault();
-                    locatarioDb = locatario;
+                    var entry = db.Entry(locatario);
+
+                    if (entry.State == EntityState.Detached)
+                    {
+                        var set = db.Set<Locatario>();
+                        Locatario attachedEntity = set.Local.SingleOrDefault(e => e.IdLocatario == locatario.IdLocatario);
+
+                        if (attachedEntity != null)
+                        {
+                            var attachedEntry = db.Entry(attachedEntity);
+                            attachedEntry.CurrentValues.SetValues(locatario);
+                        }
+                        else
+                        {
+                            entry.State = EntityState.Modified;
+                        }
+                    }
                     db.SaveChanges();
+                    db.Entry(locatario).Reload();
                     resultado = "ok";
                 }
                 catch (Exception)
@@ -94,6 +109,21 @@ namespace AlocArmario.Controller
             catch (Exception)
             {
                 resultado = "erroBanco";
+            }
+            return resultado;
+        }
+
+        public string AtualizarEntrada(object entrada)
+        {
+            string resultado = "";
+            try
+            {
+                db.Entry(entrada).Reload();
+                resultado = "ok";
+            }
+            catch (Exception)
+            {
+                resultado = "erro";
             }
             return resultado;
         }
