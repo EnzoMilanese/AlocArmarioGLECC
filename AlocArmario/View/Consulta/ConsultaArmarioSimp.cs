@@ -35,12 +35,16 @@ namespace AlocArmario.View.ArmarioView
         private List<Secao> listaSecoes = new List<Secao>();
 
         private List<Armario> listaArmsAtivos = new List<Armario>();
-        private List<Button> listaBtnArmarios = new List<Button>(); 
+        private List<Button> listaBtnArmarios = new List<Button>();
+
+        private GeradorPDF gpdf;
 
         public ConsultaArmarioSimp()
         {
             InitializeComponent();
-            
+
+            gpdf = new GeradorPDF();
+
             contratoAtivo = new Contrato();
             locatarioAtivo = new Locatario();
             armarioAtivo = new Armario();
@@ -57,7 +61,7 @@ namespace AlocArmario.View.ArmarioView
             cbxSecao.DataSource = listaSecoes;
             cbxSecao.DisplayMember = "Nome";
             cbxSecao.ValueMember = "IdSecao";
-            
+
             CarregarSecao();
             CarregarCombos();
 
@@ -89,6 +93,14 @@ namespace AlocArmario.View.ArmarioView
 
         private void CarregarCombos()
         {
+            if (secaoAtiva == null)
+            {
+                cbxSecao.Enabled = false;
+                cbxBloco.Enabled = false;
+                paneSemArm.Visible = true;
+                return;
+            }
+
             if (secaoAtiva.Bloco.Count <= 0)
             {
                 cbxBloco.Enabled = false;
@@ -117,16 +129,21 @@ namespace AlocArmario.View.ArmarioView
 
         private void CarregarBtnArmarios()
         {
-            for (int i = 0; i < 16; i++)
+            if (listaArmsAtivos.Count > 0)
             {
-                listaBtnArmarios[i].Text = listaArmsAtivos[i].Numero;
-                if (listaArmsAtivos[i].Danificado)
-                    listaBtnArmarios[i].ForeColor = Color.DarkRed;
-                else if (listaArmsAtivos[i].TemContrato)
-                    listaBtnArmarios[i].ForeColor = Color.DarkBlue;
-                else
-                    listaBtnArmarios[i].ForeColor = Color.DarkGreen;
+                for (int i = 0; i < 16; i++)
+                {
+                    listaBtnArmarios[i].Text = listaArmsAtivos[i].Numero;
+                    if (listaArmsAtivos[i].Danificado)
+                        listaBtnArmarios[i].ForeColor = Color.DarkRed;
+                    else if (listaArmsAtivos[i].TemContrato)
+                        listaBtnArmarios[i].ForeColor = Color.DarkBlue;
+                    else
+                        listaBtnArmarios[i].ForeColor = Color.DarkGreen;
+                }
             }
+            else
+                return;
         }
 
         private void CarregarLabels(string numArm)
@@ -168,7 +185,7 @@ namespace AlocArmario.View.ArmarioView
             {
                 lblStatus.Text = "Alugado";
                 lblStatus.ForeColor = Color.DarkBlue;
-                
+
                 contratoAtivo = armarioAtivo.Contrato.First();
                 locatarioAtivo = contratoAtivo.Locatario;
 
@@ -181,6 +198,7 @@ namespace AlocArmario.View.ArmarioView
                 lblContLoc.Text = locatarioAtivo.Nome;
                 lblContTipo.Text = contratoAtivo.TipoContrato;
                 lblContValid.Text = contratoAtivo.Validade.ToString("dd/MM/yyyy");
+                lblContInicio.Text = contratoAtivo.DataInicio.ToString("dd/MM/yyyy");
                 lblContValor.Text = ("R$" + contratoAtivo.Valor.ToString()).Replace('.', ',');
 
                 btnTerminar.Visible = true;
@@ -275,7 +293,10 @@ namespace AlocArmario.View.ArmarioView
 
         private void btnGerarCertfic_Click(object sender, EventArgs e)
         {
-
+            if (gpdf.GerarPDF(contratoAtivo))
+                MessageBox.Show("Certificado gerado na pasta \"" + (Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Contratos de Alocação") + "\"", "Gerar Certificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Não foi possível gerar o certificado", "Gerar Certificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

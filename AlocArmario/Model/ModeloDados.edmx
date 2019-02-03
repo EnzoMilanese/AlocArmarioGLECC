@@ -61,6 +61,7 @@
     <Property Name="IdLocatario" Type="int" Nullable="false" />
     <Property Name="TipoContrato" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Terminado" Type="bit" Nullable="false" />
+    <Property Name="DataInicio" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Bloco">
     <Key>
@@ -200,6 +201,7 @@
           <Property Name="IdLocatario" Nullable="false" Type="Int32" />
           <Property Name="TipoContrato" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Terminado" Type="Boolean" Nullable="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="ArmarioContrato">
           <End Type="ModeloDados.Armario" Multiplicity="1" Role="Armario" />
@@ -316,6 +318,7 @@
           <ScalarProperty Name="IdLocatario" ColumnName="IdLocatario" />
           <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
           <ScalarProperty Name="Terminado" ColumnName="Terminado" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

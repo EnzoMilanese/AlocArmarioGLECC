@@ -120,6 +120,7 @@ namespace AlocArmario.View.Cadastro
             contrato.Valor = (decimal)cbxTipoContrato.SelectedValue;
             contrato.TipoContrato = cbxTipoContrato.Text;
             contrato.Validade = dataValidade;
+            contrato.DataInicio = diaAtual;
             contrato.IdLocatario = (int)cbxLocatario.SelectedValue;
             contrato.IdArmario = armario.IdArmario;
 

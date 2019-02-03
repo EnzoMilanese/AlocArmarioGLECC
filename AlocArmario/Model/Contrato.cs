@@ -21,6 +21,7 @@ namespace AlocArmario.Model
         public int IdLocatario { get; set; }
         public string TipoContrato { get; set; }
         public bool Terminado { get; set; }
+        public System.DateTime DataInicio { get; set; }
     
         public virtual Armario Armario { get; set; }
         public virtual Locatario Locatario { get; set; }

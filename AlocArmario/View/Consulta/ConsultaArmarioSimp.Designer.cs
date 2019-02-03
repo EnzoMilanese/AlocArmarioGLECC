@@ -96,6 +96,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.cbxSecao = new System.Windows.Forms.ComboBox();
+            this.lblContInicio = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.paneSelecArm.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -185,7 +187,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 22);
+            this.label7.Location = new System.Drawing.Point(7, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 10;
@@ -195,11 +197,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(311, 25);
+            this.label9.Location = new System.Drawing.Point(298, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.Size = new System.Drawing.Size(93, 13);
             this.label9.TabIndex = 12;
-            this.label9.Text = "Expira em:";
+            this.label9.Text = "Contratado em:";
             // 
             // lblLocNome
             // 
@@ -245,7 +247,7 @@
             // 
             this.lblContArm.AutoSize = true;
             this.lblContArm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContArm.Location = new System.Drawing.Point(7, 35);
+            this.lblContArm.Location = new System.Drawing.Point(7, 38);
             this.lblContArm.Name = "lblContArm";
             this.lblContArm.Size = new System.Drawing.Size(20, 18);
             this.lblContArm.TabIndex = 17;
@@ -255,7 +257,7 @@
             // 
             this.lblContValid.AutoSize = true;
             this.lblContValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContValid.Location = new System.Drawing.Point(311, 38);
+            this.lblContValid.Location = new System.Drawing.Point(298, 82);
             this.lblContValid.Name = "lblContValid";
             this.lblContValid.Size = new System.Drawing.Size(20, 18);
             this.lblContValid.TabIndex = 21;
@@ -581,6 +583,8 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.lblContInicio);
+            this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.lblContValor);
             this.panel5.Controls.Add(this.lblContValid);
@@ -621,7 +625,7 @@
             // 
             this.lblContTipo.AutoSize = true;
             this.lblContTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContTipo.Location = new System.Drawing.Point(7, 79);
+            this.lblContTipo.Location = new System.Drawing.Point(7, 82);
             this.lblContTipo.Name = "lblContTipo";
             this.lblContTipo.Size = new System.Drawing.Size(20, 18);
             this.lblContTipo.TabIndex = 50;
@@ -631,7 +635,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(7, 66);
+            this.label15.Location = new System.Drawing.Point(6, 69);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(36, 13);
             this.label15.TabIndex = 49;
@@ -880,6 +884,26 @@
             this.cbxSecao.TabIndex = 39;
             this.cbxSecao.SelectedIndexChanged += new System.EventHandler(this.cbxSecao_SelectedIndexChanged);
             // 
+            // lblContInicio
+            // 
+            this.lblContInicio.AutoSize = true;
+            this.lblContInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContInicio.Location = new System.Drawing.Point(298, 38);
+            this.lblContInicio.Name = "lblContInicio";
+            this.lblContInicio.Size = new System.Drawing.Size(20, 18);
+            this.lblContInicio.TabIndex = 54;
+            this.lblContInicio.Text = "...";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(298, 69);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(66, 13);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "Expira em:";
+            // 
             // ConsultaArmarioSimp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -978,5 +1002,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblArmIdent;
+        private System.Windows.Forms.Label lblContInicio;
+        private System.Windows.Forms.Label label21;
     }
 }

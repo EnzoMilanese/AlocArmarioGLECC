@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/01/2019 00:22:20
+-- Date Created: 02/02/2019 23:57:32
 -- Generated from EDMX file: C:\Users\HOME\source\repos\AlocArmario\AlocArmario\Model\ModeloDados.edmx
 -- --------------------------------------------------
 
@@ -86,7 +86,8 @@ CREATE TABLE [dbo].[Contrato] (
     [IdArmario] int  NOT NULL,
     [IdLocatario] int  NOT NULL,
     [TipoContrato] nvarchar(max)  NOT NULL,
-    [Terminado] bit  NOT NULL
+    [Terminado] bit  NOT NULL,
+    [DataInicio] datetime  NOT NULL
 );
 GO
 
