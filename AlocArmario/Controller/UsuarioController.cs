@@ -16,5 +16,10 @@ namespace AlocArmario.Controller
             var lista = db.Usuario.ToList();
             return lista;
         }
+
+        internal string Inserir(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

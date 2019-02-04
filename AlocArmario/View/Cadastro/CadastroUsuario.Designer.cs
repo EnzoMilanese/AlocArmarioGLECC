@@ -99,6 +99,7 @@
             this.txbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSenha.Location = new System.Drawing.Point(152, 119);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(219, 22);
             this.txbSenha.TabIndex = 2;
             // 
@@ -114,6 +115,7 @@
             // 
             this.txbPront.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPront.Location = new System.Drawing.Point(152, 91);
+            this.txbPront.MaxLength = 7;
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(219, 22);
             this.txbPront.TabIndex = 1;
@@ -123,6 +125,7 @@
             this.txbConfirmaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbConfirmaSenha.Location = new System.Drawing.Point(152, 147);
             this.txbConfirmaSenha.Name = "txbConfirmaSenha";
+            this.txbConfirmaSenha.PasswordChar = '*';
             this.txbConfirmaSenha.Size = new System.Drawing.Size(219, 22);
             this.txbConfirmaSenha.TabIndex = 3;
             // 

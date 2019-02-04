@@ -87,6 +87,8 @@
     <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Prontuario" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Admin" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="ArmarioContrato">
     <End Role="Armario" Type="ModeloDados.Store.Armario" Multiplicity="1" />
@@ -278,6 +280,8 @@
           <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Prontuario" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Senha" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -347,6 +351,8 @@
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="Prontuario" ColumnName="Prontuario" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
